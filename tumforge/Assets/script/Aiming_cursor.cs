@@ -17,6 +17,7 @@ public class Aiming_cursor : MonoBehaviour
     void Update()
     {
         CrossHairMovement();
+       
     }
 
     private void CrossHairMovement()
