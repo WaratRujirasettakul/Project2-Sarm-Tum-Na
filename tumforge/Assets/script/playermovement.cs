@@ -19,53 +19,88 @@ public class playermovement : MonoBehaviour
     //--------------------------------------------------
     float horizontalMove = 0f;
     bool jump = false;
+    bool dash = false;
     public GameObject canflip;
-    public float dashspeed;
-    public float dashtime;
-    public float startdashtime;
-    private int direction;
-    public int jumplimit = 1;
-    public int airdashlimit = 2;
-    private bool onground = true;
+    public SpriteRenderer spriteRen;
+
+    public int jumplimit = 2;
+    int jumpnumber;
+
+    public int dashlimit = 2;
+    int dashnumber;
+    public float dashtimeValue = 0.1f;
+    float dashtime;
+    public float dashvelocity = 120;
+    bool isdashing = false;
+    Vector2 speed_before_dash;
 
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        dashtime = startdashtime;
     }
 
     private void FixedUpdate()
     {
-     //   GroundCheck();
+        GroundCheck();
+        OngroundEvent();
         movement();
         jump = false;
+        dash = false;
     }
 
-    public void Move(float move, bool jump)
+    public void Move(float move, bool jump, bool dash)
     {
+        dashtime -= Time.deltaTime;
 
-        
-        if (onground = true || m_AirControl)
+        if (m_Grounded || m_AirControl)
         {
-
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-            if ((move > 0) && (!m_FacingRight))
+            if (move > 0 && !m_FacingRight)
             {
                 Flip();
             }
-            else if ((move < 0) && (m_FacingRight))
+            else if (move < 0 && m_FacingRight)
             {
                 Flip();
             }
         }
-
-        if ((jumplimit > 0) && jump)
+        if (jumpnumber > 0 && jump)
         {
-            onground = false;
+            m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
+            m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            jumpnumber -= 1;
+        }
+        //------------------dash-----------------
+        if (dashnumber > 0 && dash)
+        {
+            speed_before_dash = new Vector2(m_Rigidbody2D.velocity.x, m_Rigidbody2D.velocity.y);
+            dashnumber -= 1;
+            isdashing = true;
+            dashtime = dashtimeValue;
+        }
+        if (dashtime > 0 && isdashing)
+        {
+            if (m_FacingRight)
+            {
+                m_Rigidbody2D.velocity = new Vector2(dashvelocity, 0);
+            }
+            else
+            {
+                m_Rigidbody2D.velocity = new Vector2(- dashvelocity, 0);
+            }
+        }
+        if (dashtime == 0.1)
+        {
+            m_Rigidbody2D.velocity = speed_before_dash;
+            isdashing = false;
+        }
+        if (dashtime < 0)
+        {
+            dashtime = 0;
         }
     }
 
@@ -76,95 +111,55 @@ public class playermovement : MonoBehaviour
         Vector3 theScale = canflip.transform.localScale;
         theScale.x *= -1;
         canflip.transform.localScale = theScale;
+
+        spriteRen.flipX = !spriteRen.flipX;
     }
-
-    //void GroundCheck()
-    //{
-     //   bool wasGrounded = m_Grounded;
-    //    m_Grounded = false;
-
-      //  Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-     //   for (int i = 0; i < colliders.Length; i++)
-     //   {
-     //       if (colliders[i].gameObject != gameObject)
-     //       {
-     //           m_Grounded = true;
-     //       }
-      //  }
-   // }
 
     void Update()
     {
-        print(onground);
+        print(isdashing);
+        print(dashtime);
         horizontalMove = Input.GetAxisRaw("Horizontal") * m_RunSpeed;
 
-        if ((Input.GetButtonDown("Jump"))&&(jumplimit > 0))
+        if ((Input.GetButtonDown("Jump")))
         {
             jump = true;
-            jumplimit -= 1;
-            
-
         }
-        if (direction == 0)
-        {
-            if ((Input.GetKey(KeyCode.D))&& (Input.GetKeyDown(KeyCode.LeftShift)))
-            {
-                direction = 1;
-            }else if ((Input.GetKey(KeyCode.A))&& (Input.GetKeyDown(KeyCode.LeftShift)))
-            {
-                direction = 2;
-            }
-        }
-        else if ((direction != 0)&&(jumplimit == 2))
-        {
-            if(dashtime <= 0)
-            {
-                direction = 0;
-                dashtime = startdashtime;
-                m_Rigidbody2D.velocity = Vector2.zero; 
-            } else
-            {
-                dashtime -= Time.deltaTime;
 
-                if(direction == 1)
-                {
-                    m_Rigidbody2D.velocity = Vector2.right * dashspeed;
-                }else if(direction == 2){
-                    m_Rigidbody2D.velocity = Vector2.left * dashspeed;
-                }
-            }
-        }
-        else if ((direction != 0) && (jumplimit < 2))
+        if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if (dashtime <= 0)
-            {
-                direction = 0;
-                dashtime = startdashtime;
-                m_Rigidbody2D.velocity = Vector2.zero;
-                
-            }
-            else
-            {
-                dashtime -= Time.deltaTime;
-
-                if ((direction == 1) && (airdashlimit > 0))
-                {
-                    m_Rigidbody2D.velocity = Vector2.right * dashspeed;
-                    airdashlimit -= 1;
-                }
-                else if ((direction == 2)&& (airdashlimit > 0))
-                {
-                    m_Rigidbody2D.velocity = Vector2.left * dashspeed;
-                    airdashlimit -= 1;
-                }
-            }
+            dash = true;
         }
     }
 
    
     void movement()
     {
-        Move(horizontalMove * Time.fixedDeltaTime, jump);
+        Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
+    }
+
+    void GroundCheck()
+    {
+        bool wasGrounded = m_Grounded;
+        m_Grounded = false;
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+        for (int i = 0; i<colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != gameObject)
+            {
+                m_Grounded = true;
+            }
+        }
+    }
+
+    void OngroundEvent()
+    {
+        if (m_Grounded)
+        {
+            jumpnumber = jumplimit;
+            dashnumber = dashlimit;
+        }
     }
 
 }
