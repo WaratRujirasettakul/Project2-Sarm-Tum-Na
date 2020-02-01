@@ -25,7 +25,7 @@ public class playermovement : MonoBehaviour
 
     public int jumplimit = 2;
     int jumpnumber;
-
+    private float rotatez = 0.0f;
     public int dashlimit = 2;
     int dashnumber;
     public float dashtimeValue = 0.1f;
@@ -33,10 +33,17 @@ public class playermovement : MonoBehaviour
     public float dashvelocity = 120;
     bool isdashing = false;
     Vector2 speed_before_dash;
-
+    public GameObject AttackWindow;
+    public float A_atttackDuration = 0f;
+    public float A_attackSpeed = 0f;
+    public float A_attackVelocity = 0f;
+    Vector2 A_direction;
+    public GameObject swoosh;
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        
+        
     }
 
     private void FixedUpdate()
@@ -130,9 +137,37 @@ public class playermovement : MonoBehaviour
         {
             dash = true;
         }
+        if (A_atttackDuration <= 0)
+        {
+            swoosh.SetActive(false);
+            if (Input.GetMouseButton(0))
+            {
+                A_atttackDuration = A_attackSpeed;
+                playeratk();
+            }
+            
+            
+
+        }
+        else
+        {
+            A_atttackDuration -= Time.deltaTime;
+
+        }
     }
 
-   
+   void playeratk()
+    {
+        GameObject Thecam = GameObject.Find("Main Camera");
+        Crosshair crossHair = Thecam.GetComponent<Crosshair>();
+        rotatez = crossHair.rotationz;
+        A_direction = crossHair.direction;
+        swoosh.transform.rotation = Quaternion.Euler(0.0f, 0.0f, -rotatez);
+        swoosh.SetActive(true);
+        m_Rigidbody2D.velocity = A_direction * A_attackVelocity;
+        
+
+    }
     void movement()
     {
         Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
