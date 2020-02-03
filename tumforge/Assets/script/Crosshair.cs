@@ -24,10 +24,6 @@ public class Crosshair : MonoBehaviour
     void Update()
     {
         CrossHairMovement();
-        
-        
-        
-        
     }
 
     private void CrossHairMovement()
