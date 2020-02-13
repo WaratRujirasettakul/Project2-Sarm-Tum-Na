@@ -25,21 +25,25 @@ public class BasicEnemybehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        actiondelay -= Time.deltaTime;
-        if(actiondelay == 0)
+        actiondelay -= 1*Time.deltaTime;
+        print(actiondelay);
+        if(actiondelay <= 1)
         {
-            behavior = Random.Range(1, 8);
-
+            behavior = Random.Range(0, 10);
+            print(behavior);
             if(behavior == 1)
             {
                 flip();
+                actiondelay = 4f;
             }else if (behavior == 2)
             {
                 StartCoroutine(EnemMovement());
+                actiondelay = 4f;
             }
             else
             {
                 //idle
+                actiondelay = 2f;
             }
         }
         if (flipcheck > 0)

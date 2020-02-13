@@ -138,7 +138,7 @@ public class playermovement : MonoBehaviour
 
     void Update()
     {
-        print(A_rotaion);
+        //print(A_rotaion);
         M_horizontalMove = Input.GetAxisRaw("Horizontal") * P_RunSpeed;
 
         if ((Input.GetButtonDown("Jump")))
