@@ -36,6 +36,9 @@ public class Code_playermovement : MonoBehaviour
     public float D_dashvelocity = 120;
     bool D_isdashing = false;
     Vector2 speed_before_dash;
+    public float iframetimer = 0.3f;
+    public float gravitytimer = 0.1f;
+
     //-------------------attacking-----------------------
     bool A_slash = false;
     public GameObject A_SWHOOSH;
@@ -47,26 +50,25 @@ public class Code_playermovement : MonoBehaviour
     public float A_slashvelocity = 120;
     bool A_isAttacking = false;
     Vector2 speed_before_slash;
+    public int A_playerdam = 1;
+    public int A_playerhealth = 1;
+    //--------------------ability-------------------------
+    public GameObject abilitycon;
 
-
-
-
+    // look at the enemy code and please add the timer using this code ( abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime ) to the part that time will effect such as speed and duration.
+    // if done please go tick the add timer to the code block in the trello's card  name "Timestop ability better version" and put the screen shot of the code or how the code work into the card
     private void Awake()
     {
         S_Rigidbody2D = GetComponent<Rigidbody2D>();
         P_Camera = GameObject.Find("Main Camera");
         P_crossHair = P_Camera.GetComponent<Code_Crosshair>();
+       
+       
     }
 
     private void FixedUpdate()
     {
-        GroundCheck();
-        OngroundEvent();
-        character();
-        Swhoosh_movement();
-        M_jump = false;
-        M_dash = false;
-        A_slash = false;
+        
     }
 
     public void Move(float move, bool jump, bool dash)
@@ -102,6 +104,8 @@ public class Code_playermovement : MonoBehaviour
             D_dashnumber -= 1;
             D_isdashing = true;
             D_dashtime = D_dashtimeValue;
+            StartCoroutine(dashiframe());
+            StartCoroutine(gravitys());
         }
         if (D_dashtime > 0 && D_isdashing)
         {
@@ -138,6 +142,18 @@ public class Code_playermovement : MonoBehaviour
 
     void Update()
     {
+        GroundCheck();
+        OngroundEvent();
+        character();
+        Swhoosh_movement();
+        M_jump = false;
+        M_dash = false;
+        A_slash = false;
+
+        if (A_playerhealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
         M_horizontalMove = Input.GetAxisRaw("Horizontal") * P_RunSpeed;
 
         if ((Input.GetButtonDown("Jump")))
@@ -148,15 +164,35 @@ public class Code_playermovement : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetKeyDown(KeyCode.LeftShift))
         {
             M_dash = true;
+            
         }
 
         if (Input.GetMouseButtonDown(0))
         {
             A_slash = true;
         }
+
+        
     }
 
+    private IEnumerator dashiframe()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+        
+        print("iframe on");
+        yield return new WaitForSeconds(iframetimer);
+        GetComponent<BoxCollider2D>().enabled = true;
+        
+        print("iframe off");
 
+    }
+
+    private IEnumerator gravitys()
+    {
+        S_Rigidbody2D.gravityScale = 0f;
+        yield return new WaitForSeconds(gravitytimer);
+        S_Rigidbody2D.gravityScale = 2.1f;
+    }
     void character()
     {
         Move(M_horizontalMove * Time.fixedDeltaTime, M_jump, M_dash);
@@ -201,6 +237,7 @@ public class Code_playermovement : MonoBehaviour
 
         if (A_slashnumber > 0 && slash)
         {
+            LayerMask mask = LayerMask.GetMask("Enemy");
             speed_before_slash = new Vector2(S_Rigidbody2D.velocity.x, S_Rigidbody2D.velocity.y);
             A_SWHOOSH.SetActive(true);
             A_slashnumber -= 1;
@@ -231,6 +268,8 @@ public class Code_playermovement : MonoBehaviour
             A_slashtime = 0;
         }
     }
+
+   
 
 }
 

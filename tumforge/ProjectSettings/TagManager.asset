@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Wall
+  - enemy
+  - attacker
   layers:
   - Default
   - TransparentFX
@@ -17,9 +20,9 @@ TagManager:
   - Ground
   - Crosshair
   - Player
-  - 
-  - 
-  - 
+  - Wall
+  - Enemy
+  - Bullet
   - 
   - 
   - 
