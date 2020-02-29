@@ -120,6 +120,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &10185748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 10185749}
+  m_Layer: 12
+  m_Name: Ground Detector Front
+  m_TagString: enemy
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &10185749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10185748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: -0.559, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2060558530}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &36545276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1866571967575917635, guid: 640d3c0b6872fdf47a60b5b556177094,
@@ -136,9 +166,9 @@ GameObject:
   m_Component:
   - component: {fileID: 70353359}
   m_Layer: 12
-  m_Name: Origin
+  m_Name: Eye
   m_TagString: enemy
-  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -776,6 +806,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1602822163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &599158098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599158099}
+  m_Layer: 12
+  m_Name: Wall Detector Front
+  m_TagString: enemy
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &599158099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599158098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2060558530}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &623978507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1736,6 +1796,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 862356622}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &917408555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 917408556}
+  m_Layer: 12
+  m_Name: Wall Detector Back
+  m_TagString: enemy
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &917408556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917408555}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: 0.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2060558530}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &920649286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2644,6 +2734,36 @@ MonoBehaviour:
   abilitycon: {fileID: 1960314047}
   attackdelay: 0
   base_attackdelay: 0.5
+--- !u!1 &1243144145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1243144146}
+  m_Layer: 12
+  m_Name: Ground Detector Back
+  m_TagString: enemy
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1243144146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243144145}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: -0.559, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2060558530}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1254550935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3887,6 +4007,7 @@ GameObject:
   - component: {fileID: 2060558528}
   - component: {fileID: 2060558527}
   - component: {fileID: 2060558531}
+  - component: {fileID: 2060558532}
   - component: {fileID: 2060558526}
   m_Layer: 12
   m_Name: Melee guy
@@ -3947,20 +4068,31 @@ MonoBehaviour:
   Idle_delay: 5
   movementspeed: 5
   movementduration: 0.2
-  basemovespeed: 0
-  detect_distance: 100
+  WhatisWall:
+    serializedVersion: 2
+    m_Bits: 2048
+  walldetectorfront: {fileID: 599158099}
+  walldetectorback: {fileID: 917408556}
+  WhatisGround:
+    serializedVersion: 2
+    m_Bits: 256
+  grounddetectorfront: {fileID: 10185749}
+  grounddetectorback: {fileID: 1243144146}
+  detect_distance: 10
   WhatisPlayer:
     serializedVersion: 2
     m_Bits: 1024
   BEEB: {fileID: 582651751}
-  origin: {fileID: 70353359}
-  Rigidbody: {fileID: 2060558527}
-  player: {fileID: 1434710791}
-  wallcol: 0
+  CastPoint: {fileID: 70353359}
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 3328
   e_health: 1
   e_dam: 1
-  e_atktimer: 0.2
-  abilitycon: {fileID: 1960314047}
+  e_atktimer: 2
+  Rigidbody: {fileID: 2060558527}
+  player: {fileID: 1434710791}
+  abilitycon: {fileID: 2060558525}
 --- !u!212 &2060558529
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4018,12 +4150,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060558525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.45, y: 2.15, z: -4.4746094}
+  m_LocalPosition: {x: 18.46, y: 2.15, z: -4.4746094}
   m_LocalScale: {x: 1, y: 2.2725, z: 1}
   m_Children:
   - {fileID: 582651754}
   - {fileID: 70353359}
   - {fileID: 1110857451}
+  - {fileID: 917408556}
+  - {fileID: 599158099}
+  - {fileID: 1243144146}
+  - {fileID: 10185749}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4040,11 +4176,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  player: {fileID: 0}
-  enemy: {fileID: 0}
-  abilitycon: {fileID: 0}
+  player: {fileID: 1434710791}
+  enemy: {fileID: 2060558525}
+  abilitycon: {fileID: 2060558525}
   attackdelay: 0
   base_attackdelay: 0.5
+--- !u!114 &2060558532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060558525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4cb6ce670cf6db4fbc4e390bfc14a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timestopduration: 10
+  enemtime: {fileID: 0}
+  skillcode: 1
+  ab_Enemy_FakeTime: 1
+  ab_Player_FakeTime: 1
 --- !u!1 &2068477995
 GameObject:
   m_ObjectHideFlags: 0

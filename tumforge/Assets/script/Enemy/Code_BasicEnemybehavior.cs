@@ -8,73 +8,64 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     private int Idle_action;
     public float Idle_delay = 5f;
     float Idle_counter;
-    public float movementspeed = 20f;
+    public float movementspeed = 20;
     float Move_Counter;
     public float movementduration = 0.5f;
-    public float basemovespeed;
     //---------------characterstate---------------------
     bool facingright = true;
     bool foundplayer = false;
+    bool wallinfront = false;
+    bool wallbehind = false;
+    float WallDetectRadius = 0.05f;
+    public LayerMask WhatisWall;
+    public Transform walldetectorfront;
+    public Transform walldetectorback;
+    bool theresgroundinfront = true;
+    bool theresgroundbehind = true;
+    float GroundDetectRadius = 0.05f;
+    public LayerMask WhatisGround;
+    public Transform grounddetectorfront;
+    public Transform grounddetectorback;
     //---------------PlayerDetection--------------------
     public int detect_distance;
     public LayerMask WhatisPlayer;
-    
     RaycastHit2D hit;
     public GameObject BEEB; //detect indicatior (can delete)
-    public Transform origin;
-    //public GameObject Player;
-    //--------------------Others------------------------
-    public Rigidbody2D Rigidbody;
-    public GameObject player;
-    //-------------------Player chase-------------------
-    private float mycurpos;
-    private float ppos;
-    private float distance;
-    public bool wallcol = false;
-    //-------------------Health&Damage------------------
+    public Transform CastPoint;
+    public LayerMask obstacles;
+    //------------------status-------------------------- //optimize needed
     public int e_health = 1;
     public int e_dam = 1;
     public float e_atktimer = 2f;
-    //--------------------timer-------------------------
-    public GameObject abilitycon;
-    
+    //--------------------Others------------------------
+    public Rigidbody2D Rigidbody;
+    public GameObject player;
+    public GameObject abilitycon;                        //optimize needed     
+
 
     void awake()
     {
         dataset();
-        Rigidbody = transform.GetComponent<Rigidbody2D>();
-        basemovespeed = movementspeed;
-        
     }
 
     void FixedUpdate()
     {
+        Statecheck();
+    }
+
+    void Update()
+    {
+        print(abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         if (foundplayer)
         {
-            //do something
-            print("detected");
             playerchase();
         }
         else
         {
-            playerdetector();
-            
+            playerdetector(detect_distance);
             Counter();
             Movementstoper();
             Idle();
-        }
-
-        if (e_health == 0)
-        {
-            Destroy(this.gameObject);
-        }
-        
-    }
-    void Update()
-    {
-        if (e_health == 0)
-        {
-            Destroy(this.gameObject);
         }
     }
 
@@ -88,22 +79,29 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private IEnumerator Idle_moveR()
     {
-        if (!wallcol)
+        if (facingright)
         {
-            if (facingright)
+            if (theresgroundinfront && !wallinfront)
             {
-                Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(movementspeed, Rigidbody.velocity.y);
             }
             else
             {
                 Flip();
-                Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(-movementspeed, Rigidbody.velocity.y);
             }
         }
         else
         {
-            Flip();
-            Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
+            if (theresgroundbehind && !wallbehind)
+            {
+                Flip();
+                Rigidbody.velocity = new Vector2(movementspeed, Rigidbody.velocity.y);
+            }
+            else
+            {
+                Rigidbody.velocity = new Vector2(-movementspeed, Rigidbody.velocity.y);
+            }
         }
         Move_Counter = movementduration;
         yield return new WaitForSeconds(1.5f);
@@ -111,22 +109,29 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private IEnumerator Idle_moveL()
     {
-        if (!wallcol)
+        if (!facingright)
         {
-            if (!facingright)
+            if (theresgroundinfront && !wallinfront)
             {
-                Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(-movementspeed, Rigidbody.velocity.y);
             }
             else
             {
                 Flip();
-                Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(movementspeed, Rigidbody.velocity.y);
             }
         }
         else
         {
-            Flip();
-            Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
+            if (theresgroundbehind && !wallbehind)
+            {
+                Flip();
+                Rigidbody.velocity = new Vector2(-movementspeed, Rigidbody.velocity.y);
+            }
+            else
+            {
+                Rigidbody.velocity = new Vector2(movementspeed, Rigidbody.velocity.y);
+            }
         }
         Move_Counter = movementduration;
         yield return new WaitForSeconds(1.5f);
@@ -134,8 +139,8 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private void Counter()
     {
-        Move_Counter -= Time.deltaTime*abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
-        Idle_counter -= Time.deltaTime*abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
+        Move_Counter -= Time.deltaTime;
+        Idle_counter -= Time.deltaTime;
 
         if (Move_Counter < 0)
         {
@@ -145,36 +150,30 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private void dataset()
     {
-        
         Idle_counter = Idle_delay;
         Move_Counter = movementduration;
-        //player = GameObject.Find("player");
     }
 
     private void Idle()
     {
         if (Idle_counter <= 1)
         {
-            Idle_action = Random.Range(0, 5);
+            Idle_action = Random.Range(0, 10);
             if (Idle_action == 1)
             {
                 Flip();
-                //print("flip");
             }
             else if (Idle_action == 2)
             {
                 StartCoroutine(Idle_moveR());
-                //print("Idle_moveR");
             }
             else if (Idle_action == 3)
-            { 
+            {
                 StartCoroutine(Idle_moveL());
-                //print("Idle_movel");
             }
             else
             {
-                //idle
-                //print("idle");
+                //idle animation?
             }
 
             Idle_counter = Idle_delay;
@@ -188,88 +187,91 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             this.Rigidbody.velocity = new Vector2(0,0);
         }
     }
-    private void playerchase() 
+    private void playerchase()
     {
-        ppos = player.transform.position.x;
-        print(ppos);
-        mycurpos = transform.position.x;
-        distance = mycurpos - ppos;
-        if(distance > 0)
+
+        if ((this.transform.position.x - player.transform.position.x) > 0)
         {
-            if (!wallcol)
+            if (!wallinfront && theresgroundinfront)
             {
-                if (!facingright)
-                {
-                    Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
-                }
-                else
-                {
-                    Flip();
-                    Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
-                }
-            }
-           // else  *for animation condition
-           // {
-                
-                
-           // }
-        }
-        else
-        {
-            if (!wallcol)
-            {
+                //player left
                 if (facingright)
                 {
-                    Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
+                    Flip();
+                    Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                }
+                else
+                {
+                    Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                }
+            }
+            else
+            {
+                Rigidbody.velocity = Vector2.zero;
+                foundplayer = false;
+            }
+        }
+        else
+        {
+            if (!wallinfront && theresgroundinfront)
+            {
+                //player right
+                if (facingright)
+                {
+                    Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
                 }
                 else
                 {
                     Flip();
-                    Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
+                    Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
                 }
             }
-            // else  *for animation condition
-            // {
-
-
-            // }
+            else
+            {
+                Rigidbody.velocity = Vector2.zero;
+                foundplayer = false;
+            }
         }
-
     }
-    private void playerdetector()
+    private void playerdetector(float distance)
     {
-        LayerMask mask = LayerMask.GetMask("Wall");
+        float castDist;
+
         if (facingright)
         {
-            //if(Physics2D.Raycast(origin.position, new Vector2(1, 0), detect_distance, mask))
-            //{
-            
-            //}else 
-            if (Physics2D.Raycast(origin.position, new Vector2(1, 0), detect_distance, WhatisPlayer))
-            {
-                foundplayer = true;
-                BEEB.SetActive(true);
-            }
-            else { BEEB.SetActive(false); }
+            castDist = distance;
         }
         else
         {
+            castDist = -distance;
+        }
 
+        Vector2 endPos = CastPoint.position + Vector3.right * castDist;
 
-            //if (Physics2D.Raycast(origin.position, new Vector2(-1, 0), detect_distance, mask))
-            //{
+        RaycastHit2D hit = Physics2D.Linecast(CastPoint.position, endPos, obstacles);
 
-            //}
-            //else 
-            if (Physics2D.Raycast(origin.position, new Vector2(-1,0), detect_distance, WhatisPlayer))
+        if (hit.collider != null)
+        {
+            if (hit.collider.gameObject.CompareTag("Player"))
             {
                 foundplayer = true;
-                BEEB.SetActive(true);
+                Debug.DrawLine(CastPoint.position, hit.point, Color.red);
             }
-            else { BEEB.SetActive(false); }
+            Debug.DrawLine(CastPoint.position, hit.point, Color.blue);
+        }
+        else
+        {
+            Debug.DrawLine(CastPoint.position, endPos, Color.blue);
         }
     }
-
+    
+    void Statecheck()
+    {
+        wallinfront = Physics2D.OverlapCircle(walldetectorfront.position, WallDetectRadius, WhatisWall);
+        wallbehind = Physics2D.OverlapCircle(walldetectorback.position, WallDetectRadius, WhatisWall);
+        theresgroundinfront = Physics2D.OverlapCircle(grounddetectorfront.position, GroundDetectRadius, WhatisGround);
+        theresgroundbehind = Physics2D.OverlapCircle(grounddetectorback.position, GroundDetectRadius, WhatisGround);
+    }
  
     private void OnTriggerEnter2D(Collider2D collision)
     {

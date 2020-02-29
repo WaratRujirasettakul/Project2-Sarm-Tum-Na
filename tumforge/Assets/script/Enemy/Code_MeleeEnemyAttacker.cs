@@ -18,7 +18,7 @@ public class Code_MeleeEnemyAttacker : MonoBehaviour
     void Start()
     {
         
-        damage = enemy.GetComponent<Code_BasicEnemybehavior>().e_dam;
+        //damage = enemy.GetComponent<Code_BasicEnemybehavior>().e_dam;
         attackdelay = base_attackdelay;
     }
 
@@ -39,8 +39,8 @@ public class Code_MeleeEnemyAttacker : MonoBehaviour
         }
         if (collision.gameObject.tag == "Wall")
         {
-            enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().wallcol = true;
-            enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().movementspeed = enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().basemovespeed;
+            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().wallcol = true;
+            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().movementspeed = enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().basemovespeed;
         }
     }
 
@@ -64,8 +64,8 @@ public class Code_MeleeEnemyAttacker : MonoBehaviour
         }
         if (collision.gameObject.tag == "Wall")
         {
-            enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().wallcol = false;
-            enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().movementspeed = enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().basemovespeed;
+            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().wallcol = false;
+            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().movementspeed = enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().basemovespeed;
         }
     }
 
