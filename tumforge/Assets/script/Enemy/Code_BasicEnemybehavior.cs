@@ -192,9 +192,10 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             this.Rigidbody.velocity = new Vector2(0,0);
         }
     }
+
     private void playerchase()
     {
-
+        //will add the confused beheviour soon
         if ((this.transform.position.x - player.transform.position.x) > 0)
         {
             if (!wallinfront && theresgroundinfront)
@@ -238,6 +239,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             }
         }
     }
+
     private void playerdetector(float distance)
     {
         float castDist;
