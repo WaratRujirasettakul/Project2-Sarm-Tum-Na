@@ -55,7 +55,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     void Update()
     {
-        print(abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        //print(abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         if (foundplayer)
         {
             playerchase();
@@ -66,6 +66,11 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             Counter();
             Movementstoper();
             Idle();
+        }
+
+        if (e_health < 1)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -83,12 +88,12 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         {
             if (theresgroundinfront && !wallinfront)
             {
-                Rigidbody.velocity = new Vector2(movementspeed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
             }
             else
             {
                 Flip();
-                Rigidbody.velocity = new Vector2(-movementspeed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
             }
         }
         else
@@ -96,11 +101,11 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             if (theresgroundbehind && !wallbehind)
             {
                 Flip();
-                Rigidbody.velocity = new Vector2(movementspeed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
             }
             else
             {
-                Rigidbody.velocity = new Vector2(-movementspeed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
             }
         }
         Move_Counter = movementduration;
@@ -113,12 +118,12 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         {
             if (theresgroundinfront && !wallinfront)
             {
-                Rigidbody.velocity = new Vector2(-movementspeed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
             }
             else
             {
                 Flip();
-                Rigidbody.velocity = new Vector2(movementspeed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
             }
         }
         else
@@ -126,11 +131,11 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             if (theresgroundbehind && !wallbehind)
             {
                 Flip();
-                Rigidbody.velocity = new Vector2(-movementspeed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
             }
             else
             {
-                Rigidbody.velocity = new Vector2(movementspeed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
             }
         }
         Move_Counter = movementduration;
@@ -139,8 +144,8 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private void Counter()
     {
-        Move_Counter -= Time.deltaTime;
-        Idle_counter -= Time.deltaTime;
+        Move_Counter -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
+        Idle_counter -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
 
         if (Move_Counter < 0)
         {
@@ -278,6 +283,9 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         if (collision.gameObject.tag == "attacker")
         {
             e_health -= player.gameObject.GetComponent<Code_playermovement>().A_playerdam;
+            print("attacked");
+            print(e_health);
+            print(player.gameObject.GetComponent<Code_playermovement>().A_playerdam);
         }
     }
 

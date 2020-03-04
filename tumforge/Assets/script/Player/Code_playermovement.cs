@@ -177,12 +177,12 @@ public class Code_playermovement : MonoBehaviour
 
     private IEnumerator dashiframe()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
+        Physics2D.IgnoreLayerCollision(10,12,true);
         
         print("iframe on");
         yield return new WaitForSeconds(iframetimer);
-        GetComponent<BoxCollider2D>().enabled = true;
-        
+        Physics2D.IgnoreLayerCollision(10,12,false);
+
         print("iframe off");
 
     }
