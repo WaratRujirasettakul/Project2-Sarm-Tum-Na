@@ -5,11 +5,9 @@ using UnityEngine;
 public class Code_AbilityController : MonoBehaviour
 {
     public float timestopduration = 10f;
-    public GameObject enemtime;
     public int skillcode = 1;
     public float ab_Enemy_FakeTime = 1f;
     public float ab_Player_FakeTime = 1f;
-    // Start is called before the first frame update
     void Start()
     {
         
