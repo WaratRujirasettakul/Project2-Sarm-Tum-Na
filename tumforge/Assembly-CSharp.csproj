@@ -63,7 +63,9 @@
      <Compile Include="Assets\script\Enemy\Code_EnemyRangeAttacker.cs" />
      <Compile Include="Assets\script\Enemy\Code_MeleeEnemyAttacker.cs" />
      <Compile Include="Assets\script\Enemy\Code_StrongEnemyBehavior.cs" />
+     <Compile Include="Assets\script\Exit.cs" />
      <Compile Include="Assets\script\Player\Code_playermovement.cs" />
+     <Compile Include="Assets\script\Teleporter.cs" />
      <Compile Include="Assets\script\UI\Code_camfollow.cs" />
      <Compile Include="Assets\script\UI\Code_Crosshair.cs" />
      <Compile Include="Assets\script\UI\Code_cursorlock.cs" />
@@ -96,8 +98,20 @@
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Editor">
+ <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Runtime">
+ <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Lightweight.Runtime">
+ <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Lightweight.Editor">
+ <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -108,47 +122,35 @@
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Lightweight.Runtime">
- <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Lightweight.Editor">
- <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Postprocessing.Editor">
  <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
  <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Postprocessing.Runtime">
  <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Tilemap.Editor">
+ <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ShaderGraph.Editor">
  <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
  <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/2019.2.19f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
