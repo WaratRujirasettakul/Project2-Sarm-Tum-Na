@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\script\animation_Speed.cs" />
     <Compile Include="Assets\script\Code_AbilityController.cs" />
     <Compile Include="Assets\script\Code_placeholder.cs" />
     <Compile Include="Assets\script\Enemy\Code_BasicEnemybehavior.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\script\Enemy\Code_StrongEnemyBehavior.cs" />
     <Compile Include="Assets\script\Exit.cs" />
     <Compile Include="Assets\script\Player\Code_playermovement.cs" />
+    <Compile Include="Assets\script\Stage\Destructable_by_attack.cs" />
     <Compile Include="Assets\script\Teleporter.cs" />
     <Compile Include="Assets\script\UI\Code_camfollow.cs" />
     <Compile Include="Assets\script\UI\Code_Crosshair.cs" />

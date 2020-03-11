@@ -15,10 +15,18 @@ public class MainMenu : MonoBehaviour
     public string LevelToLoad5;
     public string LevelToLoad6;
     public string LevelToLoad7;
+    string menu;
+
+    private void Awake()
+    {
+        menu = this.name;
+    }
 
     public void LoadThis()
     {
-        Application.LoadLevel(LevelToLoad);
+        //Application.LoadLevel(LevelToLoad);
+        SceneManager.LoadScene(LevelToLoad);
+        SceneManager.UnloadSceneAsync(menu);
     }
     public void LoadThis2()
     {
