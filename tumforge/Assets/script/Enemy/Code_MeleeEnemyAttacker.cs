@@ -18,7 +18,7 @@ public class Code_MeleeEnemyAttacker : MonoBehaviour
     void Start()
     {
         
-        //damage = enemy.GetComponent<Code_BasicEnemybehavior>().e_dam;
+        damage = enemy.GetComponent<Code_BasicEnemybehavior>().e_dam;
         attackdelay = base_attackdelay;
     }
 

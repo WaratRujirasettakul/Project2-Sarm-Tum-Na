@@ -16,6 +16,10 @@ public class Code_playermovement : MonoBehaviour
     [SerializeField] private Transform S_GroundCheck;
     const float S_GroundedRadius = .2f;
     private bool S_Grounded;
+    [SerializeField] private LayerMask S_WhatIsWall;
+    [SerializeField] private Transform S_WallCheck;
+    const float S_WallCheckRadius = .2f;
+    private bool S_Touchingwall;
     private Rigidbody2D S_Rigidbody2D;
     private bool S_FacingRight = true;
     private Vector3 S_Velocity = Vector3.zero;
@@ -24,7 +28,7 @@ public class Code_playermovement : MonoBehaviour
     bool M_jump = false;
     bool M_dash = false;
     public GameObject M_canflip;
-    //public SpriteRenderer spriteRen; //not in use
+    public Animator animator;
     //--------------------jump--------------------------
     public int J_jumplimit = 2;
     int J_jumpnumber;
@@ -54,6 +58,9 @@ public class Code_playermovement : MonoBehaviour
     public int A_playerhealth = 1;
     //--------------------ability-------------------------
     public GameObject abilitycon;
+    float time;
+    //---------------------Temp---------------------------
+    float jumpPushForce = 10f;
 
     // look at the enemy code and please add the timer using this code ( abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime ) to the part that time will effect such as speed and duration.
     // if done please go tick the add timer to the code block in the trello's card  name "Timestop ability better version" and put the screen shot of the code or how the code work into the card
@@ -62,18 +69,11 @@ public class Code_playermovement : MonoBehaviour
         S_Rigidbody2D = GetComponent<Rigidbody2D>();
         P_Camera = GameObject.Find("Main Camera");
         P_crossHair = P_Camera.GetComponent<Code_Crosshair>();
-       
-       
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 
     public void Move(float move, bool jump, bool dash)
     {
-        D_dashtime -= Time.deltaTime;
+        D_dashtime -= time;
 
         if (S_Grounded || P_AirControl)
         {
@@ -136,55 +136,31 @@ public class Code_playermovement : MonoBehaviour
         Vector3 theScale = M_canflip.transform.localScale;
         theScale.x *= -1;
         M_canflip.transform.localScale = theScale;
-
-        //spriteRen.flipX = !spriteRen.flipX;
     }
 
     void Update()
     {
+        time = Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime;
+        animate();
         GroundCheck();
+        WallCheck();
         OngroundEvent();
         character();
+        walljump();
         Swhoosh_movement();
-        M_jump = false;
-        M_dash = false;
-        A_slash = false;
 
-        if (A_playerhealth <= 0)
-        {
-            Destroy(this.gameObject);
-        }
-        M_horizontalMove = Input.GetAxisRaw("Horizontal") * P_RunSpeed;
+        stateReset();
 
-        if ((Input.GetButtonDown("Jump")))
-        {
-            M_jump = true;
-        }
+        Death();
 
-        if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            M_dash = true;
-            
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            A_slash = true;
-        }
-
-        
+        control();
     }
 
     private IEnumerator dashiframe()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
-        
-        print("iframe on");
+        Physics2D.IgnoreLayerCollision(10,12,true);        
         yield return new WaitForSeconds(iframetimer);
-        GetComponent<BoxCollider2D>().enabled = true;
-        
-        print("iframe off");
-
+        Physics2D.IgnoreLayerCollision(10,12,false);
     }
 
     private IEnumerator gravitys()
@@ -195,6 +171,7 @@ public class Code_playermovement : MonoBehaviour
     }
     void character()
     {
+        M_horizontalMove = Input.GetAxisRaw("Horizontal") * P_RunSpeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime;
         Move(M_horizontalMove * Time.fixedDeltaTime, M_jump, M_dash);
         Slash(A_slash);
     }
@@ -233,30 +210,9 @@ public class Code_playermovement : MonoBehaviour
 
     void Slash(bool slash)
     {
-        A_slashtime -= Time.deltaTime;
+        //----------------------------------------------------------------------------
+        A_slashtime -= time;
 
-        if (A_slashnumber > 0 && slash)
-        {
-            LayerMask mask = LayerMask.GetMask("Enemy");
-            speed_before_slash = new Vector2(S_Rigidbody2D.velocity.x, S_Rigidbody2D.velocity.y);
-            A_SWHOOSH.SetActive(true);
-            A_slashnumber -= 1;
-            A_isAttacking = true;
-            A_slashtime = A_slashtimevalue;
-        }
-        if (A_slashtime > 0 && A_isAttacking)
-        {
-            S_Rigidbody2D.velocity = P_crossHair.direction * A_slashvelocity;
-
-            if (S_FacingRight && (A_rotaion <= 0))
-            {
-                Flip();
-            }
-            else if (!S_FacingRight && (A_rotaion >= 0))
-            {
-                Flip();
-            }
-        }
         if ((A_slashtime < 0.07) && (A_slashtime > 0.0001) && (A_isAttacking = true))
         {
             A_isAttacking = false;
@@ -267,9 +223,116 @@ public class Code_playermovement : MonoBehaviour
         {
             A_slashtime = 0;
         }
+        //----------------------------------------------------------------------------
+        if (!A_isAttacking)
+        {
+    
+            if (A_slashnumber > 0 && slash)
+            {
+                LayerMask mask = LayerMask.GetMask("Enemy");
+                speed_before_slash = new Vector2(S_Rigidbody2D.velocity.x, S_Rigidbody2D.velocity.y);
+                A_SWHOOSH.SetActive(true);
+                A_slashnumber -= 1;
+                A_isAttacking = true;
+                A_slashtime = A_slashtimevalue;
+            }
+            if (A_slashtime > 0 && A_isAttacking)
+            {
+                S_Rigidbody2D.velocity = P_crossHair.direction * A_slashvelocity;
+
+                if (S_FacingRight && (A_rotaion <= 0))
+                {
+                    Flip();
+                }
+                else if (!S_FacingRight && (A_rotaion >= 0))
+                {
+                    Flip();
+                }
+            }
+        }
     }
 
-   
+    void animate()
+    {
+        animator.SetBool("facingright", S_FacingRight);
+        animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime);
+    }
 
+    void Death()
+    {
+        if (A_playerhealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    void stateReset()
+    {
+        M_jump = false;
+        M_dash = false;
+        A_slash = false;
+    }
+
+    void control()
+    {
+        if ((Input.GetButtonDown("Jump")))
+        {
+            M_jump = true;
+        }
+
+        if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            M_dash = true;
+
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            A_slash = true;
+        }
+    }
+
+    void walljump()
+    {
+        //If the jump buttor is pressed and the player is touching wall then the player should wall jump
+        if (S_Touchingwall && Input.GetButtonDown("Jump"))
+        {
+            WallJump();
+        }
+    }
+
+    void WallJump()
+    {
+        //if face right, jump and push to the left
+        if (S_FacingRight == true)
+        {
+            //RigidBody2D.AddForce(new Vector2(-jumpPushForce, jumpForce));
+            S_Rigidbody2D.AddForce(new Vector2(S_Rigidbody2D.velocity.x, P_JumpForce));
+            S_Rigidbody2D.velocity = new Vector2(-jumpPushForce, S_Rigidbody2D.velocity.y);
+        }
+        //if face left, jump and push to the right
+        else if (S_FacingRight == false)
+        {
+            S_Rigidbody2D.AddForce(new Vector2(S_Rigidbody2D.velocity.x, P_JumpForce));
+            S_Rigidbody2D.velocity = new Vector2(jumpPushForce, S_Rigidbody2D.velocity.y);
+        }
+        Flip();
+
+    }
+
+    void WallCheck()
+    {
+        bool wastouchingwall = S_Touchingwall;
+        S_Touchingwall = false;
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(S_WallCheck.position, S_WallCheckRadius, S_WhatIsWall);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != gameObject)
+            {
+                S_Touchingwall = true;
+            }
+        }
+    }
 }
 
