@@ -112,9 +112,11 @@ MonoBehaviour:
     width: 1920
     height: 947
   m_MinSize: {x: 681, y: 494}
+  m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
   controlID: 990
+  controlID: 5968
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,6 +142,7 @@ MonoBehaviour:
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
   controlID: 1065
+  controlID: 5969
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,6 +168,12 @@ MonoBehaviour:
   m_MaxSize: {x: 8006, y: 4022}
   vertical: 0
   controlID: 1066
+    width: 2041
+    height: 573
+  m_MinSize: {x: 406, y: 222}
+  m_MaxSize: {x: 8006, y: 4022}
+  vertical: 0
+  controlID: 5970
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,6 +281,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4002, y: 8022}
   vertical: 1
   controlID: 991
+  controlID: 6058
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -438,6 +448,9 @@ MonoBehaviour:
       m_SelectedIDs: f0430000
       m_LastClickedID: 0
       m_ExpandedIDs: 02f9ffff
+      m_SelectedIDs: 30440000
+      m_LastClickedID: 17456
+      m_ExpandedIDs: 02fbffffe6400000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -500,6 +513,9 @@ MonoBehaviour:
     m_Target: {x: -0.9235495, y: 5.595266, z: -870.1758}
     speed: 2
     m_Value: {x: -0.9235495, y: 5.595266, z: -870.1758}
+    m_Target: {x: 21.823063, y: 1.0660627, z: -862.29803}
+    speed: 2
+    m_Value: {x: 21.823063, y: 1.0660627, z: -862.29803}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -535,6 +551,9 @@ MonoBehaviour:
     m_Target: 28.619839
     speed: 2
     m_Value: 29.968418
+    m_Target: 68.894325
+    speed: 2
+    m_Value: 68.894325
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -723,6 +742,11 @@ MonoBehaviour:
   m_StartGridSize: 64
   m_LastFolders:
   - Assets/prefab
+    - Assets/script/UI
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/script/UI
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Github\Project2-Sarm-Tum-Na\tumforge
   m_LockTracker:
@@ -732,6 +756,10 @@ MonoBehaviour:
     m_SelectedIDs: a8420000
     m_LastClickedID: 17064
     m_ExpandedIDs: 000000002e3b00001c3d0000ae42000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 183a0000
+    m_LastClickedID: 14872
+    m_ExpandedIDs: 000000002e350000d23b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -760,6 +788,7 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: 000000002e3b00001c3d0000ae42000000ca9a3b
+    m_ExpandedIDs: 000000002e35000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -879,6 +908,7 @@ MonoBehaviour:
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 72.44586
+  m_LastVerticalScrollValue: 464
 --- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
