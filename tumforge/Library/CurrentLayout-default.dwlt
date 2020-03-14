@@ -96,7 +96,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 544}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &5
 MonoBehaviour:
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-  controlID: 144
+  controlID: 37
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 66
+  controlID: 38
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 222}
   m_MaxSize: {x: 8006, y: 4022}
   vertical: 0
-  controlID: 67
+  controlID: 39
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,7 +270,7 @@ MonoBehaviour:
   - {fileID: 19}
   - {fileID: 14}
   m_Selected: 0
-  m_LastSelected: 3
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -350,8 +350,8 @@ MonoBehaviour:
     height: 554
   m_ViewDataDictionary: {fileID: 0}
   m_ResetOnNextRepaint: 0
-  m_SelectedAssetPath: Assets/sprite/Tilemap/Burnt Forest and Village/smol_tree.png
-  m_SelectedSpriteRectGUID: 832e35bf54538504a9ced74a9b15492c
+  m_SelectedAssetPath: Assets/sprite/Tilemap/Outskirt and District Wall/Light.png
+  m_SelectedSpriteRectGUID: 6f9463400ac40a64b9f0afecac496840
   m_LastUsedModuleTypeName: 
 --- !u!114 &15
 MonoBehaviour:
@@ -382,7 +382,7 @@ MonoBehaviour:
     m_CachedPref: -50
     m_ControlHash: 1964396721
     m_PrefName: Preview_TilemapBrushInspector
-  m_Palette: {fileID: 3047955987331409085, guid: 3f755f984e6585c40895c70e20f3778a,
+  m_Palette: {fileID: 7878283155016649515, guid: d5a9e733c03409640b8201ce6eaa80fd,
     type: 3}
 --- !u!114 &16
 MonoBehaviour:
@@ -433,7 +433,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -494,9 +494,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: ce360000
       m_LastClickedID: 0
-      m_ExpandedIDs: 72fbffff
+      m_ExpandedIDs: 3a44fdff72fbffff5c410000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -556,9 +556,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -8.028547, y: 3.5656261, z: -161.35938}
+    m_Target: {x: 24.806927, y: 9.544926, z: -414.9375}
     speed: 2
-    m_Value: {x: -8.028547, y: 3.5656261, z: -161.35938}
+    m_Value: {x: 24.806927, y: 9.544926, z: -414.9375}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -591,9 +591,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 28.09211
+    m_Target: 73.63571
     speed: 2
-    m_Value: 26.882402
+    m_Value: 70.4648
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -684,20 +684,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/prefab/Level
+    - Assets/sprite/Tilemap/Burnt Forest and Village
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/prefab/Level
+  - Assets/sprite/Tilemap/Burnt Forest and Village
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\Github\Project2-Sarm-Tum-Na\tumforge
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 24480000
-    m_LastClickedID: 18468
-    m_ExpandedIDs: 00000000ec330000383600009e360000f0380000503b0000503c0000563c00002448000000ca9a3b
+    scrollPos: {x: 0, y: 209}
+    m_SelectedIDs: 0c390000
+    m_LastClickedID: 14604
+    m_ExpandedIDs: 00000000f633000048360000b03600000e370000ea3800000c390000783b0000783c00007e3c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -725,7 +725,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ec33000038360000563c0000
+    m_ExpandedIDs: 00000000f633000048360000b03600000e3700000c390000783b0000783c00007e3c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -844,4 +844,4 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 164.89932
+  m_LastVerticalScrollValue: 0
