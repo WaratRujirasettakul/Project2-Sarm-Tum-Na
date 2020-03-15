@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 800564330108532747}
   - component: {fileID: 5886942209518588960}
   m_Layer: 0
-  m_Name: door1_0
+  m_Name: door_open_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -3884400247260062513, guid: cccaa0d702ea8da4895d293b6c7734fa,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
