@@ -21314,6 +21314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timestopduration: 0.6
   skillcode: 1
+  timestoping: 0
   ab_Enemy_FakeTime: 1
   ab_Player_FakeTime: 1
   ab_TimeslowPercent: 30
@@ -24344,7 +24345,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec54c26b7b5c28b439ca11c8fae83d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 341614225}
+  xMargin: 1
+  yMargin: 1
+  xSmooth: 4
+  ySmooth: 4
+  maxXAndY: {x: 10000, y: 10000}
+  minXAndY: {x: -10000, y: -10000}
 --- !u!20 &1527536566
 Camera:
   m_ObjectHideFlags: 0
@@ -29296,7 +29302,7 @@ PrefabInstance:
     - target: {fileID: 7380693243197930773, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3906
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7380693243197930773, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}

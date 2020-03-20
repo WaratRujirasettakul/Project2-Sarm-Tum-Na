@@ -6,6 +6,7 @@ public class Code_AbilityController : MonoBehaviour
 {
     public float timestopduration = 10f;
     public int skillcode = 1;
+    public bool timestoping = false;
     public float ab_Enemy_FakeTime = 1f;
     public float ab_Player_FakeTime = 1f;
     [Range(0.0f, 100.0f)]
@@ -33,8 +34,10 @@ public class Code_AbilityController : MonoBehaviour
     private IEnumerator timestop()
     {
         ab_Enemy_FakeTime = 0f;
+        timestoping = true;
         yield return new WaitForSeconds(timestopduration);
         ab_Enemy_FakeTime = 1f;
+        timestoping = false;
     }
 
     private IEnumerator timeslow()

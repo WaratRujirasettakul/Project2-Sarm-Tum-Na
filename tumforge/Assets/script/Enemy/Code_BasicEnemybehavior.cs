@@ -41,6 +41,9 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     public Rigidbody2D Rigidbody;
     public GameObject player;
     public GameObject abilitycon;                        //optimize needed     
+    bool playerinsight = false;
+    float confusedtimer;
+    public float confusedtime = 10;
 
 
     void awake()
@@ -56,16 +59,19 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     void Update()
     {
         //print(abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
-        if (foundplayer)
+        if (abilitycon.gameObject.GetComponent<Code_AbilityController>().timestoping == false)
         {
-            playerchase();
-        }
-        else
-        {
-            playerdetector(detect_distance);
-            Counter();
-            Movementstoper();
-            Idle();
+            if (foundplayer)
+            {
+                playerchase();
+            }
+            else
+            {
+                playerdetector(detect_distance);
+                Counter();
+                Movementstoper();
+                Idle();
+            }
         }
 
         if (e_health < 1)
@@ -146,11 +152,14 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     {
         Move_Counter -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
         Idle_counter -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
+        confusedtimer -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
 
         if (Move_Counter < 0)
         {
             Move_Counter = 0;
         }
+
+
     }
 
     private void dataset()
@@ -198,7 +207,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         //will add the confused beheviour soon
         if ((this.transform.position.x - player.transform.position.x) > 0)
         {
-            if (!wallinfront && theresgroundinfront)
+            if (theresgroundinfront)
             {
                 //player left
                 if (facingright)
@@ -219,7 +228,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         }
         else
         {
-            if (!wallinfront && theresgroundinfront)
+            if (theresgroundinfront)
             {
                 //player right
                 if (facingright)
@@ -262,6 +271,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("Player"))
             {
                 foundplayer = true;
+                playerinsight = true;
                 Debug.DrawLine(CastPoint.position, hit.point, Color.red);
             }
             Debug.DrawLine(CastPoint.position, hit.point, Color.blue);
@@ -269,6 +279,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         else
         {
             Debug.DrawLine(CastPoint.position, endPos, Color.blue);
+            playerinsight = false;
         }
     }
     
