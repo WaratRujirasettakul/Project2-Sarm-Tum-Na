@@ -1006,6 +1006,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 38839861}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
+  confusedtime: 10
 --- !u!4 &38839863
 Transform:
   m_ObjectHideFlags: 0
@@ -11108,6 +11109,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 631553842}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
+  confusedtime: 10
 --- !u!4 &631553844
 Transform:
   m_ObjectHideFlags: 0
@@ -19835,6 +19837,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 1249714947}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
+  confusedtime: 10
 --- !u!212 &1249714949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21261,6 +21264,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 1304490625}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
+  confusedtime: 10
 --- !u!4 &1304490627
 Transform:
   m_ObjectHideFlags: 0
@@ -22822,6 +22826,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 1416429824}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
+  confusedtime: 10
 --- !u!4 &1416429826
 Transform:
   m_ObjectHideFlags: 0
@@ -26243,6 +26248,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 1640823388}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
+  confusedtime: 10
 --- !u!4 &1640823390
 Transform:
   m_ObjectHideFlags: 0
@@ -29036,12 +29042,12 @@ PrefabInstance:
     - target: {fileID: 2076676552463089128, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.34
+      value: 0.71
       objectReference: {fileID: 0}
     - target: {fileID: 2076676552463089128, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.76
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 6761485083722128381, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
@@ -29199,6 +29205,11 @@ PrefabInstance:
       propertyPath: S_WallCheck
       value: 
       objectReference: {fileID: 1799698584}
+    - target: {fileID: 6761485084629739187, guid: 4a9cb4d320205a043a159ab36eaee22a,
+        type: 3}
+      propertyPath: J_jumpdetectdelay
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 6761485084629739191, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32730,6 +32741,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 1969747120}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
+  confusedtime: 10
 --- !u!4 &1969747122
 Transform:
   m_ObjectHideFlags: 0
@@ -35079,6 +35091,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 2111932466}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
+  confusedtime: 10
 --- !u!4 &2112497877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1866571967575917635, guid: 640d3c0b6872fdf47a60b5b556177094,
@@ -35321,6 +35334,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 2118323412}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
+  confusedtime: 10
 --- !u!4 &2118323414
 Transform:
   m_ObjectHideFlags: 0
