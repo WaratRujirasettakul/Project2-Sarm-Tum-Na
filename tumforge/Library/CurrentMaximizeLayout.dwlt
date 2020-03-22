@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 494}
   m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-  controlID: 9062
+  controlID: 4327
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 9008
+  controlID: 4328
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 222}
   m_MaxSize: {x: 8004, y: 4022}
   vertical: 0
-  controlID: 8983
+  controlID: 4329
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -175,8 +175,8 @@ MonoBehaviour:
     y: 0
     width: 288
     height: 459
-  m_MinSize: {x: 202, y: 222}
-  m_MaxSize: {x: 4002, y: 4022}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -213,7 +213,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ae89ffff2c8fffff6e9bfffffcb5ffff02b9ffffccd3ffff8cd9ffff3adbffff9cdbffffe4dbffffdadeffff02e2ffff70e4ffff50f7ffffc6f9ffffbe5a0000ca5c0000245e00005a5e00003261000058610000ca640000de640000
+      m_ExpandedIDs: acdeffffaedeffff80e0ffff4cebffff1cf0ffff62fbffff54410000084800001e480000d24b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -301,9 +301,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.74745, y: 3.5229383, z: -267.27197}
+    m_Target: {x: 1.9534249, y: -0.23997155, z: -49.11232}
     speed: 2
-    m_Value: {x: 3.74745, y: 3.5229383, z: -267.27197}
+    m_Value: {x: 1.9534249, y: -0.23997155, z: -49.11232}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -328,17 +328,17 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     zGrid:
-      m_Target: 1
+      m_Target: 0
       speed: 2
-      m_Value: 1
+      m_Value: 0
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 27.3166
+    m_Target: 18.468317
     speed: 2
-    m_Value: 27.3166
+    m_Value: 18.468317
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -356,7 +356,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_ShowGlobalGrid: 1
+  m_ShowGlobalGrid: 0
   m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
@@ -522,20 +522,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/sprite/Background
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/sprite/Background
+  - Assets/Scenes
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\Work 12\IDD\Semester2y2019\Game Project 2\Project2-Sarm-Tum-Na\tumforge
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 7}
-    m_SelectedIDs: 3a460000
-    m_LastClickedID: 17978
-    m_ExpandedIDs: 00000000cc3c0000223f00008a3f0000ea3f000052410000be410000e041000038430000564400005c450000864500003a460000bc47000000ca9a3b
+    m_SelectedIDs: 3e350000
+    m_LastClickedID: 13630
+    m_ExpandedIDs: 0000000032340000b236000022370000903700000a3900007c3900009e390000063b0000323c0000543d0000803d00003e3e0000d23f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -563,7 +563,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000cc3c0000223f00008a3f0000ea3f000052410000be410000e041000038430000564400005c450000864500003a460000bc47000000ca9a3b
+    m_ExpandedIDs: 0000000032340000b236000022370000903700000a3900007c3900009e390000063b0000323c0000543d0000803d00003e3e0000d23f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -588,8 +588,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 9689ffff8889ffff8289ffff9089ffff8e89ffff
-    m_LastClickedInstanceID: -30314
+    m_SelectedInstanceIDs: da4b0000
+    m_LastClickedInstanceID: 19418
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000b83b0000324800002e480000a0470000
     m_RenameOverlay:
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 25930
+  m_LastSelectedObjectID: 19418
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -700,8 +700,8 @@ MonoBehaviour:
     height: 355
   m_ViewDataDictionary: {fileID: 0}
   m_ResetOnNextRepaint: 0
-  m_SelectedAssetPath: Assets/sprite/Tilemap/Outskirt and District Wall/Light.png
-  m_SelectedSpriteRectGUID: 6f9463400ac40a64b9f0afecac496840
+  m_SelectedAssetPath: Assets/sprite/Background/Urban and slum/1.png
+  m_SelectedSpriteRectGUID: 5e97eb03825dee720800000000000000
   m_LastUsedModuleTypeName: 
 --- !u!114 &16
 MonoBehaviour:
@@ -727,7 +727,7 @@ MonoBehaviour:
   m_MinSize: {x: 275, y: 272}
   m_MaxSize: {x: 4002, y: 8022}
   vertical: 1
-  controlID: 9063
+  controlID: 4307
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -747,8 +747,8 @@ MonoBehaviour:
     y: 0
     width: 377
     height: 438
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 72}
+  m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -790,8 +790,8 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: -30334
-  m_LastVerticalScrollValue: 120
+  m_LastInspectedObjectInstanceID: 19418
+  m_LastVerticalScrollValue: 0
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -811,8 +811,8 @@ MonoBehaviour:
     y: 438
     width: 377
     height: 293
-  m_MinSize: {x: 202, y: 222}
-  m_MaxSize: {x: 4002, y: 4022}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 20}
