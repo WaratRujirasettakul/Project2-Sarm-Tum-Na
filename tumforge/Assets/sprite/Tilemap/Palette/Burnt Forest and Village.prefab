@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1968586693686735863}
   - component: {fileID: 5456457683089742377}
   m_Layer: 31
-  m_Name: Burnt Forest and Village2
+  m_Name: Burnt Forest and Village
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,6 +85,42 @@ Tilemap:
   m_GameObject: {fileID: 8781627916261283159}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: -13, y: -4, z: 0}
+    second:
+      m_TileIndex: 11
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -12, y: -4, z: 0}
+    second:
+      m_TileIndex: 11
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -13, y: -3, z: 0}
+    second:
+      m_TileIndex: 11
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -12, y: -3, z: 0}
+    second:
+      m_TileIndex: 11
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: -13, y: 0, z: 0}
     second:
       m_TileIndex: 6
@@ -415,8 +451,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 3cff2ce2b5a0fd843b7f95b389a76c75, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 4
+    m_Data: {fileID: 11400000, guid: 3b88af8082c4e184eb3cf673e234eee0, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 04f83c642bef74c4eaab21687d7f481b, type: 2}
   - m_RefCount: 1
@@ -440,8 +476,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 4
+    m_Data: {fileID: 21300000, guid: 470d2fca7babc454697531fd8ed18f15, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 2095694650502644864, guid: e1573b2dff2ca4145b589f405ddbbc65,
       type: 3}
@@ -465,7 +501,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 144a27d2cfdbf9f40a29112d0573562b, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 18
+  - m_RefCount: 22
     m_Data:
       e00: 1
       e01: 0
@@ -574,7 +610,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 34
+  - m_RefCount: 38
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: -101556610, g: -101556610, b: -101556610, a: -101556610}
@@ -646,7 +682,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.014285743, y: 1.0297656, z: 0}
+  m_ChunkCullingBounds: {x: 0.7352941, y: 4.792162, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
