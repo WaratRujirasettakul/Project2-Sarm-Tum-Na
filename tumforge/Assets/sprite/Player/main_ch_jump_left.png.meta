@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: df34ac859c845d44794ce3df66d786e2
+guid: e60c54de990b89d439cef1e674ddb67f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6271573723494202044
-    second: Idle_side-1_0
+      213: -7573680186629532546
+    second: main_ch_jump_left_0
   - first:
-      213: -957759483616172708
-    second: Idle_side-1_2
-  - first:
-      213: 2248251315613003199
-    second: Idle_side-1_3
-  - first:
-      213: 1835694746235442784
-    second: Idle_side-1_4
+      213: 7333469442198955782
+    second: main_ch_jump_left_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -98,13 +92,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_side-1_0
+      name: main_ch_jump_left_0
       rect:
         serializedVersion: 2
-        x: 21
+        x: 0
         y: 0
-        width: 34
-        height: 76
+        width: 53
+        height: 58
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +106,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21377ea81f51c234d8e2c29483db3faf
-      internalID: -6271573723494202044
+      spriteID: efcfeb13f2e1955448a645030d7fba98
+      internalID: -7573680186629532546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_side-1_2
+      name: main_ch_jump_left_1
       rect:
         serializedVersion: 2
-        x: 62
+        x: 53
         y: 0
-        width: 34
-        height: 76
+        width: 53
+        height: 58
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,50 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 728a5cfdda5107e40957f3ba9129c2d8
-      internalID: -957759483616172708
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_side-1_3
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 0
-        width: 34
-        height: 76
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d416caecb027fd42a9ba5208f368e7a
-      internalID: 2248251315613003199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_side-1_4
-      rect:
-        serializedVersion: 2
-        x: 142
-        y: 0
-        width: 34
-        height: 76
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f01142d638a86ce418977f0c40694b4a
-      internalID: 1835694746235442784
+      spriteID: 8182949f65626eb45bdb690b0ffb5a46
+      internalID: 7333469442198955782
       vertices: []
       indices: 
       edges: []

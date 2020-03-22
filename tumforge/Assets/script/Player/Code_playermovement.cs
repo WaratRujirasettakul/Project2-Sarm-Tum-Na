@@ -23,6 +23,10 @@ public class Code_playermovement : MonoBehaviour
     private Rigidbody2D S_Rigidbody2D;
     private bool S_FacingRight = true;
     private Vector3 S_Velocity = Vector3.zero;
+    bool S_movingup;
+    bool S_notmoving;
+    Vector2 S_lastpos;
+    Vector2 S_nowpos;
     //-------------------movement-----------------------
     float M_horizontalMove = 0f;
     bool M_jump = false;
@@ -32,6 +36,9 @@ public class Code_playermovement : MonoBehaviour
     //--------------------jump--------------------------
     public int J_jumplimit = 2;
     int J_jumpnumber;
+    bool J_jumping;
+    public float J_jumpdetectdelay;
+    float J_jumpdetecttimer;
     //-------------------dashing------------------------
     public int D_dashlimit = 2;
     int D_dashnumber;
@@ -71,9 +78,25 @@ public class Code_playermovement : MonoBehaviour
         P_crossHair = P_Camera.GetComponent<Code_Crosshair>();
     }
 
+    private void FixedUpdate()
+    {
+        S_nowpos = this.gameObject.transform.position;
+        if (S_nowpos.y - S_lastpos.y > 0)
+        {
+            S_movingup = true;
+        }
+        else
+        {
+            S_movingup = false;
+        }
+
+        S_lastpos = S_nowpos;
+    }
+
     public void Move(float move, bool jump, bool dash)
     {
         D_dashtime -= time;
+        J_jumpdetecttimer -= time;
 
         if (S_Grounded || P_AirControl)
         {
@@ -96,7 +119,15 @@ public class Code_playermovement : MonoBehaviour
             S_Grounded = false;
             S_Rigidbody2D.AddForce(new Vector2(0f, P_JumpForce));
             J_jumpnumber -= 1;
+            J_jumping = true;
+            J_jumpdetecttimer = J_jumpdetectdelay;
         }
+
+        if (J_jumpdetecttimer < 0)
+        {
+            J_jumpdetecttimer = 0;
+        }
+
         //------------------dash-----------------
         if (D_dashnumber > 0 && dash)
         {
@@ -174,6 +205,20 @@ public class Code_playermovement : MonoBehaviour
         M_horizontalMove = Input.GetAxisRaw("Horizontal") * P_RunSpeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime;
         Move(M_horizontalMove * Time.fixedDeltaTime, M_jump, M_dash);
         Slash(A_slash);
+
+        if (Input.GetAxisRaw("Horizontal") == 0)
+        {
+            S_notmoving = true;
+        }
+        else
+        {
+            S_notmoving = false;
+        }
+
+        if (J_jumping && S_Grounded && (J_jumpdetecttimer == 0))
+        {
+            J_jumping = false;
+        }
     }
 
     void GroundCheck()
@@ -256,6 +301,11 @@ public class Code_playermovement : MonoBehaviour
     {
         animator.SetBool("facingright", S_FacingRight);
         animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime);
+        animator.SetBool("movingup", S_movingup);
+        animator.SetBool("Dash", D_isdashing);
+        animator.SetBool("attack", A_isAttacking);
+        animator.SetBool("notmoving", S_notmoving);
+        animator.SetBool("jumping", J_jumping);
     }
 
     void Death()
