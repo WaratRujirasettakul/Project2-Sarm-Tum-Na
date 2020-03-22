@@ -13,7 +13,7 @@ public class VerticalPlatform : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetAxisRaw("Vertical") == -1)
+        if(Input.GetAxisRaw("Vertical") == 1)
         {
             waitTimer = 0.5f;
         }
@@ -31,9 +31,9 @@ public class VerticalPlatform : MonoBehaviour
             }
         }
 
-        //if (Input.GetAxisRaw("Jump"))
+        if (Input.GetButton("Jump"))
         {
-
+            effector.rotationalOffset = 0; 
         }
     }
 }
