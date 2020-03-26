@@ -6287,6 +6287,7 @@ MonoBehaviour:
   ab_Player_FakeTime: 1
   ab_TimeslowPercent: 30
   timeslowduration: 10
+  PS: {fileID: 1801009787}
 --- !u!4 &769313552
 Transform:
   m_ObjectHideFlags: 0
@@ -22308,6 +22309,12 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!198 &1801009787 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8553509590915725079, guid: 3da4ce512a2342b418bdf94c2f598255,
+    type: 3}
+  m_PrefabInstance: {fileID: 8553509592147059943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1856055293
 GameObject:
   m_ObjectHideFlags: 0
@@ -24397,6 +24404,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553509590915725079, guid: 3da4ce512a2342b418bdf94c2f598255,
+        type: 3}
+      propertyPath: CustomDataModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553509590915725079, guid: 3da4ce512a2342b418bdf94c2f598255,
+        type: 3}
+      propertyPath: SizeModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3da4ce512a2342b418bdf94c2f598255, type: 3}
