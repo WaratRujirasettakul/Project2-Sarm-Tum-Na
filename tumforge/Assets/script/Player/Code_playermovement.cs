@@ -81,7 +81,7 @@ public class Code_playermovement : MonoBehaviour
     private void FixedUpdate()
     {
         S_nowpos = this.gameObject.transform.position;
-        if (S_nowpos.y - S_lastpos.y > 0)
+        if (S_nowpos.y - S_lastpos.y > 0.5)
         {
             S_movingup = true;
         }

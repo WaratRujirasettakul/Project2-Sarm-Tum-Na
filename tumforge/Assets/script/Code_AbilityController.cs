@@ -12,9 +12,10 @@ public class Code_AbilityController : MonoBehaviour
     [Range(0.0f, 100.0f)]
     public float ab_TimeslowPercent = 60f;
     public float timeslowduration = 10f;
+    public ParticleSystem PS;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -44,8 +45,11 @@ public class Code_AbilityController : MonoBehaviour
     {
         ab_Enemy_FakeTime = ab_TimeslowPercent/100;
         ab_Player_FakeTime = ab_TimeslowPercent / 100;
+        PS.playbackSpeed = ab_TimeslowPercent / 100; ;
         yield return new WaitForSeconds(timeslowduration);
         ab_Enemy_FakeTime = 1f;
         ab_Player_FakeTime = 1f;
+        PS.playbackSpeed = 1f;
+
     }
 }
