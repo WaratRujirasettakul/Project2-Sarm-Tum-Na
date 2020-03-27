@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 581, y: 494}
   m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-  controlID: 21744
+  controlID: 736
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_MinSize: {x: 306, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 21745
+  controlID: 737
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_MinSize: {x: 306, y: 222}
   m_MaxSize: {x: 8006, y: 4022}
   vertical: 0
-  controlID: 21746
+  controlID: 738
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -175,8 +175,8 @@ MonoBehaviour:
     y: 0
     width: 480
     height: 595
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 222}
+  m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -213,7 +213,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b4dfffff22e0ffff46e0ffffdce6ffff6cecffff24eeffffc2f4ffff82f6ffffcef6ffffe6f9ffffb2600000f660000030610000ea61000060620000
+      m_ExpandedIDs: a8f5ffffdcf5ffffd2f6ffff72fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -421,14 +421,14 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: -555092204124781862, guid: eeec2787d96f6534f8e870e0e0e33d5b, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.70350593
+    - e00: 0.689895
       e01: 0
       e02: 0
-      e03: 20.37171
+      e03: 3.0801392
       e10: 0
-      e11: 0.70350593
+      e11: 0.689895
       e12: 0
-      e13: -176.9023
+      e13: -153.97876
       e20: 0
       e21: 0
       e22: 1
@@ -503,8 +503,8 @@ MonoBehaviour:
     y: 595
     width: 1932
     height: 352
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 232, y: 272}
+  m_MaxSize: {x: 10002, y: 10022}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -551,20 +551,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/sprite
+    - Assets/sprite/Player
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/sprite
+  - Assets/sprite/Player
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\yeen\Desktop\Github\timeforge\Project2-Sarm-Tum-Na\tumforge
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 51}
-    m_SelectedIDs: 7e410000
-    m_LastClickedID: 16766
-    m_ExpandedIDs: 000000002a3c0000ac3e00001e3f00007e410000a04100001643000080440000644500009045000000ca9a3b
+    m_SelectedIDs: d2360000
+    m_LastClickedID: 14034
+    m_ExpandedIDs: 000000001034000094360000063700006639000088390000fe3a0000683c00004c3d0000783d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -592,7 +592,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002a3c0000ac3e00001e3f00007e410000a04100001643000080440000644500009045000000ca9a3b
+    m_ExpandedIDs: 000000001034000094360000063700006639000088390000fe3a0000683c00004c3d0000783d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -617,8 +617,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0ceafeff
-    m_LastClickedInstanceID: -71156
+    m_SelectedInstanceIDs: 40440000
+    m_LastClickedInstanceID: 17472
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000b83b0000324800002e480000a0470000
     m_RenameOverlay:
@@ -727,7 +727,7 @@ MonoBehaviour:
   m_MinSize: {x: 275, y: 272}
   m_MaxSize: {x: 4002, y: 8022}
   vertical: 1
-  controlID: 21651
+  controlID: 716
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -747,8 +747,8 @@ MonoBehaviour:
     y: 0
     width: 628
     height: 567
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 72}
+  m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -790,8 +790,8 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: -71156
-  m_LastVerticalScrollValue: 173
+  m_LastInspectedObjectInstanceID: 17472
+  m_LastVerticalScrollValue: 0
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52

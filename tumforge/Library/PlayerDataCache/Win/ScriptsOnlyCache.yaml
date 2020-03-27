@@ -5,15 +5,14 @@ ScriptsOnlyBuild:
     - Code_BasicEnemybehavior
     - Code_Crosshair
     - Code_DashEnemyDamage
-    - Code_Dialogsystem
     - Code_EnemyLungeAttacker
     - Code_MeleeEnemyAttacker
     - Code_StrongEnemyBehavior
     - Code_camfollow
     - Code_cursorlock
     - Code_playermovement
-    - Exit
-    - MainMenu
+    - Parallax
+    - VerticalPlatform
     Unity.2D.Sprite.Editor.dll:
     - UnityEditor.U2D.Sprites.SpriteEditorWindow
     Unity.2D.Tilemap.Editor.dll:
@@ -27,28 +26,29 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.RenderPipelines.Lightweight.Runtime.dll:
+    - UnityEngine.Experimental.Rendering.LWRP.Light2D
     - UnityEngine.Experimental.Rendering.LWRP.Renderer2DData
     - UnityEngine.Rendering.LWRP.LightweightRenderPipelineAsset
-    - UnityEngine.Rendering.LWRP.LightweightRenderPipelineEditorResources
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    - TMPro.TextMeshProUGUI
+    - TMPro.TextMeshPro
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateMachineNode
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
-    UnityEngine.UI.dll:
-    - UnityEngine.EventSystems.EventSystem
-    - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.Button
-    - UnityEngine.UI.CanvasScaler
-    - UnityEngine.UI.GraphicRaycaster
-    - UnityEngine.UI.Image
-    - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/Menu/SC_Credits.unity:
+    Assets/Scenes/SC_RedRoom.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -57,220 +57,85 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 9856}
-    - Class: 114
-      Script: {instanceID: 10166}
-    - Class: 114
-      Script: {instanceID: 10246}
-    - Class: 114
-      Script: {instanceID: 10954}
-    - Class: 114
-      Script: {instanceID: 11670}
-    - Class: 114
-      Script: {instanceID: 11814}
-    - Class: 114
-      Script: {instanceID: 12450}
-    - Class: 114
-      Script: {instanceID: 13106}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/Menu/SC_Options.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
+    - Class: 23
       Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
-    - Class: 48
+    - Class: 33
       Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 9856}
-    - Class: 114
-      Script: {instanceID: 10166}
-    - Class: 114
-      Script: {instanceID: 10246}
-    - Class: 114
-      Script: {instanceID: 10954}
-    - Class: 114
-      Script: {instanceID: 11670}
-    - Class: 114
-      Script: {instanceID: 11814}
-    - Class: 114
-      Script: {instanceID: 12450}
-    - Class: 114
-      Script: {instanceID: 13106}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/Menu/SC_Start.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
+    - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 62
+      Script: {instanceID: 0}
+    - Class: 70
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9856}
+      Script: {instanceID: 742}
     - Class: 114
-      Script: {instanceID: 10166}
+      Script: {instanceID: 10384}
     - Class: 114
-      Script: {instanceID: 10246}
+      Script: {instanceID: 10404}
     - Class: 114
-      Script: {instanceID: 10954}
+      Script: {instanceID: 10586}
     - Class: 114
-      Script: {instanceID: 10998}
+      Script: {instanceID: 10850}
     - Class: 114
-      Script: {instanceID: 11670}
+      Script: {instanceID: 10908}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11004}
     - Class: 114
-      Script: {instanceID: 12020}
+      Script: {instanceID: 11354}
     - Class: 114
-      Script: {instanceID: 12040}
+      Script: {instanceID: 11440}
     - Class: 114
-      Script: {instanceID: 12450}
+      Script: {instanceID: 11620}
     - Class: 114
-      Script: {instanceID: 12750}
+      Script: {instanceID: 11692}
     - Class: 114
-      Script: {instanceID: 13106}
+      Script: {instanceID: 12028}
+    - Class: 114
+      Script: {instanceID: 12048}
+    - Class: 114
+      Script: {instanceID: 12238}
+    - Class: 114
+      Script: {instanceID: 12758}
+    - Class: 114
+      Script: {instanceID: 12918}
+    - Class: 114
+      Script: {instanceID: 12946}
+    - Class: 114
+      Script: {instanceID: 13186}
+    - Class: 114
+      Script: {instanceID: 13190}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
-    - Class: 213
+    - Class: 198
       Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SC_SampleScene.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 50
-      Script: {instanceID: 0}
-    - Class: 61
-      Script: {instanceID: 0}
-    - Class: 62
-      Script: {instanceID: 0}
-    - Class: 70
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 9856}
-    - Class: 114
-      Script: {instanceID: 10166}
-    - Class: 114
-      Script: {instanceID: 10246}
-    - Class: 114
-      Script: {instanceID: 10380}
-    - Class: 114
-      Script: {instanceID: 10400}
-    - Class: 114
-      Script: {instanceID: 10844}
-    - Class: 114
-      Script: {instanceID: 10902}
-    - Class: 114
-      Script: {instanceID: 11306}
-    - Class: 114
-      Script: {instanceID: 11348}
-    - Class: 114
-      Script: {instanceID: 11612}
-    - Class: 114
-      Script: {instanceID: 11684}
-    - Class: 114
-      Script: {instanceID: 12020}
-    - Class: 114
-      Script: {instanceID: 12230}
-    - Class: 114
-      Script: {instanceID: 12338}
-    - Class: 114
-      Script: {instanceID: 12450}
-    - Class: 114
-      Script: {instanceID: 12910}
-    - Class: 114
-      Script: {instanceID: 13182}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -278,96 +143,17 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    Assets/Scenes/SC_stage1.unity:
-    - Class: 1
+    - Class: 251
       Script: {instanceID: 0}
-    - Class: 4
+    - Class: 19719996
       Script: {instanceID: 0}
-    - Class: 20
+    - Class: 156049354
       Script: {instanceID: 0}
-    - Class: 21
+    - Class: 483693784
       Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 50
-      Script: {instanceID: 0}
-    - Class: 61
-      Script: {instanceID: 0}
-    - Class: 62
-      Script: {instanceID: 0}
-    - Class: 70
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 9856}
-    - Class: 114
-      Script: {instanceID: 10166}
-    - Class: 114
-      Script: {instanceID: 10246}
-    - Class: 114
-      Script: {instanceID: 10380}
-    - Class: 114
-      Script: {instanceID: 10400}
-    - Class: 114
-      Script: {instanceID: 10844}
-    - Class: 114
-      Script: {instanceID: 10902}
-    - Class: 114
-      Script: {instanceID: 11306}
-    - Class: 114
-      Script: {instanceID: 11348}
-    - Class: 114
-      Script: {instanceID: 11612}
-    - Class: 114
-      Script: {instanceID: 11684}
-    - Class: 114
-      Script: {instanceID: 12020}
-    - Class: 114
-      Script: {instanceID: 12230}
-    - Class: 114
-      Script: {instanceID: 12338}
-    - Class: 114
-      Script: {instanceID: 12450}
-    - Class: 114
-      Script: {instanceID: 12910}
-    - Class: 114
-      Script: {instanceID: 13182}
-    - Class: 114
-      Script: {instanceID: 13214}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
+    - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -436,6 +222,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Postprocessing.Runtime.dll
     namespaceName: UnityEngine.Rendering.PostProcessing
     className: MotionBlur
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: animation_Speed
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Destructable_by_attack
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -582,6 +380,12 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
+      Hash: 47d68c30a95df7308d07ac006c9475b0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Parallax
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -630,7 +434,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: 63ec861233086e1ff194a50477ffa403
+      Hash: 1baa7abfa0aa52cee1ffeb4e323ba286
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Code_playermovement
@@ -714,7 +518,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: b51bc64fc5cbf6b2656eefaa0483dcb6
+      Hash: c901513aec9bccc36fa8f19b5e1d0e55
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Code_AbilityController
@@ -724,6 +528,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
+  - hash:
+      serializedVersion: 2
+      Hash: a9de104a87157c5e88a0fc775521213f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VerticalPlatform
   - hash:
       serializedVersion: 2
       Hash: d6fc8d3165070298511ec776ea575626
@@ -750,7 +560,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 7e80190b8038fcfde826a9aedb22cb5b
+      Hash: 6f2da72c623138dc2435f3f67049435d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Code_BasicEnemybehavior
@@ -882,7 +692,7 @@ ScriptsOnlyBuild:
     className: LightweightRenderPipelineEditorResources
   - hash:
       serializedVersion: 2
-      Hash: 66bca5cc6a18c5298ec75235e56a84d6
+      Hash: dc0c855440d59a516315a62ef55d7fd8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Code_camfollow
@@ -1068,9 +878,5 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 5
   scenePathNames:
-  - Assets/Scenes/Menu/SC_Start.unity
-  - Assets/Scenes/Menu/SC_Options.unity
-  - Assets/Scenes/Menu/SC_Credits.unity
-  - Assets/Scenes/SC_SampleScene.unity
-  - Assets/Scenes/SC_stage1.unity
-  playerPath: C:/Users/Admin/Desktop/Timeforge_Engine_Proof/tumforge.exe
+  - Assets/Scenes/SC_RedRoom.unity
+  playerPath: C:/Users/yeen/Desktop/Build/tumforge.exe
