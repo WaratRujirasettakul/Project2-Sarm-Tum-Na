@@ -21,12 +21,15 @@ public class MainMenu : MonoBehaviour
     {
         menu = this.name;
     }
-
+    void Start()
+    {
+        //sound = GetComponent<AudioSource>();
+    }
     public void LoadThis()
     {
         //Application.LoadLevel(LevelToLoad);
         SceneManager.LoadScene(LevelToLoad);
-        SceneManager.UnloadSceneAsync(menu);
+        //SceneManager.UnloadSceneAsync(menu);
     }
     public void LoadThis2()
     {
@@ -60,5 +63,9 @@ public class MainMenu : MonoBehaviour
     public void Option()
     {
         Application.LoadLevel("Option");
+    }
+    public void setQuality (int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
     }
 }
