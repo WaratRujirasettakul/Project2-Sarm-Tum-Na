@@ -75,7 +75,11 @@
     <Compile Include="Assets\script\Enemy\Code_StrongEnemyBehavior.cs" />
     <Compile Include="Assets\script\Exit.cs" />
     <Compile Include="Assets\script\Player\Code_playermovement.cs" />
+    <Compile Include="Assets\script\Player\PauseMenu.cs" />
     <Compile Include="Assets\script\Player\VerticalPlatform.cs" />
+    <Compile Include="Assets\script\Sound\AudioObjectController.cs" />
+    <Compile Include="Assets\script\Sound\SoundControlV2.cs" />
+    <Compile Include="Assets\script\Sound\VolumeMixer.cs" />
     <Compile Include="Assets\script\Stage\Destructable_by_attack.cs" />
     <Compile Include="Assets\script\Teleporter.cs" />
     <Compile Include="Assets\script\UI\Code_camfollow.cs" />
