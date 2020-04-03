@@ -35,11 +35,12 @@ public class Teleporter : MonoBehaviour
             //print("hit");
 
             //player.transform.position = destination.transform.position;
-            if (Input.GetKeyUp(KeyCode.E) == true)
-            {
+
+            //if (Input.GetKeyUp(KeyCode.E) == true)
+            //{
                 player.transform.position = destination.transform.position;
-                print("JESUS");
-            }
+                //print("JESUS");
+            //}
         }
        
 
