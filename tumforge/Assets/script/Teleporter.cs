@@ -8,7 +8,7 @@ public class Teleporter : MonoBehaviour
     //public GameObject entrance;
     public GameObject destination;
     public string TagList = "Player";
-    public GameObject player;
+    GameObject player;
 
 
 
@@ -25,6 +25,11 @@ public class Teleporter : MonoBehaviour
     // }
     // }
     // }
+
+    private void Start()
+    {
+        player = GameObject.Find("player");
+    }
 
     public void OnTriggerStay2D(Collider2D collision)
     {
