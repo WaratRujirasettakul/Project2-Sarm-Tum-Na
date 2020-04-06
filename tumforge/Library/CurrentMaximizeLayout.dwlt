@@ -21,22 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 681, y: 494}
+  m_MinSize: {x: 679, y: 494}
   m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  controlID: 736
-=======
-  controlID: 20145
->>>>>>> Beammy
-=======
-  controlID: 65726
->>>>>>> Beammy
-=======
-  controlID: 4048
->>>>>>> Beammy
+  controlID: 16402
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -58,10 +46,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1504
-    y: 739
-    width: 414
-    height: 262
+    x: 1321
+    y: 737
+    width: 597
+    height: 264
   m_ViewDataDictionary: {fileID: 0}
   m_VSyncEnabled: 0
   m_MaximizeOnPlay: 1
@@ -95,25 +83,25 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
-      width: 414
-      height: 245
-    m_Scale: {x: 0.215625, y: 0.21562502}
-    m_Translation: {x: 207, y: 122.5}
+      width: 597
+      height: 247
+    m_Scale: {x: 0.22870371, y: 0.22870371}
+    m_Translation: {x: 298.5, y: 123.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -960
-      y: -568.1159
-      width: 1920
-      height: 1136.2318
+      x: -1305.1821
+      y: -540
+      width: 2610.3643
+      height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.215625
+  m_defaultScale: 0.22870371
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 414, y: 262}
+  m_LastWindowPixelSize: {x: 597, y: 264}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -137,24 +125,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1504
+    width: 1321
     height: 947
   m_MinSize: {x: 404, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  controlID: 737
-=======
-  controlID: 20146
->>>>>>> Beammy
-=======
-  controlID: 65704
->>>>>>> Beammy
-=======
-  controlID: 4049
->>>>>>> Beammy
+  controlID: 16403
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -174,24 +150,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1504
+    width: 1321
     height: 596
   m_MinSize: {x: 404, y: 222}
   m_MaxSize: {x: 8004, y: 4022}
   vertical: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  controlID: 738
-=======
-  controlID: 20147
->>>>>>> Beammy
-=======
-  controlID: 65705
->>>>>>> Beammy
-=======
-  controlID: 4050
->>>>>>> Beammy
+  controlID: 16404
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -209,7 +173,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 277
+    width: 244
     height: 596
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
@@ -241,7 +205,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 277
+    width: 244
     height: 577
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
@@ -249,19 +213,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      m_ExpandedIDs: a8f5ffffdcf5ffffd2f6ffff72fbffff
-=======
-      m_ExpandedIDs: 32faffffb2480000
->>>>>>> Beammy
-=======
-      m_ExpandedIDs: 12b5fcfff2b7fcffc4b8fcffaeb9fcff7af5fdff80f5fdff90f5fdff9cf5fdff7418feff6819feffd01bfeff2c1cfeff763bfeff3246feff9e61feff4abcfeff5abcfeff34bffeff76bffeff26c0feffb8c1feff9ac2feff62dffeffc4e6feff06e7feff48e7fefffeecfeff10eefeff1e07ffffce07ffffb008ffff7e82ffffc482ffff7695ffffb895fffffe95ffff88dcffffcedcffff08ddffff7eddffffc4ddffff0cdeffffeae1ffff5ee2ffff04edffff4eedffff8cedffff94efffffd2efffff04f0ffff42f0ffffacf0ffff0af1ffff3cf1ffff6ef1ffffa0f1ffffd2f1ffff1cf2ffff5af2ffff8cf5fffff4ffffff4e500000165300001c53000020530000aa5e0000b85e0000bc5e0000d6640000487c00000a820000e0820000b28400003e88000052a30000e2d500006ce200003cf40000dcf5000074190100
->>>>>>> Beammy
-=======
-      m_ExpandedIDs: 72fbffffca420000
->>>>>>> Beammy
+      m_ExpandedIDs: 201affffb023ffffe0f6ffff32f8ffffa4620000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -300,9 +252,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 277
+    x: 244
     y: 0
-    width: 1227
+    width: 1077
     height: 596
   m_MinSize: {x: 204, y: 222}
   m_MaxSize: {x: 4004, y: 4022}
@@ -334,9 +286,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 277
+    x: 244
     y: 73
-    width: 1225
+    width: 1075
     height: 577
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
@@ -349,9 +301,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 48.42301, y: 11.750672, z: -85.80469}
+    m_Target: {x: -19.647354, y: 2.0071986, z: -24.894531}
     speed: 2
-    m_Value: {x: 48.42301, y: 11.750672, z: -85.80469}
+    m_Value: {x: -19.647354, y: 2.0071986, z: -24.894531}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -384,9 +336,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 44.359844
+    m_Target: 10.032579
     speed: 2
-    m_Value: 44.359844
+    m_Value: 10.032579
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -469,16 +421,6 @@ MonoBehaviour:
     - {fileID: -555092204124781862, guid: eeec2787d96f6534f8e870e0e0e33d5b, type: 2}
     - {fileID: 8510593428695694969, guid: 876d671a83b5bae4eabf36f0aa24ed5e, type: 2}
     m_ValueSerializationHelper:
-<<<<<<< HEAD
-    - e00: 0.689895
-      e01: 0
-      e02: 0
-      e03: 3.0801392
-      e10: 0
-      e11: 0.689895
-      e12: 0
-      e13: -153.97876
-=======
     - e00: 0.4968467
       e01: 0
       e02: 0
@@ -487,7 +429,6 @@ MonoBehaviour:
       e11: 0.4968467
       e12: 0
       e13: -27.115906
->>>>>>> Beammy
       e20: 0
       e21: 0
       e22: 1
@@ -546,21 +487,12 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-    y: 595
-    width: 1449
-    height: 352
+    y: 596
+    width: 1321
+    height: 351
   m_MinSize: {x: 232, y: 272}
   m_MaxSize: {x: 10002, y: 10022}
-  m_ActualView: {fileID: 13}
-=======
-    y: 596
-    width: 1504
-    height: 351
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 12}
->>>>>>> Beammy
   m_Panes:
   - {fileID: 12}
   - {fileID: 13}
@@ -592,7 +524,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 669
-    width: 1504
+    width: 1321
     height: 332
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -608,64 +540,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    - Assets/sprite/Player
-  m_ViewMode: 1
-  m_StartGridSize: 96
-  m_LastFolders:
-  - Assets/sprite/Player
-=======
     - Assets/prefab/Level/urban_Slum
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
   - Assets/prefab/Level/urban_Slum
->>>>>>> Beammy
-=======
-    - Assets/sprite/Menu
-  m_ViewMode: 1
-  m_StartGridSize: 96
-  m_LastFolders:
-  - Assets/sprite/Menu
->>>>>>> Beammy
-=======
-    - Assets/sprite/Tilemap/TV Station/Tiles
-  m_ViewMode: 1
-  m_StartGridSize: 96
-  m_LastFolders:
-  - Assets/sprite/Tilemap/TV Station/Tiles
->>>>>>> Beammy
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\Git_Hub\Project2-Sarm-Tum-Na\tumforge
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-<<<<<<< HEAD
-<<<<<<< HEAD
-    scrollPos: {x: 0, y: 51}
-    m_SelectedIDs: d2360000
-    m_LastClickedID: 14034
-    m_ExpandedIDs: 000000001034000094360000063700006639000088390000fe3a0000683c00004c3d0000783d000000ca9a3b
-=======
     scrollPos: {x: 0, y: 0}
-<<<<<<< HEAD
-    m_SelectedIDs: a4560000
-    m_LastClickedID: 22180
-    m_ExpandedIDs: 00000000c63b00003a3e0000aa3e00001a3f00000241000010410000644200008c430000a6440000ac440000d8440000a04b0000a456000000ca9a3b
->>>>>>> Beammy
-=======
-    m_SelectedIDs: 00390000
-    m_LastClickedID: 0
-    m_ExpandedIDs: 000000004e370000b6370000c63800003a3900002a3b0000a43b0000c63b0000543c0000443d0000643d0000703e0000b03e0000943f0000c03f000000ca9a3b
->>>>>>> Beammy
-=======
-    scrollPos: {x: 0, y: 228}
-    m_SelectedIDs: 563a0000
-    m_LastClickedID: 14934
-    m_ExpandedIDs: 0000000040340000e63600006237000064390000e63900000e3a00009c3a0000943b0000b43b0000ca3c0000fe3d00002a3e000000ca9a3b
->>>>>>> Beammy
+    m_SelectedIDs: 46460000
+    m_LastClickedID: 17990
+    m_ExpandedIDs: 00000000dc3f000004400000f0400000a442000024430000a043000036450000b8450000cc450000464600004a470000664700007e480000c2490000c8490000f4490000c44b0000a652000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -693,19 +581,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    m_ExpandedIDs: 000000001034000094360000063700006639000088390000fe3a0000683c00004c3d0000783d000000ca9a3b
-=======
-    m_ExpandedIDs: 00000000c63b00003a3e0000aa3e00001a3f00000241000010410000644200008c430000ac440000d8440000a04b0000a456000000ca9a3b
->>>>>>> Beammy
-=======
-    m_ExpandedIDs: 00000000383600004e370000b6370000c63800003a3900002a3b0000c63b0000543c0000443d0000643d0000703e0000b03e0000943f0000c03f000000ca9a3b
->>>>>>> Beammy
-=======
-    m_ExpandedIDs: 0000000040340000e636000062370000643900000e3a00009c3a0000943b0000b43b0000ca3c0000fe3d00002a3e000000ca9a3b
->>>>>>> Beammy
+    m_ExpandedIDs: 00000000dc3f000004400000f0400000a442000024430000a043000036450000b8450000cc450000464600004a470000664700007e480000c2490000c8490000f4490000c44b0000a652000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -730,27 +606,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    m_SelectedInstanceIDs: 40440000
-    m_LastClickedInstanceID: 17472
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
-=======
-    m_SelectedInstanceIDs: 6e480000
-    m_LastClickedInstanceID: 18542
-=======
-    m_SelectedInstanceIDs: d2190100
-    m_LastClickedInstanceID: 72146
->>>>>>> Beammy
-    m_HadKeyboardFocusLastEvent: 1
->>>>>>> Beammy
-=======
-    m_SelectedInstanceIDs: 74faffff
-    m_LastClickedInstanceID: -1420
-    m_HadKeyboardFocusLastEvent: 0
->>>>>>> Beammy
-    m_ExpandedInstanceIDs: c6230000b83b0000324800002e480000a0470000
+    m_ExpandedInstanceIDs: c6230000b83b0000324800002e480000a04700001a400000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -830,7 +689,7 @@ MonoBehaviour:
     height: 332
   m_ViewDataDictionary: {fileID: 0}
   m_ResetOnNextRepaint: 0
-  m_SelectedAssetPath: Assets/sprite/Tilemap/TV Station/Floor_+_Shape.png
+  m_SelectedAssetPath: Assets/sprite/Tilemap/Warehouse/TM_Warehouse_GlassPlatform.png
   m_SelectedSpriteRectGUID: 5e97eb03825dee720800000000000000
   m_LastUsedModuleTypeName: 
 --- !u!114 &15
@@ -979,7 +838,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1420
+  m_LastSelectedObjectID: -81810
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -997,28 +856,15 @@ MonoBehaviour:
   - {fileID: 21}
   m_Position:
     serializedVersion: 2
-    x: 1504
+    x: 1321
     y: 0
-    width: 416
+    width: 599
     height: 947
-  m_MinSize: {x: 277, y: 294}
-  m_MaxSize: {x: 4002, y: 8044}
+  m_MinSize: {x: 275, y: 272}
+  m_MaxSize: {x: 4002, y: 8022}
   vertical: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  controlID: 716
-=======
-  controlID: 20048
->>>>>>> Beammy
---- !u!114 &17
-=======
-  controlID: 65727
-=======
-  controlID: 3942
->>>>>>> Beammy
+  controlID: 16382
 --- !u!114 &18
->>>>>>> Beammy
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1035,10 +881,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 416
-    height: 666
-  m_MinSize: {x: 277, y: 72}
-  m_MaxSize: {x: 4002, y: 4022}
+    width: 599
+    height: 664
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -1066,10 +912,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1504
+    x: 1321
     y: 73
-    width: 414
-    height: 647
+    width: 597
+    height: 645
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
   m_ObjectsLockedBeforeSerialization: []
@@ -1081,22 +927,8 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LastInspectedObjectInstanceID: 17472
-=======
-  m_LastInspectedObjectInstanceID: 18542
->>>>>>> Beammy
+  m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
---- !u!114 &19
-=======
-  m_LastInspectedObjectInstanceID: 72146
-  m_LastVerticalScrollValue: 89
-=======
-  m_LastInspectedObjectInstanceID: -1420
-  m_LastVerticalScrollValue: 38
->>>>>>> Beammy
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1128,7 +960,6 @@ MonoBehaviour:
   m_Scope: 1
   m_SplitterFlex: 0.2
 --- !u!114 &21
->>>>>>> Beammy
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1144,11 +975,11 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 666
-    width: 416
-    height: 281
-  m_MinSize: {x: 202, y: 222}
-  m_MaxSize: {x: 4002, y: 4022}
+    y: 664
+    width: 599
+    height: 283
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 22}
@@ -1175,14 +1006,14 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1504
-    y: 739
-    width: 414
-    height: 262
+    x: 1321
+    y: 457
+    width: 597
+    height: 544
   m_ViewDataDictionary: {fileID: 0}
   m_PreviewResizer:
     m_CachedPref: -50
     m_ControlHash: 1964396721
     m_PrefName: Preview_TilemapBrushInspector
-  m_Palette: {fileID: 3177634792973539593, guid: f1461616d43535c429dc36b221aec457,
+  m_Palette: {fileID: 7539554529795944530, guid: 0197b19843f05104a8a1f419db7d1fb8,
     type: 3}
