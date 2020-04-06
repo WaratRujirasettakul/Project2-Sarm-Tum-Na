@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5282432836811077814}
   - component: {fileID: 7045200645575873168}
   - component: {fileID: 6441179889761006079}
+  - component: {fileID: 6158564643440967854}
   m_Layer: 8
   m_Name: 1x4asset urban breakable platform
   m_TagString: Ground
@@ -107,3 +108,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 0.50101817}
   m_EdgeRadius: 0
+--- !u!114 &6158564643440967854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368737728563690078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00a325106b72234da8f9cbadc4e2c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 3777280582136460919, guid: 3dcb620955927ca42bf6f5cf8b487c88, type: 3}
