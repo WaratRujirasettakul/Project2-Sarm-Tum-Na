@@ -45,7 +45,6 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     float confusedtimer;
     public float confusedtime = 10;
 
-
     void awake()
     {
         dataset();
