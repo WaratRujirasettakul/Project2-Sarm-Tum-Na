@@ -6,69 +6,77 @@ public class Code_EnemyLungeAttacker : MonoBehaviour
 {
     
     public int attackcount = 0;
-    public GameObject player;
     public GameObject enemy;
     public GameObject abilitycon;
-    public float attackdelay;
     public float base_attackdelay = 0.5f;
-    private float time;
-
-
+    public LayerMask obstacles;
+    private GameObject Prevhit;
+    public float playersightTimer = 3f;
+    public Transform CastPoint;
+    public float distance;
     // Start is called before the first frame update
     void Start()
     {
 
-        
-        attackdelay = base_attackdelay;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-
+        playerAttack();
 
 
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void playerAttack()
     {
-        if (collision.gameObject.tag == "player")
-        {
-            attackdelay = base_attackdelay;
-        }
-        if (collision.gameObject.tag == "Wall")
-        {
-            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().wallcol = true;
-            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().movementspeed = enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().basemovespeed;
-        }
-    }
+        float castDist;
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        if (enemy.gameObject.GetComponent<Code_StrongEnemyBehavior>().facingright == true)
         {
-            attackdelay -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
-            if (attackdelay <= 0)
+            castDist = distance;
+        }
+        else
+        {
+            castDist = -distance;
+        }
+
+        Vector2 endPos = CastPoint.position + Vector3.right * castDist;
+
+        RaycastHit2D hit = Physics2D.Linecast(CastPoint.position, endPos, obstacles);
+
+        if (hit.collider != null)
+        {
+            Debug.DrawLine(CastPoint.position, hit.point, Color.green);
+            if (hit.collider.gameObject.CompareTag("Player"))
             {
-                attackcount = 1;
+                Prevhit = hit.collider.gameObject;
+                //print(Prevhit.name);
+            }
+            if (Prevhit != null && (hit.collider.gameObject != Prevhit))
+            {
+                print("yoo");
+                playersightTimer = base_attackdelay;
+
+            }
+            else if (Prevhit != null && (hit.collider.gameObject == Prevhit))
+            {
                 
+                //Debug.DrawLine(CastPoint.position, hit.point, Color.red);
+                playersightTimer -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
+                if (playersightTimer <= 0f)
+                {
+                    attackcount = 1;
+                }
+                Debug.DrawLine(CastPoint.position, hit.point, Color.red);
             }
         }
+        else
+        {
+            Debug.DrawLine(CastPoint.position, hit.point, Color.green);
+        }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "player")
-        {
-            attackdelay = base_attackdelay;
-        }
-        if (collision.gameObject.tag == "Wall")
-        {
-            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().wallcol = false;
-            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().movementspeed = enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().basemovespeed;
-        }
     }
 
 
-}
+

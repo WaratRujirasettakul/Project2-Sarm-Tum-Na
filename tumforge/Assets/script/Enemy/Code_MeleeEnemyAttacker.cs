@@ -12,6 +12,7 @@ public class Code_MeleeEnemyAttacker : MonoBehaviour
     public float attackdelay;
     public float base_attackdelay = 0.5f;
     private float time;
+    public GameObject isattack;
 
     
     // Start is called before the first frame update
@@ -51,7 +52,12 @@ public class Code_MeleeEnemyAttacker : MonoBehaviour
             attackdelay -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
             if (attackdelay <= 0)
             {
+                isattack.gameObject.GetComponent<Code_isattacking>().isattacking = true;
                 player.GetComponent<Code_playermovement>().A_playerhealth -= damage;
+            }
+            else
+            {
+                isattack.gameObject.GetComponent<Code_isattacking>().isattacking = false;
             }
         }
     }

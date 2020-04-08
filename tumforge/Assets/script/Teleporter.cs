@@ -7,45 +7,29 @@ public class Teleporter : MonoBehaviour
 {
     //public GameObject entrance;
     public GameObject destination;
-    public string TagList = "Player";
+    public string TagList = "player";
     GameObject player;
+    GameObject background;
+    GameObject camera;
 
-
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    // if (TagList.Contains(TagList))
-    // {
-    //player's postion = tp out x location + 10
-    //print("hit");
-    //player.transform.position = destination.transform.position;
-    // if (Input.GetKey(KeyCode.E) == true)
-    //{
-    //player.transform.position = destination.transform.position;
-    // }
-    // }
-    // }
 
     private void Start()
     {
         player = GameObject.Find("player");
+        //background = GameObject.Find("blackground");
+        //camera = GameObject.Find("mainCamera");
+        camera = GameObject.FindWithTag("MainCamera");
+        background = GameObject.FindWithTag("MainCamera");
+
     }
 
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (TagList.Contains(TagList))
         {
-            //player's postion = tp out x location + 10
-
-            //print("hit");
-
-            //player.transform.position = destination.transform.position;
-
-            //if (Input.GetKeyUp(KeyCode.E) == true)
-            //{
-                player.transform.position = destination.transform.position;
-                //print("JESUS");
-            //}
+            player.transform.position = destination.transform.position;
+            background.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, background.transform.position.z);
+            camera.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, camera.transform.position.z);
         }
        
 

@@ -12,7 +12,7 @@ public class Code_DashEnemyDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damage += enemy.GetComponent<Code_BasicEnemybehavior>().e_dam;
+        
     }
 
     // Update is called once per frame
