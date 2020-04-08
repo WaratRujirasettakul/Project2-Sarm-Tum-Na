@@ -2,8 +2,11 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+<<<<<<< HEAD
+=======
     <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.2.19f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
     <CscToolExe>unity_csc.bat</CscToolExe>
+>>>>>>> master
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -55,10 +58,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
+<<<<<<< HEAD
+      <HintPath>C:\Program Files\Unity\Editor\2019.2.19f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:\Program Files\Unity\Editor\2019.2.19f1\Editor\Data\Managed/UnityEditor.dll</HintPath>
+=======
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.2.19f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.2.19f1\Editor\Data\Managed/UnityEditor.dll</HintPath>
+>>>>>>> master
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -116,7 +126,11 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
+<<<<<<< HEAD
+      <HintPath>D:/Git_Hub/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+=======
       <HintPath>C:/Users/yeen/Desktop/Github/timeforge/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+>>>>>>> master
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:/Users/yeen/Desktop/Github/timeforge/Project2-Sarm-Tum-Na/tumforge/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
@@ -695,7 +709,11 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.19f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Serialization">
+<<<<<<< HEAD
+      <HintPath>C:/Program Files/Unity/Editor/2019.2.19f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
+=======
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.19f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
+>>>>>>> master
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
