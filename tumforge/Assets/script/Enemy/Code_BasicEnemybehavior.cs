@@ -42,11 +42,11 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     public GameObject player;
     public GameObject abilitycon;                        //optimize needed     
     bool playerinsight = false;
-<<<<<<< HEAD
+//<<<<<<< HEAD
     float confusedtimer;
     public float confusedtime = 10;
 
-=======
+//=======
     public float playersightTimer = 3f;
     bool confusestate = false;
     GameObject Prevhit;
@@ -54,7 +54,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     bool couroutinerun = false;
     public float sightlostdelay = 3f;
     public GameObject attacker;
->>>>>>> Born's
+//>>>>>>> Born's
     void awake()
     {
         dataset();
