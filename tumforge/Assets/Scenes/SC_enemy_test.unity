@@ -987,7 +987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &38839860
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1041,7 +1041,6 @@ MonoBehaviour:
   movementspeed: 5
   movementduration: 0.2
   facingright: 1
-  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -1067,12 +1066,10 @@ MonoBehaviour:
   Rigidbody: {fileID: 38839861}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
-  confusedtimer: 0
-  confusedduration: 3
-  playerdetectduration: 3
-  confused: 0
+  confusedtime: 10
+  playersightTimer: 3
+  sightlostdelay: 3
   attacker: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!4 &38839863
 Transform:
   m_ObjectHideFlags: 0
@@ -1094,7 +1091,7 @@ Transform:
   - {fileID: 713642764}
   - {fileID: 2120773885}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &39433956 stripped
 Transform:
@@ -2864,7 +2861,7 @@ PrefabInstance:
     - target: {fileID: 8269757749481263013, guid: 000061e505d72e744a876979041c6779,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8269757749481263013, guid: 000061e505d72e744a876979041c6779,
         type: 3}
@@ -9017,100 +9014,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 540819805}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &507966606
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 336111637537115249, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 341614225}
-    - target: {fileID: 336111637537115249, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: abilitycon
-      value: 
-      objectReference: {fileID: 1309878137}
-    - target: {fileID: 336111637537115249, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1281695885}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 40.291016
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 24.17149
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.4746094
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115250, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637537115254, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: m_Name
-      value: Thug green (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 336111637549334803, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: abilitycon
-      value: 
-      objectReference: {fileID: 1309878137}
-    - target: {fileID: 336111637549334803, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 341614225}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2c04636d4c01aad4bbc91722ce5526ee, type: 3}
 --- !u!4 &508408392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1866571967575917635, guid: 640d3c0b6872fdf47a60b5b556177094,
@@ -11571,7 +11474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &631553841
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11625,7 +11528,6 @@ MonoBehaviour:
   movementspeed: 5
   movementduration: 0.2
   facingright: 1
-  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -11651,12 +11553,10 @@ MonoBehaviour:
   Rigidbody: {fileID: 631553842}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
-  confusedtimer: 0
-  confusedduration: 3
-  playerdetectduration: 3
-  confused: 0
+  confusedtime: 10
+  playersightTimer: 3
+  sightlostdelay: 3
   attacker: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!4 &631553844
 Transform:
   m_ObjectHideFlags: 0
@@ -11678,7 +11578,7 @@ Transform:
   - {fileID: 358172624}
   - {fileID: 1774118344}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641658185
 GameObject:
@@ -15245,7 +15145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &882676892
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -15299,7 +15199,6 @@ MonoBehaviour:
   movementspeed: 2.5
   movementduration: 0.2
   facingright: 1
-  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -15325,12 +15224,10 @@ MonoBehaviour:
   Rigidbody: {fileID: 882676893}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
-  confusedtimer: 0
-  confusedduration: 3
-  playerdetectduration: 3
-  confused: 0
+  confusedtime: 10
+  playersightTimer: 3
+  sightlostdelay: 3
   attacker: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!4 &882676895
 Transform:
   m_ObjectHideFlags: 0
@@ -15353,7 +15250,7 @@ Transform:
   - {fileID: 2006400765}
   - {fileID: 533413503}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &883069169
 PrefabInstance:
@@ -15612,7 +15509,7 @@ PrefabInstance:
     - target: {fileID: 8269757749481263013, guid: 000061e505d72e744a876979041c6779,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8269757749481263013, guid: 000061e505d72e744a876979041c6779,
         type: 3}
@@ -20846,7 +20743,6 @@ MonoBehaviour:
   movementspeed: 5
   movementduration: 0.2
   facingright: 1
-  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -20872,12 +20768,10 @@ MonoBehaviour:
   Rigidbody: {fileID: 1249714947}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
-  confusedtimer: 0
-  confusedduration: 3
-  playerdetectduration: 3
-  confused: 0
+  confusedtime: 10
+  playersightTimer: 3
+  sightlostdelay: 3
   attacker: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!212 &1249714949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20946,7 +20840,7 @@ Transform:
   - {fileID: 1654247113}
   - {fileID: 1929909705}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1249775350
 PrefabInstance:
@@ -21804,12 +21698,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1798002401}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1281695885 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9138175086986428212, guid: 2c04636d4c01aad4bbc91722ce5526ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 507966606}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1287690736
 GameObject:
   m_ObjectHideFlags: 0
@@ -22233,7 +22121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &1304490624
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -22287,7 +22175,6 @@ MonoBehaviour:
   movementspeed: 5
   movementduration: 0.2
   facingright: 1
-  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -22313,12 +22200,10 @@ MonoBehaviour:
   Rigidbody: {fileID: 1304490625}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
-  confusedtimer: 0
-  confusedduration: 3
-  playerdetectduration: 3
-  confused: 0
+  confusedtime: 10
+  playersightTimer: 3
+  sightlostdelay: 3
   attacker: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!4 &1304490627
 Transform:
   m_ObjectHideFlags: 0
@@ -22340,7 +22225,7 @@ Transform:
   - {fileID: 984429860}
   - {fileID: 1426384446}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1309878137
 GameObject:
@@ -22391,7 +22276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1310527065
 GameObject:
@@ -23966,7 +23851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &1416429823
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -24020,7 +23905,6 @@ MonoBehaviour:
   movementspeed: 5
   movementduration: 0.2
   facingright: 1
-  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -24046,12 +23930,10 @@ MonoBehaviour:
   Rigidbody: {fileID: 1416429824}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
-  confusedtimer: 0
-  confusedduration: 3
-  playerdetectduration: 3
-  confused: 0
+  confusedtime: 10
+  playersightTimer: 3
+  sightlostdelay: 3
   attacker: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!4 &1416429826
 Transform:
   m_ObjectHideFlags: 0
@@ -24073,7 +23955,7 @@ Transform:
   - {fileID: 646805348}
   - {fileID: 580733823}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1417149656
 GameObject:
@@ -25073,7 +24955,7 @@ Transform:
   m_LocalScale: {x: 0.615, y: 0.631, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1451119390
 BoxCollider2D:
@@ -25430,7 +25312,7 @@ PrefabInstance:
     - target: {fileID: 8269757749481263013, guid: 000061e505d72e744a876979041c6779,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8269757749481263013, guid: 000061e505d72e744a876979041c6779,
         type: 3}
@@ -25677,11 +25559,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527536562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.62, y: 23.03, z: -10}
+  m_LocalPosition: {x: -4.01, y: 12.72, z: -10}
   m_LocalScale: {x: 1.6352, y: 1.6352, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1532130602
 GameObject:
@@ -27442,7 +27324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &1640823387
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -27496,7 +27378,6 @@ MonoBehaviour:
   movementspeed: 5
   movementduration: 0.2
   facingright: 1
-  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -27522,12 +27403,10 @@ MonoBehaviour:
   Rigidbody: {fileID: 1640823388}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
-  confusedtimer: 0
-  confusedduration: 3
-  playerdetectduration: 3
-  confused: 0
+  confusedtime: 10
+  playersightTimer: 3
+  sightlostdelay: 3
   attacker: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!4 &1640823390
 Transform:
   m_ObjectHideFlags: 0
@@ -27549,7 +27428,7 @@ Transform:
   - {fileID: 304497948}
   - {fileID: 1148904032}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1642622155
 PrefabInstance:
@@ -30708,12 +30587,12 @@ PrefabInstance:
     - target: {fileID: 6761485084629739191, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.57
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6761485084629739191, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.86
+      value: 13.34
       objectReference: {fileID: 0}
     - target: {fileID: 6761485084629739191, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
@@ -30743,7 +30622,7 @@ PrefabInstance:
     - target: {fileID: 6761485084629739191, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6761485084629739191, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
@@ -31503,7 +31382,7 @@ PrefabInstance:
     - target: {fileID: 8269757749481263013, guid: 000061e505d72e744a876979041c6779,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8269757749481263013, guid: 000061e505d72e744a876979041c6779,
         type: 3}
@@ -32529,7 +32408,7 @@ Transform:
   - {fileID: 1436629026}
   - {fileID: 1097173532}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888694633 stripped
 GameObject:
@@ -33050,7 +32929,7 @@ Transform:
   - {fileID: 1491999383}
   - {fileID: 1407983309}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1920242743 stripped
 Transform:
@@ -33236,7 +33115,7 @@ PrefabInstance:
     - target: {fileID: 111117789446952417, guid: 1259618ae199c0f4788855ebe1d99455,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 111117789446952417, guid: 1259618ae199c0f4788855ebe1d99455,
         type: 3}
@@ -34189,7 +34068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &1969747119
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -34243,7 +34122,6 @@ MonoBehaviour:
   movementspeed: 5
   movementduration: 0.2
   facingright: 1
-  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -34269,12 +34147,10 @@ MonoBehaviour:
   Rigidbody: {fileID: 1969747120}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
-  confusedtimer: 0
-  confusedduration: 3
-  playerdetectduration: 3
-  confused: 0
+  confusedtime: 10
+  playersightTimer: 3
+  sightlostdelay: 3
   attacker: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!4 &1969747122
 Transform:
   m_ObjectHideFlags: 0
@@ -34296,7 +34172,7 @@ Transform:
   - {fileID: 1262009558}
   - {fileID: 1326700886}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1970003941 stripped
 Transform:
@@ -35438,7 +35314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &2039975520
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -35545,7 +35421,7 @@ Transform:
   - {fileID: 1081960987}
   - {fileID: 1028073978}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2046406080 stripped
 Transform:
@@ -36421,7 +36297,7 @@ PrefabInstance:
     - target: {fileID: 8269757749481263013, guid: 000061e505d72e744a876979041c6779,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8269757749481263013, guid: 000061e505d72e744a876979041c6779,
         type: 3}
@@ -36787,7 +36663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2111932464
 Transform:
   m_ObjectHideFlags: 0
@@ -36809,7 +36685,7 @@ Transform:
   - {fileID: 1260511746}
   - {fileID: 918066414}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &2111932465
 CapsuleCollider2D:
@@ -36864,7 +36740,6 @@ MonoBehaviour:
   movementspeed: 5
   movementduration: 0.2
   facingright: 1
-  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -36890,12 +36765,10 @@ MonoBehaviour:
   Rigidbody: {fileID: 2111932466}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
-  confusedtimer: 0
-  confusedduration: 3
-  playerdetectduration: 3
-  confused: 0
+  confusedtime: 10
+  playersightTimer: 3
+  sightlostdelay: 3
   attacker: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!4 &2112497877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1866571967575917635, guid: 640d3c0b6872fdf47a60b5b556177094,
@@ -37060,7 +36933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &2118323411
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -37114,7 +36987,6 @@ MonoBehaviour:
   movementspeed: 5
   movementduration: 0.2
   facingright: 1
-  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -37140,12 +37012,10 @@ MonoBehaviour:
   Rigidbody: {fileID: 2118323412}
   player: {fileID: 341614225}
   abilitycon: {fileID: 1309878137}
-  confusedtimer: 0
-  confusedduration: 3
-  playerdetectduration: 3
-  confused: 0
+  confusedtime: 10
+  playersightTimer: 3
+  sightlostdelay: 3
   attacker: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!4 &2118323414
 Transform:
   m_ObjectHideFlags: 0
@@ -37167,7 +37037,7 @@ Transform:
   - {fileID: 1532130603}
   - {fileID: 510847}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2120773883
 GameObject:
@@ -37644,7 +37514,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2145705223 stripped
 Transform:

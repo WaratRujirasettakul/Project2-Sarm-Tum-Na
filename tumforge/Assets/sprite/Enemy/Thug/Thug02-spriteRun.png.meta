@@ -1,25 +1,7 @@
 fileFormatVersion: 2
 guid: c422fea078e955340ae4fa8cb0b5b287
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -4699031647218404086
-    second: Thug02-spriteRun_0
-  - first:
-      213: 1968427418007416676
-    second: Thug02-spriteRun_1
-  - first:
-      213: -1335305476131854807
-    second: Thug02-spriteRun_2
-  - first:
-      213: 6206540493176175305
-    second: Thug02-spriteRun_3
-  - first:
-      213: 2967152683719312122
-    second: Thug02-spriteRun_4
-  - first:
-      213: -7192346763947131932
-    second: Thug02-spriteRun_5
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -49,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -58,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -88,147 +70,9 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Thug02-spriteRun_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 70.166664
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bee7676cf2801a439024e63c0b906e9
-      internalID: -4699031647218404086
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Thug02-spriteRun_1
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 0
-        width: 70.166664
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e546470f0227da4787ea983258aec1f
-      internalID: 1968427418007416676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Thug02-spriteRun_2
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 0
-        width: 70.166664
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d92dcc309bc54b34c93ae0d56d2cc588
-      internalID: -1335305476131854807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Thug02-spriteRun_3
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 0
-        width: 70.166664
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3cd1fb7356b7cc40b1bc95a0eeb0277
-      internalID: 6206540493176175305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Thug02-spriteRun_4
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 0
-        width: 70.166664
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9cb7f2f546c43644ae2d3f01665ae41
-      internalID: 2967152683719312122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Thug02-spriteRun_5
-      rect:
-        serializedVersion: 2
-        x: 350
-        y: 0
-        width: 70.166664
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3d1ed82f16c9294b846248920f1524c
-      internalID: -7192346763947131932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

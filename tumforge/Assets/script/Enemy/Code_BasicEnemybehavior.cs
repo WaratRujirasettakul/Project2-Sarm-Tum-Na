@@ -13,7 +13,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     public float movementduration = 0.5f;
     //---------------characterstate---------------------
     public bool facingright = true;
-    public bool foundplayer = false;
+    bool foundplayer = false;
     bool wallinfront = false;
     bool wallbehind = false;
     float WallDetectRadius = 0.05f;
@@ -41,21 +41,20 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     public Rigidbody2D Rigidbody;
     public GameObject player;
     public GameObject abilitycon;                        //optimize needed     
+    bool playerinsight = false;
+//<<<<<<< HEAD
+    float confusedtimer;
+    public float confusedtime = 10;
 
-    public float confusedtimer;
-    public float confusedduration = 3f;
-    float playertimer;
-    public float playerdetectduration = 3f;
-
-    public bool confused;
+//=======
+    public float playersightTimer = 3f;
+    bool confusestate = false;
+    GameObject Prevhit;
+    bool alreadyconfused = true;
     bool couroutinerun = false;
+    public float sightlostdelay = 3f;
     public GameObject attacker;
-
-    public Animator animator;
-    bool run;
-    bool attack;
-    bool idle;
-
+//>>>>>>> Born's
     void awake()
     {
         dataset();
@@ -64,72 +63,52 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     void FixedUpdate()
     {
         Statecheck();
-
     }
 
     void Update()
     {
         //print(abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
-
-        /*/if (abilitycon.gameObject.GetComponent<Code_AbilityController>().timestoping == false)
-        {
-            if (foundplayer && (!confusestate))
-            {
-                playerchase();
-                playerdetector(detect_distance);
-            }
-            else if (!foundplayer && (!confusestate))
-            {
-                playerdetector(detect_distance);
-                Counter();
-                Movementstoper();
-                Idle();
-            }
-            else if (confusestate)
-            {
-                if (!couroutinerun)
-                {
-                    couroutinerun = true;
-
-                    StartCoroutine(Confused());
-                }
-            }
-        }/*/
-
-        playerdetector(detect_distance);
-        Counter();
-        animate();
-
         if (abilitycon.gameObject.GetComponent<Code_AbilityController>().timestoping == false)
         {
-            if (!foundplayer)
+            if (attacker.gameObject.GetComponent<Code_isattacking>().isattacking == true)
             {
-                idle = true;
-                if (confused)
-                {
-                    if (couroutinerun == false)
-                    {
-                        StartCoroutine(Confused());
-                    }
-                }
-                else
-                {
-                    Idle();
-                    Movementstoper();
-                }
-
+                playerdetector(detect_distance);
             }
             else
             {
-                idle = false;
-                playerchase();
+                if (foundplayer && (!confusestate))
+                {
+                    playerchase();
+                    playerdetector(detect_distance);
+                }
+                else if (!foundplayer && (!confusestate))
+                {
+
+                    playerdetector(detect_distance);
+                    Counter();
+                    Movementstoper();
+                    Idle();
+                }
             }
-               
+           
         }
 
         if (e_health < 1)
         {
             Destroy(gameObject);
+        }
+
+        
+
+        if (confusestate)
+        {
+            
+            if (!couroutinerun)
+            {
+                couroutinerun = true;
+                StartCoroutine(Confused());
+            }
+            
         }
     }
 
@@ -170,12 +149,19 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         Move_Counter = movementduration;
         yield return new WaitForSeconds(1.5f);
     }
+    
     private IEnumerator Confused()
     {
-        couroutinerun = true;
+        Flip();
+        print("confuse");
+        yield return new WaitForSeconds(1f *abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         Flip();
         yield return new WaitForSeconds(1f *abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
-        couroutinerun = false;
+        Flip();
+        print("confuse");
+        confusestate = false;
+        alreadyconfused = true;
+        couroutinerun = true;
     }
     private IEnumerator Idle_moveL()
     {
@@ -209,27 +195,12 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private void Counter()
     {
-        confusedtime();
-        detecttime();
-
         Move_Counter -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
         Idle_counter -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
-        confusedtimer -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
-        playertimer -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
 
         if (Move_Counter < 0)
         {
             Move_Counter = 0;
-        }
-
-        if (confusedtimer < 0)
-        {
-            confusedtimer = 0;
-        }
-
-        if (playertimer < 0)
-        {
-            playertimer = 0;
         }
 
 
@@ -243,7 +214,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private void Idle()
     {
-        if (Idle_counter <= 1)
+        if (Idle_counter <= 1 && (!confusestate))
         {
             Idle_action = Random.Range(0, 10);
             if (Idle_action == 1)
@@ -277,59 +248,11 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private void playerchase()
     {
-        if (attacker.gameObject.GetComponent<Code_isattacking>().isattacking)
+        
+        //will add the confused beheviour soon
+        if ((this.transform.position.x - player.transform.position.x) > 0)
         {
-            //will add the confused beheviour soon
-            /*/
-            if ((this.transform.position.x - player.transform.position.x) > 0)
-            {
-                if (theresgroundinfront)
-                {
-                    //player left
-                    if (facingright)
-                    {
-                        Flip();
-                        Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
-                    }
-                    else
-                    {
-                        Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
-                    }
-                }
-                else
-                {
-                    Rigidbody.velocity = Vector2.zero;
-                    foundplayer = false;
-                }
-            }
-            else
-            {
-                if (theresgroundinfront)
-                {
-                    //player right
-                    if (facingright)
-                    {
-                        Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
-                    }
-                    else
-                    {
-                        Flip();
-                        Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
-                    }
-                }
-                else
-                {
-                    Rigidbody.velocity = Vector2.zero;
-                    foundplayer = false;
-                }
-            }
-            /*/
-        }
-
-        if (!attacker.gameObject.GetComponent<Code_isattacking>().isattacking)
-        {
-            attack = false;
-            if ((this.transform.position.x - player.transform.position.x) > 0)
+            if (theresgroundinfront)
             {
                 //player left
                 if (facingright)
@@ -344,6 +267,14 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             }
             else
             {
+                Rigidbody.velocity = Vector2.zero;
+                foundplayer = false;
+            }
+        }
+        else
+        {
+            if (theresgroundinfront)
+            {
                 //player right
                 if (facingright)
                 {
@@ -355,10 +286,11 @@ public class Code_BasicEnemybehavior : MonoBehaviour
                     Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
                 }
             }
-        }
-        else
-        {
-            attack = true;
+            else
+            {
+                Rigidbody.velocity = Vector2.zero;
+                foundplayer = false;
+            }
         }
     }
 
@@ -379,17 +311,11 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Linecast(CastPoint.position, endPos, obstacles);
 
+        
+
         if (hit.collider != null)
         {
             Debug.DrawLine(CastPoint.position, hit.point, Color.blue);
-            if (hit.collider.gameObject.CompareTag("Player"))
-            {
-                playertimer = playerdetectduration;
-                foundplayer = true;
-                Debug.DrawLine(CastPoint.position, hit.point, Color.red);
-            }
-
-            /*/
             if (hit.collider.gameObject.CompareTag("Player"))
             {
                 Prevhit = hit.collider.gameObject;
@@ -398,7 +324,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             }
             if (Prevhit != null && (hit.collider.gameObject != Prevhit))
             {
-                print("lostplayer");
+                print("yes");
                 foundplayer = false;
                 playerinsight = false;
                 playersightTimer -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
@@ -407,7 +333,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
                 {
                     foundplayer = false;
                     confusestate = true;
-                    print("Confused");
+                    print("wow");
                 }
                 
             }
@@ -417,15 +343,19 @@ public class Code_BasicEnemybehavior : MonoBehaviour
                 playersightTimer = sightlostdelay;
                 //Debug.DrawLine(CastPoint.position, hit.point, Color.red);
                 playerinsight = true;
+                print("check1");
                 foundplayer = true;
+                print("check2");
                 playerinsight = true;
+                print("check3");
                 Debug.DrawLine(CastPoint.position, hit.point, Color.red);
-            }/*/
+            }
+            //Prevhit = hit.collider.gameObject;
         }
         else
         {
             Debug.DrawLine(CastPoint.position, endPos, Color.blue);
-        } 
+        }
     }
     
     void Statecheck()
@@ -447,39 +377,4 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         }
     }
 
-    void confusedtime()
-    {
-        if ((confusedtimer < 0.07) && (confusedtimer > 0.0001))
-        {
-            confused = false;
-        }
-    }
-
-    void detecttime()
-    {
-        if ((playertimer < 0.07) && (playertimer > 0.0001))
-        {
-            foundplayer = false;
-            confused = true;
-            confusedtimer = confusedduration;
-            this.Rigidbody.velocity = new Vector2(0, 0);
-        }
-    }
-
-    void animate()
-    {
-        if (this.Rigidbody.velocity.x > 0)
-        {
-            run = true;
-        }
-        else
-        {
-            run = false;
-        }
-
-        animator.SetBool("run", run);
-        animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime);
-        animator.SetBool("idle", idle);
-        animator.SetBool("attack", attack);
-    }
 }
