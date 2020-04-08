@@ -12,7 +12,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     float Move_Counter;
     public float movementduration = 0.5f;
     //---------------characterstate---------------------
-    bool facingright = true;
+    public bool facingright = true;
     bool foundplayer = false;
     bool wallinfront = false;
     bool wallbehind = false;
@@ -42,10 +42,13 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     public GameObject player;
     public GameObject abilitycon;                        //optimize needed     
     bool playerinsight = false;
-    float confusedtimer;
-    public float confusedtime = 10;
-
-
+    public float playersightTimer = 3f;
+    bool confusestate = false;
+    GameObject Prevhit;
+    bool alreadyconfused = true;
+    bool couroutinerun = false;
+    public float sightlostdelay = 3f;
+    public GameObject attacker;
     void awake()
     {
         dataset();
@@ -61,22 +64,45 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         //print(abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         if (abilitycon.gameObject.GetComponent<Code_AbilityController>().timestoping == false)
         {
-            if (foundplayer)
+            if (attacker.gameObject.GetComponent<Code_isattacking>().isattacking == true)
             {
-                playerchase();
+                playerdetector(detect_distance);
             }
             else
             {
-                playerdetector(detect_distance);
-                Counter();
-                Movementstoper();
-                Idle();
+                if (foundplayer && (!confusestate))
+                {
+                    playerchase();
+                    playerdetector(detect_distance);
+                }
+                else if (!foundplayer && (!confusestate))
+                {
+
+                    playerdetector(detect_distance);
+                    Counter();
+                    Movementstoper();
+                    Idle();
+                }
             }
+           
         }
 
         if (e_health < 1)
         {
             Destroy(gameObject);
+        }
+
+        
+
+        if (confusestate)
+        {
+            
+            if (!couroutinerun)
+            {
+                couroutinerun = true;
+                StartCoroutine(Confused());
+            }
+            
         }
     }
 
@@ -117,7 +143,20 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         Move_Counter = movementduration;
         yield return new WaitForSeconds(1.5f);
     }
-
+    
+    private IEnumerator Confused()
+    {
+        Flip();
+        print("confuse");
+        yield return new WaitForSeconds(1f *abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        Flip();
+        yield return new WaitForSeconds(1f *abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        Flip();
+        print("confuse");
+        confusestate = false;
+        alreadyconfused = true;
+        couroutinerun = true;
+    }
     private IEnumerator Idle_moveL()
     {
         if (!facingright)
@@ -152,7 +191,6 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     {
         Move_Counter -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
         Idle_counter -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
-        confusedtimer -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
 
         if (Move_Counter < 0)
         {
@@ -170,7 +208,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private void Idle()
     {
-        if (Idle_counter <= 1)
+        if (Idle_counter <= 1 && (!confusestate))
         {
             Idle_action = Random.Range(0, 10);
             if (Idle_action == 1)
@@ -204,6 +242,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private void playerchase()
     {
+        
         //will add the confused beheviour soon
         if ((this.transform.position.x - player.transform.position.x) > 0)
         {
@@ -266,20 +305,50 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Linecast(CastPoint.position, endPos, obstacles);
 
+        
+
         if (hit.collider != null)
         {
+            Debug.DrawLine(CastPoint.position, hit.point, Color.blue);
             if (hit.collider.gameObject.CompareTag("Player"))
             {
-                foundplayer = true;
+                Prevhit = hit.collider.gameObject;
+                print(Prevhit.name);
+                
+            }
+            if (Prevhit != null && (hit.collider.gameObject != Prevhit))
+            {
+                print("yes");
+                foundplayer = false;
+                playerinsight = false;
+                playersightTimer -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
+                
+                if (playersightTimer <= 0f && (!playerinsight) && (!alreadyconfused))
+                {
+                    foundplayer = false;
+                    confusestate = true;
+                    print("wow");
+                }
+                
+            }
+            else if (Prevhit != null && (hit.collider.gameObject == Prevhit))
+            {
+                alreadyconfused = false;
+                playersightTimer = sightlostdelay;
+                //Debug.DrawLine(CastPoint.position, hit.point, Color.red);
                 playerinsight = true;
+                print("check1");
+                foundplayer = true;
+                print("check2");
+                playerinsight = true;
+                print("check3");
                 Debug.DrawLine(CastPoint.position, hit.point, Color.red);
             }
-            Debug.DrawLine(CastPoint.position, hit.point, Color.blue);
+            //Prevhit = hit.collider.gameObject;
         }
         else
         {
             Debug.DrawLine(CastPoint.position, endPos, Color.blue);
-            playerinsight = false;
         }
     }
     
