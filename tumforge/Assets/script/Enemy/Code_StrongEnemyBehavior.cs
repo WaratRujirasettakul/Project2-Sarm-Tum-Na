@@ -13,7 +13,7 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
     public float movementduration = 0.5f;
     public float lungespeed;
     //---------------characterstate---------------------
-    bool facingright = true;
+    public bool facingright = true;
     bool foundplayer = false;
     bool wallinfront = false;
     bool wallbehind = false;
@@ -46,7 +46,13 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
     public float lungTimer;
     bool lunging = false;
     public float lungduration = 1f;
-
+    bool playerinsight = false;
+    public float playersightTimer = 3f;
+    bool confusestate = false;
+    GameObject Prevhit;
+    bool alreadyconfused = true;
+    bool couroutinerun = false;
+    public float sightlostdelay = 3f;
     void awake()
     {
         dataset();
@@ -59,17 +65,18 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        if (foundplayer)
+        if (foundplayer && (!confusestate))
         {
             Counter();
             playerchase();
             Movementstoper();
+            playerdetector(detect_distance);
             if (attacker.GetComponent<Code_EnemyLungeAttacker>().attackcount == 1)
             {
                 StartCoroutine(lunge());
             }
         }
-        else
+        else if (!foundplayer && (!confusestate))
         {
             playerdetector(detect_distance);
             Counter();
@@ -80,6 +87,17 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
         if (e_health < 1)
         {
             Destroy(gameObject);
+        }
+
+        if (confusestate)
+        {
+
+            if (!couroutinerun)
+            {
+                couroutinerun = true;
+                StartCoroutine(Confused());
+            }
+
         }
     }
     private IEnumerator lunge()
@@ -97,9 +115,22 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
             lunging = true;
             Move_Counter = lungduration;
 
-            yield return new WaitForSeconds(lungTimer);
+            yield return new WaitForSeconds(lungTimer*abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
             attacker.GetComponent<Code_EnemyLungeAttacker>().attackcount = 0;
         }
+    }
+    private IEnumerator Confused()
+    {
+        Flip();
+        print("confuse");
+        yield return new WaitForSeconds(1f* abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        Flip();
+        yield return new WaitForSeconds(1f* abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        Flip();
+        print("confuse");
+        confusestate = false;
+        alreadyconfused = true;
+        couroutinerun = true;
     }
     private void Flip()
     {
@@ -287,12 +318,42 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
 
         if (hit.collider != null)
         {
+            Debug.DrawLine(CastPoint.position, hit.point, Color.blue);
             if (hit.collider.gameObject.CompareTag("Player"))
             {
+                Prevhit = hit.collider.gameObject;
+                print(Prevhit.name);
+                
+            }
+            if (Prevhit != null && (hit.collider.gameObject != Prevhit))
+            {
+                print("yes");
+                foundplayer = false;
+                playerinsight = false;
+                playersightTimer -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
+                
+                if (playersightTimer <= 0f && (!playerinsight) && (!alreadyconfused))
+                {
+                    foundplayer = false;
+                    confusestate = true;
+                    print("wow");
+                }
+                
+            }
+            else if (Prevhit != null && (hit.collider.gameObject == Prevhit))
+            {
+                alreadyconfused = false;
+                playersightTimer = sightlostdelay;
+                //Debug.DrawLine(CastPoint.position, hit.point, Color.red);
+                playerinsight = true;
+                print("check1");
                 foundplayer = true;
+                print("check2");
+                playerinsight = true;
+                print("check3");
                 Debug.DrawLine(CastPoint.position, hit.point, Color.red);
             }
-            Debug.DrawLine(CastPoint.position, hit.point, Color.blue);
+            //Prevhit = hit.collider.gameObject;
         }
         else
         {
