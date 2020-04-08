@@ -15,7 +15,7 @@ public class Code_AbilityController : MonoBehaviour
     public ParticleSystem PS;
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
