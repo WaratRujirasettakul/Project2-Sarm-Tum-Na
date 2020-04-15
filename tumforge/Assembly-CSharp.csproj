@@ -67,6 +67,8 @@
     <Compile Include="Assets\script\BG\Parallax_New.cs" />
     <Compile Include="Assets\script\Code_AbilityController.cs" />
     <Compile Include="Assets\script\Code_placeholder.cs" />
+    <Compile Include="Assets\script\Code_savesystem.cs" />
+    <Compile Include="Assets\script\cursor_enable.cs" />
     <Compile Include="Assets\script\Ending.cs" />
     <Compile Include="Assets\script\Enemy\Code_BasicEnemybehavior.cs" />
     <Compile Include="Assets\script\Enemy\Code_Bulletcode.cs" />
@@ -82,9 +84,11 @@
     <Compile Include="Assets\script\Player\Code_playermovement.cs" />
     <Compile Include="Assets\script\Player\PauseMenu.cs" />
     <Compile Include="Assets\script\Player\VerticalPlatform.cs" />
+    <Compile Include="Assets\script\PlayerData.cs" />
     <Compile Include="Assets\script\Sound\AudioObjectController.cs" />
     <Compile Include="Assets\script\Sound\SoundControlV2.cs" />
     <Compile Include="Assets\script\Sound\VolumeMixer.cs" />
+    <Compile Include="Assets\script\Stage\Code_levelSaver.cs" />
     <Compile Include="Assets\script\Stage\Destructable_by_attack.cs" />
     <Compile Include="Assets\script\Teleporter.cs" />
     <Compile Include="Assets\script\Teleporter_Scene.cs" />

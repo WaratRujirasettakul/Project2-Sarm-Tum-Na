@@ -68,6 +68,8 @@ public class Code_playermovement : MonoBehaviour
     float time;
     //---------------------Temp---------------------------
     float jumpPushForce = 10f;
+    public int level;
+    public GameObject levelsaver;
 
     // look at the enemy code and please add the timer using this code ( abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime ) to the part that time will effect such as speed and duration.
     // if done please go tick the add timer to the code block in the trello's card  name "Timestop ability better version" and put the screen shot of the code or how the code work into the card
@@ -76,6 +78,7 @@ public class Code_playermovement : MonoBehaviour
         S_Rigidbody2D = GetComponent<Rigidbody2D>();
         P_Camera = GameObject.Find("Main Camera");
         P_crossHair = P_Camera.GetComponent<Code_Crosshair>();
+        level = levelsaver.GetComponent<Code_levelSaver>().This_is_stage_number;
     }
 
     private void FixedUpdate()

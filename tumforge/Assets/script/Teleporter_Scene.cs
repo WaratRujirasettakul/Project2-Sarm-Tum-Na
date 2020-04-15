@@ -19,7 +19,13 @@ public class Teleporter_Scene : MonoBehaviour
     {
         if (TagList.Contains(TagList))
         {
-                Application.LoadLevel(SceneToLoad);
+            Application.LoadLevel(SceneToLoad);
+
+            PlayerData data = Code_savesystem.loadPlayer();
+            if (data.level > player.GetComponent<Code_playermovement>().level)
+            {
+                Code_savesystem.SavePlayer(player.GetComponent<Code_playermovement>());
+            }
         }
     }
 }
