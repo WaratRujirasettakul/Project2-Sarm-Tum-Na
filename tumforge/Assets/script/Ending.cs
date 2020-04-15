@@ -17,7 +17,7 @@ public class Ending : MonoBehaviour
         player = GameObject.Find("player");
         if(player == null)
         {
-            SceneManager.LoadScene(8);
+            SceneManager.LoadScene("SC_PlaceHolder_Lose");
         }
     }
 }
