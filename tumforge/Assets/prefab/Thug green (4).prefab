@@ -385,6 +385,7 @@ MonoBehaviour:
   playerdetectduration: 3
   confused: 0
   attacker: {fileID: 336111636156943321}
+  animator: {fileID: 0}
 --- !u!50 &336111637537115248
 Rigidbody2D:
   serializedVersion: 4
@@ -401,7 +402,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d73b4fd23abaf2c44a0ab65c4e3bb503, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
