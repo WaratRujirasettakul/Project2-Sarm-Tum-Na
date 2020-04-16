@@ -168,7 +168,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -300,6 +300,7 @@ MonoBehaviour:
   abilitycon: {fileID: 0}
   attackdelay: 0
   base_attackdelay: 0.5
+  isattack: {fileID: 0}
 --- !u!61 &1418219683415452011
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -412,6 +413,8 @@ MonoBehaviour:
   Idle_delay: 5
   movementspeed: 5
   movementduration: 0.2
+  facingright: 1
+  foundplayer: 0
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -438,7 +441,12 @@ MonoBehaviour:
   player: {fileID: 5983520812712255641, guid: f0dcc9ffb2235f24987e04c878724598, type: 3}
   abilitycon: {fileID: 1854117438967491335, guid: 4c0d98dc2af2c1d42aa975bb68d3e892,
     type: 3}
-  confusedtime: 10
+  confusedtimer: 0
+  confusedduration: 3
+  playerdetectduration: 3
+  confused: 0
+  attacker: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!50 &1418219684528994594
 Rigidbody2D:
   serializedVersion: 4

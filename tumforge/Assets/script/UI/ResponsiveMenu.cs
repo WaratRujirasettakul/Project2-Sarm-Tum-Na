@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using TMPro;
 using UnityEngine.SceneManagement;
 
 public class ResponsiveMenu : MonoBehaviour
 {
     Animator CameraObject;
-
+    //Suggestion: Place this code in Main Camera
     [Header("Menus")]
     [Tooltip("The Menu for when the MAIN menu buttons")]
     public GameObject mainMenu;
@@ -15,12 +16,43 @@ public class ResponsiveMenu : MonoBehaviour
     public GameObject playMenu;
     [Tooltip("The Menu for when the EXIT button is clicked")]
     public GameObject exitMenu;
+    public bool requireAnimator = true;
+    private static bool intro = true;
 
+    [Header("Sound")]
+    public AudioSource audioSource;
+    public AudioClip onHover;
+    public AudioClip onClick;
 
+    private void Update()
+    {
+        if (intro == true)
+        {
+            //transform.position = new Vector3(-1930, 1075, -925);
+            IntroScene();
+        }
+    }
     private void Start()
     {
+        Cursor.visible = true;
         Time.timeScale = 1;
-        CameraObject = transform.GetComponent<Animator>();
+        if (requireAnimator == true)
+        {
+            CameraObject = transform.GetComponent<Animator>();
+        }
+        if (intro == false)
+        {
+            CameraObject.SetFloat("Scene", 1);
+        }
+    }
+    public void IntroScene()
+    {
+        if (Input.anyKey)
+        {
+            CameraObject.SetFloat("Scene", 1);
+            intro = false;
+            Position1();
+        }
     }
     public void StartGame()
     {
@@ -71,10 +103,22 @@ public class ResponsiveMenu : MonoBehaviour
         DisableStartButton();
         CameraObject.SetFloat("Scene", 3);
     }
-
-
-
-
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene("SC_MainMenuV.2");
+    }
+    public void LoadLevelSelect()
+    {
+        SceneManager.LoadScene("SC_MainMenuV.2");
+    }
+    public void hover()
+    {
+        audioSource.PlayOneShot(onHover);
+    }
+    public void click()
+    {
+        audioSource.PlayOneShot(onClick);
+    }
 
 
 
