@@ -14,8 +14,8 @@ public class Code_playermovement : MonoBehaviour
     //---------------characterstate---------------------
     [SerializeField] private LayerMask S_WhatIsGround;
     [SerializeField] private Transform S_GroundCheck;
-    const float S_GroundedRadius = .2f;
-    private bool S_Grounded;
+    const float S_GroundedRadius = .02f;
+    public bool S_Grounded;
     [SerializeField] private LayerMask S_WhatIsWall;
     [SerializeField] private Transform S_WallCheck;
     const float S_WallCheckRadius = .2f;
@@ -309,6 +309,7 @@ public class Code_playermovement : MonoBehaviour
         animator.SetBool("attack", A_isAttacking);
         animator.SetBool("notmoving", S_notmoving);
         animator.SetBool("jumping", J_jumping);
+        animator.SetBool("Onground", S_Grounded);
     }
 
     void Death()
