@@ -17,6 +17,10 @@ public class MainMenu : MonoBehaviour
     public string LevelToLoad7;
     string menu;
 
+    public AudioSource audioSource;
+    public AudioClip onHover;
+    public AudioClip onClick;
+
     private void Awake()
     {
         menu = this.name;
@@ -67,5 +71,17 @@ public class MainMenu : MonoBehaviour
     public void setQuality (int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+    }
+    public void startGame()
+    {
+
+    }
+    public void hover()
+    {
+        audioSource.PlayOneShot (onHover);
+    }
+    public void click()
+    {
+        audioSource.PlayOneShot(onClick);
     }
 }
