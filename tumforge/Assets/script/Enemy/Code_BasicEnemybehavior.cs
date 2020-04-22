@@ -56,6 +56,9 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     bool attack;
     bool idle;
 
+    [Header("Effect")]
+    public GameObject effectWhenDestroyed;
+
     void awake()
     {
         dataset();
@@ -129,6 +132,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
         if (e_health < 1)
         {
+            Instantiate(effectWhenDestroyed, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

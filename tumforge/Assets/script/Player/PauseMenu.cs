@@ -42,20 +42,4 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
-    void ResumeToMenu()
-    {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPause = false;
-    }
-    public void LevelSelect()
-    {
-        ResumeToMenu();
-        Application.LoadLevel("LevelSelect");
-    }
-    public void ReturnToMenu()
-    {
-        ResumeToMenu();
-        Application.LoadLevel("MenuScene");
-    }
 }

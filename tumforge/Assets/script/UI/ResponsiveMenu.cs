@@ -17,12 +17,15 @@ public class ResponsiveMenu : MonoBehaviour
     [Tooltip("The Menu for when the EXIT button is clicked")]
     public GameObject exitMenu;
     public bool requireAnimator = true;
-    private static bool intro = true;
+    public static bool intro = true;
+    bool isOption = false;
 
     [Header("Sound")]
     public AudioSource audioSource;
     public AudioClip onHover;
     public AudioClip onClick;
+    public AudioClip Whoosh1;
+    public AudioClip Whoosh2;
 
     private void Update()
     {
@@ -49,7 +52,9 @@ public class ResponsiveMenu : MonoBehaviour
     {
         if (Input.anyKey)
         {
+            audioSource.PlayOneShot(onClick);
             CameraObject.SetFloat("Scene", 1);
+            audioSource.PlayOneShot(Whoosh1);
             intro = false;
             Position1();
         }
@@ -62,10 +67,12 @@ public class ResponsiveMenu : MonoBehaviour
     public void NewGame()
     {
         //Put something here
+        audioSource.PlayOneShot(Whoosh2);
     }
     public void Continue()
     {
         //Put something here
+        audioSource.PlayOneShot(Whoosh2);
     }
     public void Confirmation()
     {
@@ -78,6 +85,8 @@ public class ResponsiveMenu : MonoBehaviour
     public void ReturnToMenu()
     {
         CameraObject.SetFloat("Scene", 1);
+        audioSource.PlayOneShot(Whoosh2);
+        isOption = false;
     }
     public void DisableStartButton()
     {
@@ -88,24 +97,30 @@ public class ResponsiveMenu : MonoBehaviour
     {
         DisableStartButton();
         CameraObject.SetFloat("Scene", 1);
+        audioSource.PlayOneShot(Whoosh2);
     }
     public void LevelSelect()
     {
         CameraObject.SetFloat("Scene", 4);
+        audioSource.PlayOneShot(Whoosh2);
     }
     public void PositionToOptions()
     {
         DisableStartButton();
         CameraObject.SetFloat("Scene", 2);
+        audioSource.PlayOneShot(Whoosh2);
+        isOption = true;
     }
     public void PositionToCredits()
     {
         DisableStartButton();
         CameraObject.SetFloat("Scene", 3);
+        audioSource.PlayOneShot(Whoosh2);
     }
     public void LoadMenuScene()
     {
         SceneManager.LoadScene("SC_MainMenuV.2");
+
     }
     public void LoadLevelSelect()
     {
@@ -119,7 +134,6 @@ public class ResponsiveMenu : MonoBehaviour
     {
         audioSource.PlayOneShot(onClick);
     }
-
 
 
 
@@ -176,5 +190,9 @@ public class ResponsiveMenu : MonoBehaviour
     public void SC_stage13()
     {
         SceneManager.LoadScene("SC_stage13");
+    }
+    public void redrum()
+    {
+        SceneManager.LoadScene("SC_RedRoom");
     }
 }
