@@ -17,18 +17,43 @@ using UnityEngine.UI;
 
 public class VolumeMixer : MonoBehaviour
 {
+    public static VolumeMixer soundForce;
     public AudioMixer audioMixer;
     public Slider slider;
     public string Exposer;
+    [Header("Test Sound")]
+    public bool testSound;
+    public GameObject soundEffectTester;
 
+    void Awake()
+    {
+        soundForce = this;
+    }
     void Start()
     {
-        slider.value = PlayerPrefs.GetFloat(Exposer, 1.00f);
+        //soundEffectTester.SetActive(false);
+        //slider.value = PlayerPrefs.GetFloat(Exposer, 1.00f);
+        slider.value = PlayerPrefs.GetFloat(Exposer);
+    }
+    void Update()
+    {
+
     }
     public void SetVolume (float sliderValue)
     {  
         audioMixer.SetFloat(Exposer, Mathf.Log10(sliderValue) * 20);
         PlayerPrefs.SetFloat(Exposer, sliderValue);
+    }
+    public void TestSound()
+    {
+        if (testSound == true)
+        {
+            soundEffectTester.SetActive(true);
+        }
+    }
+    public void StopSound()
+    {
+        soundEffectTester.SetActive(false);
     }
 }
 

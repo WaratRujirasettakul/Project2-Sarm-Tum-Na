@@ -88,6 +88,7 @@ MonoBehaviour:
   movementspeed: 2.5
   movementduration: 0.2
   lungespeed: 30
+  facingright: 1
   WhatisWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -117,6 +118,10 @@ MonoBehaviour:
   attacker: {fileID: 6220510500460377293}
   lungTimer: 0.2
   lungduration: 0.1
+  playersightTimer: 3
+  sightlostdelay: 3
+  effectWhenDestroyed: {fileID: 5308335007649414220, guid: 0d79a5cd6ff4fbb48822bc929e2501f4,
+    type: 3}
 --- !u!50 &6220510499968556267
 Rigidbody2D:
   serializedVersion: 4
@@ -383,11 +388,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackcount: 0
-  player: {fileID: 0}
   enemy: {fileID: 6220510499968556245}
   abilitycon: {fileID: 0}
-  attackdelay: 0
   base_attackdelay: 0.5
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 0
+  playersightTimer: 3
+  CastPoint: {fileID: 0}
+  distance: 0
 --- !u!61 &6220510500460377282
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -447,6 +447,8 @@ MonoBehaviour:
   confused: 0
   attacker: {fileID: 0}
   animator: {fileID: 0}
+  effectWhenDestroyed: {fileID: 5308335007649414220, guid: 0d79a5cd6ff4fbb48822bc929e2501f4,
+    type: 3}
 --- !u!50 &3708011638498557126
 Rigidbody2D:
   serializedVersion: 4

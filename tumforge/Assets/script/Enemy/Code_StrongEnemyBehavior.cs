@@ -53,6 +53,9 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
     bool alreadyconfused = true;
     bool couroutinerun = false;
     public float sightlostdelay = 3f;
+
+    [Header("Effect")]
+    public GameObject effectWhenDestroyed;
     void awake()
     {
         dataset();
@@ -86,6 +89,7 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
 
         if (e_health < 1)
         {
+            Instantiate(effectWhenDestroyed, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

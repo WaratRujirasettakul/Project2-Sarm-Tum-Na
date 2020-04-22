@@ -69,6 +69,9 @@ public class Code_playermovement : MonoBehaviour
     //---------------------Temp---------------------------
     float jumpPushForce = 10f;
 
+    [Header("Effect")]
+    public GameObject dashingEffect;
+
     // look at the enemy code and please add the timer using this code ( abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime ) to the part that time will effect such as speed and duration.
     // if done please go tick the add timer to the code block in the trello's card  name "Timestop ability better version" and put the screen shot of the code or how the code work into the card
     private void Awake()
