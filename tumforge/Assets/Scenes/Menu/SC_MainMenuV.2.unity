@@ -7487,8 +7487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -650.5, y: 176.16994}
-  m_SizeDelta: {x: 37.5, y: 32.49}
+  m_AnchoredPosition: {x: -419.00003, y: 165.4}
+  m_SizeDelta: {x: 83.8, y: 34.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907729242
 MonoBehaviour:
@@ -7518,10 +7518,11 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Director\nBorn\r\nEugene\r\nOuh\r\nPaat\r\nTiger\r\nYeen"
+  m_Text: "Born\t\t-\tDirector/Music/Programming\r\nBeam\t\t-\tDesigner/Story/Programming\r\nTiger\t\t-\tStory/Marketing/Webmaster/Playtesting\r\nOuh
+    \t\t\t-\tArt Director/Graphics\r\nPaat \t\t-\tLevel Design/Graphics\r\nEugene\t\t-\tStory/Graphics/Playtesting\r\nYeen\t\t-\tProgramming\r"
 --- !u!222 &907729243
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10019,7 +10020,7 @@ RectTransform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 2029356128}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.000001}
   m_AnchorMin: {x: 0.7434607, y: 0.8561634}
   m_AnchorMax: {x: 0.75584567, y: 0.8785413}
@@ -11970,7 +11971,7 @@ RectTransform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 2029356128}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22374202, y: 0.85200006}
   m_AnchorMax: {x: 0.2771208, y: 0.94681615}
@@ -12407,7 +12408,7 @@ RectTransform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 2029356128}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12445,7 +12446,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Beam\r\nBorn\r\nEugene\r\nOuh\r\nPaat\r\nTiger\r\nYeen"
+  m_Text: "Character Illustrations\nArm\r\nJun\n\nAdditional Graphics\nWinny\n"
 --- !u!222 &1360585275
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12809,7 +12810,7 @@ RectTransform:
   m_Children:
   - {fileID: 1430984125}
   m_Father: {fileID: 2029356128}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7382908, y: 0.04846202}
   m_AnchorMax: {x: 0.9480001, y: 0.17622714}
@@ -13525,6 +13526,84 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436010775}
+  m_CullTransparentMesh: 0
+--- !u!1 &1439794111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1439794112}
+  - component: {fileID: 1439794114}
+  - component: {fileID: 1439794113}
+  m_Layer: 5
+  m_Name: GAD_Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1439794112
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439794111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2029356128}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 424, y: 165.4}
+  m_SizeDelta: {x: 83.8, y: 34.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1439794113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439794111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 0fa6ddfd21e3b4444b2000c22682aab7, type: 3}
+    m_FontSize: 4
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\n\n\nSpecial Thanks to\r\n\rPixelator\nfreesound.org\nand especially Katana
+    Zero for inspiring this game"
+--- !u!222 &1439794114
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439794111}
   m_CullTransparentMesh: 0
 --- !u!1 &1447320210
 GameObject:
@@ -14379,7 +14458,7 @@ RectTransform:
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_Children: []
   m_Father: {fileID: 2029356128}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.81053996}
   m_AnchorMax: {x: 1, y: 1}
@@ -15441,7 +15520,7 @@ RectTransform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 2029356128}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.279, y: 0.85200006}
   m_AnchorMax: {x: 0.33253023, y: 0.94681615}
@@ -16731,7 +16810,7 @@ RectTransform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 2029356128}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16769,7 +16848,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Beam\r\nBorn\r\nEugene\r\nOuh\r\nPaat\r\nTiger\r\nYeen"
+  m_Text: "Art Director\nNah\n\nBackgrounds\nCommy\r\nPray"
 --- !u!222 &1830394483
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16999,7 +17078,7 @@ RectTransform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 2029356128}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17037,7 +17116,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Beam\r\nBorn\r\nEugene\r\nOuh\r\nPaat\r\nTiger\r\nYeen"
+  m_Text: "Animation\nSkugra\r\nPloy\r\nFolk"
 --- !u!222 &1850194242
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18026,6 +18105,7 @@ RectTransform:
   - {fileID: 835050619}
   - {fileID: 915223557}
   - {fileID: 907729241}
+  - {fileID: 1439794112}
   - {fileID: 1830394481}
   - {fileID: 1360585273}
   - {fileID: 1850194240}

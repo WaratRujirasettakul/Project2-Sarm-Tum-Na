@@ -7,7 +7,7 @@ public class Teleporter : MonoBehaviour
 {
     //public GameObject entrance;
     public GameObject destination;
-    public string TagList = "player";
+    //public string TagList = "player";
     GameObject player;
     GameObject background;
     GameObject camera;
@@ -25,7 +25,7 @@ public class Teleporter : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (TagList.Contains(TagList))
+        if (collision.gameObject.tag == "Player")
         {
             player.transform.position = destination.transform.position;
             background.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, background.transform.position.z);
