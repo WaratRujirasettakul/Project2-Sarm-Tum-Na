@@ -29,6 +29,8 @@ public class PauseScript : MonoBehaviour
         {
             if (GameIsPause == true)
             {
+                mainPauseMenu();
+
                 Resume();
             }
             else
