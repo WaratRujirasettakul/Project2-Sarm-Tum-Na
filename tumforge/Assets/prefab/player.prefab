@@ -379,6 +379,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   S_GroundCheck: {fileID: 5983520814089625048}
+  S_Grounded: 0
   S_WhatIsWall:
     serializedVersion: 2
     m_Bits: 2048
@@ -390,6 +391,8 @@ MonoBehaviour:
   D_dashlimit: 2
   D_dashtimeValue: 0.15
   D_dashvelocity: 60
+  D_dashtimer: 0
+  D_dashdelay: 1
   iframetimer: 0.5
   gravitytimer: 0.1
   A_SWHOOSH: {fileID: 1070768909030489033}
@@ -397,7 +400,12 @@ MonoBehaviour:
   A_slashvelocity: 30
   A_playerdam: 1
   A_playerhealth: 1
+  A_attacktimer: 0
+  A_attackdelay: 0.75
   abilitycon: {fileID: 0}
+  level: 0
+  levelsaver: {fileID: 0}
+  dashingEffect: {fileID: 0}
 --- !u!70 &59252259483370690
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
