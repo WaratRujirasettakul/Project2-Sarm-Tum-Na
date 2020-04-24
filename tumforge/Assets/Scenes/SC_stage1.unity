@@ -45652,6 +45652,16 @@ PrefabInstance:
       propertyPath: J_jumpdetectdelay
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 6761485084629739187, guid: 4a9cb4d320205a043a159ab36eaee22a,
+        type: 3}
+      propertyPath: D_dashdelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761485084629739187, guid: 4a9cb4d320205a043a159ab36eaee22a,
+        type: 3}
+      propertyPath: A_attackdelay
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6761485084629739191, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
       propertyPath: m_LocalPosition.x
