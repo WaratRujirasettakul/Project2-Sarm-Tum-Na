@@ -92,9 +92,10 @@
     <Compile Include="Assets\script\Stage\Code_levelSaver.cs" />
     <Compile Include="Assets\script\Stage\Destructable_by_attack.cs" />
     <Compile Include="Assets\script\Stage\LaserBeam.cs" />
+    <Compile Include="Assets\script\Stage\LaserParticle.cs" />
     <Compile Include="Assets\script\Stage\Moving_LaserPlatform.cs" />
+    <Compile Include="Assets\script\Stage\Teleporter_Scene.cs" />
     <Compile Include="Assets\script\Teleporter.cs" />
-    <Compile Include="Assets\script\Teleporter_Scene.cs" />
     <Compile Include="Assets\script\UI\Code_camfollow.cs" />
     <Compile Include="Assets\script\UI\Code_Crosshair.cs" />
     <Compile Include="Assets\script\UI\Code_cursorlock.cs" />

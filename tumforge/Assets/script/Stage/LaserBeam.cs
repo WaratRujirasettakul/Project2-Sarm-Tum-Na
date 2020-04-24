@@ -7,13 +7,12 @@ public class LaserBeam : MonoBehaviour
     public int damage = 2;
     //public GameObject enemy;
     //public string TagList = "player";
-    public GameObject parentObject;
     GameObject player;
     public GameObject effect;
     private void Awake()
     {
         Instantiate(effect, transform.position, Quaternion.identity);
-        effect.transform.SetParent(parentObject.transform.parent);
+        //effect.transform.SetParent(parentObject.transform);
         //effect.transform.parent = parentObject.transform;
     }
     private void Start()
