@@ -47,6 +47,8 @@ public class Code_playermovement : MonoBehaviour
     public float D_dashvelocity = 120;
     bool D_isdashing = false;
     Vector2 speed_before_dash;
+    public float D_dashtimer;
+    public float D_dashdelay;
     public float iframetimer = 0.3f;
     public float gravitytimer = 0.1f;
 
@@ -63,6 +65,8 @@ public class Code_playermovement : MonoBehaviour
     Vector2 speed_before_slash;
     public int A_playerdam = 1;
     public int A_playerhealth = 1;
+    public float A_attacktimer;
+    public float A_attackdelay;
     //--------------------ability-------------------------
     public GameObject abilitycon;
     float time;
@@ -102,6 +106,7 @@ public class Code_playermovement : MonoBehaviour
     public void Move(float move, bool jump, bool dash)
     {
         D_dashtime -= time;
+        D_dashtimer -= time;
         J_jumpdetecttimer -= time;
 
         if (S_Grounded || P_AirControl)
@@ -135,11 +140,12 @@ public class Code_playermovement : MonoBehaviour
         }
 
         //------------------dash-----------------
-        if (D_dashnumber > 0 && dash)
+        if (D_dashnumber > 0 && dash && D_dashtimer <= 0)
         {
             speed_before_dash = new Vector2(S_Rigidbody2D.velocity.x, S_Rigidbody2D.velocity.y);
             D_dashnumber -= 1;
             D_isdashing = true;
+            D_dashtimer = D_dashdelay;
             D_dashtime = D_dashtimeValue;
             StartCoroutine(dashiframe());
             StartCoroutine(gravitys());
@@ -163,6 +169,10 @@ public class Code_playermovement : MonoBehaviour
         if (D_dashtime < 0)
         {
             D_dashtime = 0;
+        }
+        if (D_dashtimer < 0)
+        {
+            D_dashtimer = 0;
         }
     }
 
@@ -263,6 +273,7 @@ public class Code_playermovement : MonoBehaviour
     {
         //----------------------------------------------------------------------------
         A_slashtime -= time;
+        A_attacktimer -= time;
 
         if ((A_slashtime < 0.07) && (A_slashtime > 0.0001) && (A_isAttacking = true))
         {
@@ -274,11 +285,15 @@ public class Code_playermovement : MonoBehaviour
         {
             A_slashtime = 0;
         }
+        if (A_attacktimer < 0)
+        {
+            A_attacktimer = 0;
+        }
         //----------------------------------------------------------------------------
         if (!A_isAttacking)
         {
     
-            if (A_slashnumber > 0 && slash)
+            if (A_slashnumber > 0 && slash && A_attacktimer <= 0)
             {
                 LayerMask mask = LayerMask.GetMask("Enemy");
                 speed_before_slash = new Vector2(S_Rigidbody2D.velocity.x, S_Rigidbody2D.velocity.y);
@@ -286,6 +301,7 @@ public class Code_playermovement : MonoBehaviour
                 A_slashnumber -= 1;
                 A_isAttacking = true;
                 A_slashtime = A_slashtimevalue;
+                A_attacktimer = A_attackdelay;
             }
             if (A_slashtime > 0 && A_isAttacking)
             {
