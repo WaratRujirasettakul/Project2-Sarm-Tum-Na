@@ -90,6 +90,7 @@
     <Compile Include="Assets\script\Sound\VolumeMixer.cs" />
     <Compile Include="Assets\script\Stage\Code_levelSaver.cs" />
     <Compile Include="Assets\script\Stage\Destructable_by_attack.cs" />
+    <Compile Include="Assets\script\Stage\FallToDead.cs" />
     <Compile Include="Assets\script\Stage\LaserBeam.cs" />
     <Compile Include="Assets\script\Stage\LaserParticle.cs" />
     <Compile Include="Assets\script\Stage\Moving_LaserPlatform.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\script\UI\Code_Crosshair.cs" />
     <Compile Include="Assets\script\UI\Code_cursorlock.cs" />
     <Compile Include="Assets\script\UI\Code_Dialogsystem.cs" />
+    <Compile Include="Assets\script\UI\CoolDownBar.cs" />
     <Compile Include="Assets\script\UI\MainMenu.cs" />
     <Compile Include="Assets\script\UI\PauseScript.cs" />
     <Compile Include="Assets\script\UI\ResponsiveMenu.cs" />
