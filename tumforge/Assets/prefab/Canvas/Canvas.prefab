@@ -1636,8 +1636,8 @@ RectTransform:
   m_Father: {fileID: 852973491687527510}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.52996826, y: 0}
   m_SizeDelta: {x: 18.93, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1709,8 +1709,8 @@ RectTransform:
   m_Father: {fileID: 852973493291995954}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.5300293, y: 0}
   m_SizeDelta: {x: 18.93, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2051,7 +2051,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2104,6 +2104,7 @@ GameObject:
   - component: {fileID: 852973492945039892}
   - component: {fileID: 852973492945039893}
   - component: {fileID: 852973492945039914}
+  - component: {fileID: 6095889170480916183}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2210,10 +2211,26 @@ MonoBehaviour:
   Options: {fileID: 852973493291862495}
   audioSource: {fileID: 0}
   MusicSource: {fileID: 0}
-  SoundEffectSource: {fileID: 0}
   onHover: {fileID: 8300000, guid: d3b2b8ef665d5d8468d02019a0a8296a, type: 3}
   onClick: {fileID: 8300000, guid: ae8ae5b9bcce706428b8712778c59060, type: 3}
   onPause: {fileID: 8300000, guid: 3ccbb740d098b6d408b35fa8d078884f, type: 3}
+--- !u!114 &6095889170480916183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852973492945039915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d31f2a823d1da8409521378bbc5f867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winMenuUI: {fileID: 3071032544088143986}
+  loseMenuUI: {fileID: 7464628074458517058}
+  onHover: {fileID: 0}
+  onClick: {fileID: 0}
+  onPause: {fileID: 0}
 --- !u!1 &852973492966434588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2455,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

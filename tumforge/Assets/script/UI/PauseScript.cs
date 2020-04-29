@@ -14,7 +14,6 @@ public class PauseScript : MonoBehaviour
     [Header("Sound")]
     public AudioSource audioSource;
     public AudioSource MusicSource;
-    public AudioSource SoundEffectSource;
     public AudioClip onHover;
     public AudioClip onClick;
     public AudioClip onPause;
