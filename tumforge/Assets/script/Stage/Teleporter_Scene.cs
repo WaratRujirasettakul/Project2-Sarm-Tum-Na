@@ -11,21 +11,26 @@ public class Teleporter_Scene : MonoBehaviour
     public string TagList = "Player";
     GameObject player;
 
-    private void Start()
+    GameObject Canvas;
+    GameObject function;
+    WinLose_Script showContinue;
+    void Start()
     {
-        player = GameObject.Find("player");
+        //player = GameObject.Find("player");
+        player = GameObject.FindGameObjectWithTag("Player");
+        //WinLose_Script function = Canvas.GetComponent<WinLose_Script>();
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         if (TagList.Contains(TagList))
         {
-            Application.LoadLevel(SceneToLoad);
-
-            PlayerData data = Code_savesystem.loadPlayer();
-            if (data.level > player.GetComponent<Code_playermovement>().level)
-            {
-                Code_savesystem.SavePlayer(player.GetComponent<Code_playermovement>());
-            }
+            //Application.LoadLevel(SceneToLoad);
+            WinLose_Script.youWin = true;
         }
+        //if (collision.gameObject.tag == "Player")
+        //{
+            //showContinue.showContinue();
+            //WinLose_Script.youWin = true;
+        //}
     }
 }

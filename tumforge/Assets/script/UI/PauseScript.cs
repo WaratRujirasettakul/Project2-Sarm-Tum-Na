@@ -17,8 +17,12 @@ public class PauseScript : MonoBehaviour
     public AudioClip onHover;
     public AudioClip onClick;
     public AudioClip onPause;
+
+    GameObject player;
     void Start()
     {
+        player = GameObject.Find("player");
+        Time.timeScale = 1.0f;
         ingameCursor = GameObject.Find("cursor");
         pauseMenuUI.SetActive(false);
     }
@@ -26,15 +30,18 @@ public class PauseScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPause == true)
+            if (player != null)
             {
-                mainPauseMenu();
+                if (GameIsPause == true)
+                {
+                    mainPauseMenu();
 
-                Resume();
-            }
-            else
-            {
-                Pause();
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
     }
