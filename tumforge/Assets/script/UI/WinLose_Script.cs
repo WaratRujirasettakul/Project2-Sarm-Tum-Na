@@ -62,6 +62,7 @@ public class WinLose_Script : MonoBehaviour
             ingameCursor.gameObject.SetActive(false);
             winMenuUI.SetActive(true);
         }
+
     }
 
     //Just a function
