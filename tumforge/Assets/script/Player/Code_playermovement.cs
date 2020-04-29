@@ -78,6 +78,8 @@ public class Code_playermovement : MonoBehaviour
     [Header("Effect")]
     public GameObject dashingEffect;
 
+    float gravity;
+
     // look at the enemy code and please add the timer using this code ( abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime ) to the part that time will effect such as speed and duration.
     // if done please go tick the add timer to the code block in the trello's card  name "Timestop ability better version" and put the screen shot of the code or how the code work into the card
     private void Awake()
@@ -86,6 +88,7 @@ public class Code_playermovement : MonoBehaviour
         P_Camera = GameObject.Find("Main Camera");
         P_crossHair = P_Camera.GetComponent<Code_Crosshair>();
         level = levelsaver.GetComponent<Code_levelSaver>().This_is_stage_number;
+        gravity = S_Rigidbody2D.gravityScale;
     }
 
     private void FixedUpdate()
@@ -187,7 +190,8 @@ public class Code_playermovement : MonoBehaviour
 
     void Update()
     {
-        time = Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime;
+        time = Time.deltaTime;
+        //Gravity();
         animate();
         GroundCheck();
         WallCheck();
@@ -195,6 +199,7 @@ public class Code_playermovement : MonoBehaviour
         character();
         walljump();
         Swhoosh_movement();
+
 
         stateReset();
 
@@ -406,6 +411,11 @@ public class Code_playermovement : MonoBehaviour
                 S_Touchingwall = true;
             }
         }
+    }
+
+    void Gravity()
+    {
+        S_Rigidbody2D.gravityScale = gravity * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime;
     }
 }
 

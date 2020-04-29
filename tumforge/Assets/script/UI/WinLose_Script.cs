@@ -19,7 +19,7 @@ public class WinLose_Script : MonoBehaviour
     [Header("Scene")]
     Scene current_Scene;
     string sceneName;
-    int sceneNumber;
+    public int sceneNumber;
 
     [Header("Misc")]
     GameObject ingameCursor;
@@ -77,11 +77,12 @@ public class WinLose_Script : MonoBehaviour
     //Button
     public void retry()
     {
-            Application.LoadLevel(sceneName);
+        SceneManager.LoadScene(sceneName);
     }
     public void continueLevel()
     {
         winMenuUI.SetActive(false);
-        Application.LoadLevel(sceneNumber);
+        SceneManager.LoadScene(sceneNumber);
+        SceneManager.LoadScene(sceneNumber);
     }
 }
