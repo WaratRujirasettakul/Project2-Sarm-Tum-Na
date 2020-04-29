@@ -11,8 +11,12 @@ public class Code_AbilityController : MonoBehaviour
     public float ab_Player_FakeTime = 1f;
     [Range(0.0f, 100.0f)]
     public float ab_TimeslowPercent = 60f;
-    public float timeslowduration = 10f;
+    public float timeslowduration = 2f;
+    public bool timeslowing = false;
     public ParticleSystem PS;
+    public float timer;
+    public double timer2;
+    public float timestop_cooldown = 3f;
     void Start()
     {
         
@@ -21,35 +25,87 @@ public class Code_AbilityController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (skillcode == 1)
         {
-            /*if(skillcode == 1)
-            {
-                StartCoroutine(timestop());
-            }
-            */
+            timeslow();
+        }
+        else if (skillcode == 2)
+        {
+            timestop();
+        }
 
-            StartCoroutine(timeslow());
+    }
+    void timestop()
+    {
+        timer2 -= 0.05;
+        timer -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.E) && !timestoping && timer <= 0)
+        {
+            timer2 = timestopduration;
+            timestoping = true;
+            timer = timestop_cooldown;
+        }
+
+        if (timestoping)
+        {
+            ab_Enemy_FakeTime = 0;
+            ab_Player_FakeTime = 0;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            ab_Enemy_FakeTime = 1;
+            ab_Player_FakeTime = 1;
+            Time.timeScale = 1;
+        }
+
+        if (timer2 < 0)
+        {
+            timer2 = 0;
+            timestoping = false;
+            timer -= Time.deltaTime;
+        }
+
+        if (timer <= 0)
+        {
+            timer = 0;
         }
     }
-    private IEnumerator timestop()
-    {
-        ab_Enemy_FakeTime = 0f;
-        timestoping = true;
-        yield return new WaitForSeconds(timestopduration);
-        ab_Enemy_FakeTime = 1f;
-        timestoping = false;
-    }
 
-    private IEnumerator timeslow()
+    void timeslow()
     {
-        ab_Enemy_FakeTime = ab_TimeslowPercent/100;
-        ab_Player_FakeTime = ab_TimeslowPercent / 100;
-        PS.playbackSpeed = ab_TimeslowPercent / 100; ;
-        yield return new WaitForSeconds(timeslowduration);
-        ab_Enemy_FakeTime = 1f;
-        ab_Player_FakeTime = 1f;
-        PS.playbackSpeed = 1f;
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (timer > 0)
+            {
+                timeslowing = !timeslowing;
+            }
+        }
 
+        if (timeslowing)
+        {
+            timer -= Time.deltaTime;
+            ab_Enemy_FakeTime = ab_TimeslowPercent / 100;
+            ab_Player_FakeTime = ab_TimeslowPercent / 100;
+            Time.timeScale = ab_TimeslowPercent / 100;
+        }
+        else
+        {
+            timer += Time.deltaTime;
+            ab_Enemy_FakeTime = 1f;
+            ab_Player_FakeTime = 1f;
+            Time.timeScale = 1;
+        }
+
+        if(timer <= 0)
+        {
+            timeslowing = false;
+        }
+
+        if (timer >= timeslowduration)
+        {
+            timer = timeslowduration;
+        }
     }
 }
