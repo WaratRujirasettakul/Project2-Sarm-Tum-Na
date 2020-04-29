@@ -83,6 +83,6 @@ public class WinLose_Script : MonoBehaviour
     {
         winMenuUI.SetActive(false);
         SceneManager.LoadScene(sceneNumber);
-        SceneManager.LoadScene(sceneNumber);
+        this.GetComponent<LoadingMenuScript>().loadNextLevel();
     }
 }

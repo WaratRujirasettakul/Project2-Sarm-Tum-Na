@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Teleporter_Scene : MonoBehaviour
 {
-    public string SceneToLoad;
+    //public string SceneToLoad;
     public string TagList = "Player";
     GameObject player;
 

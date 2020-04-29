@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LoadingMenuScript : MonoBehaviour
@@ -13,37 +14,36 @@ public class LoadingMenuScript : MonoBehaviour
     string currentSceneName;
     int nextSceneNumber;
 
+
     void Start()
     {
         current_Scene = SceneManager.GetActiveScene();
         currentSceneName = current_Scene.name;
-        nextSceneNumber = gameObject.GetComponent<WinLose_Script>().sceneNumber;
-            //current_Scene.buildIndex + 1;
+        nextSceneNumber = current_Scene.buildIndex + 1;
+        loadingUI.SetActive(false);
     }
 
 
-
-
-
-
-
-
-
-
-    public void continueLevel()
+    public void loadNextLevel()
     {
-        StartCoroutine(LoadAsynchronously());
+        loadingUI.SetActive(true);
+            StartCoroutine(LoadAsynchronously());
     }
 
     IEnumerator LoadAsynchronously()
     {
+
         AsyncOperation operation = SceneManager.LoadSceneAsync(nextSceneNumber);
+        operation.allowSceneActivation = false;
 
-        while (!operation.isDone == false)
+        while (!operation.isDone)
         {
-            Debug.Log (operation.progress);
-
+            //float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            //loadingBar.value = progress; =====We doesn't have any loading bar so I didn't use this
             yield return null;
+            operation.allowSceneActivation = true;
         }
+        yield return null;
     }
+
 }
