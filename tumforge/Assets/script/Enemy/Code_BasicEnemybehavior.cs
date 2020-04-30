@@ -13,7 +13,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     public float movementduration = 0.5f;
     //---------------characterstate---------------------
     public bool facingright = true;
-    bool foundplayer = false;
+    public bool foundplayer = false;
     bool wallinfront = false;
     bool wallbehind = false;
     float WallDetectRadius = 0.05f;
@@ -53,7 +53,10 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     bool run;
     bool attack;
     bool idle;
-
+    public float playertimer;
+    public float confusedduration;
+    public float confusedtimer;
+    public bool confused;
     [Header("Effect")]
     public GameObject effectWhenDestroyed;
 
