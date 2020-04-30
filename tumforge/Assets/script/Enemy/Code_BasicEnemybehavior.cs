@@ -49,7 +49,20 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     bool couroutinerun = false;
     public float sightlostdelay = 3f;
     public GameObject attacker;
+<<<<<<< Updated upstream
     void awake()
+=======
+
+    public Animator animator;
+    bool run;
+    bool attack;
+    bool idle;
+
+    [Header("Effect")]
+    public GameObject effectWhenDestroyed;
+
+    void Awake()
+>>>>>>> Stashed changes
     {
         dataset();
     }
@@ -70,7 +83,12 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             }
             else
             {
+<<<<<<< Updated upstream
                 if (foundplayer && (!confusestate))
+=======
+                
+                if (confused)
+>>>>>>> Stashed changes
                 {
                     playerchase();
                     playerdetector(detect_distance);
@@ -83,8 +101,19 @@ public class Code_BasicEnemybehavior : MonoBehaviour
                     Movementstoper();
                     Idle();
                 }
+<<<<<<< Updated upstream
             }
            
+=======
+
+            }
+            else 
+            {
+                
+                playerchase();
+            } 
+               
+>>>>>>> Stashed changes
         }
 
         if (e_health < 1)
@@ -242,9 +271,63 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     private void playerchase()
     {
+<<<<<<< Updated upstream
         
         //will add the confused beheviour soon
         if ((this.transform.position.x - player.transform.position.x) > 0)
+=======
+        if (attacker.gameObject.GetComponent<Code_isattacking>().isattacking == true)
+        {
+            attack = true;
+            //will add the confused beheviour soon
+            /*/
+            if ((this.transform.position.x - player.transform.position.x) > 0)
+            {
+                if (theresgroundinfront)
+                {
+                    //player left
+                    if (facingright)
+                    {
+                        Flip();
+                        Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                    }
+                    else
+                    {
+                        Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                    }
+                }
+                else
+                {
+                    Rigidbody.velocity = Vector2.zero;
+                    foundplayer = false;
+                }
+            }
+            else
+            {
+                if (theresgroundinfront)
+                {
+                    //player right
+                    if (facingright)
+                    {
+                        Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                    }
+                    else
+                    {
+                        Flip();
+                        Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                    }
+                }
+                else
+                {
+                    Rigidbody.velocity = Vector2.zero;
+                    foundplayer = false;
+                }
+            }
+            /*/
+        }
+
+        if (attacker.gameObject.GetComponent<Code_isattacking>().isattacking == false)
+>>>>>>> Stashed changes
         {
             if (theresgroundinfront)
             {
@@ -280,12 +363,17 @@ public class Code_BasicEnemybehavior : MonoBehaviour
                     Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
                 }
             }
+<<<<<<< Updated upstream
             else
             {
                 Rigidbody.velocity = Vector2.zero;
                 foundplayer = false;
             }
         }
+=======
+        }
+        
+>>>>>>> Stashed changes
     }
 
     private void playerdetector(float distance)
@@ -371,4 +459,49 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    void confusedtime()
+    {
+        if ((confusedtimer < 0.07) && (confusedtimer > 0.0001))
+        {
+            confused = false;
+        }
+    }
+
+    void detecttime()
+    {
+        if ((playertimer < 0.07) && (playertimer > 0.0001))
+        {
+            foundplayer = false;
+            confused = true;
+            confusedtimer = confusedduration;
+            this.Rigidbody.velocity = new Vector2(0, 0);
+        }
+    }
+
+    void animate()
+    {
+        if (this.Rigidbody.velocity.x != 0 && !attack)
+        {
+            idle = false;
+            run = true;
+        }
+        else if(this.Rigidbody.velocity.x == 0 && !attack)
+        {
+            idle = true;
+            run = false;
+        }
+        if (attack)
+        {
+            idle = false;
+            run = false;
+        }
+
+        animator.SetBool("run", run);
+        animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        animator.SetBool("idle", idle);
+        animator.SetBool("attack", attack);
+    }
+>>>>>>> Stashed changes
 }

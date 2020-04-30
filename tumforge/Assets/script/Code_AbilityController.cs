@@ -45,7 +45,7 @@ public class Code_AbilityController : MonoBehaviour
     {
         ab_Enemy_FakeTime = ab_TimeslowPercent/100;
         ab_Player_FakeTime = ab_TimeslowPercent / 100;
-        PS.playbackSpeed = ab_TimeslowPercent / 100; ;
+        PS.playbackSpeed = ab_TimeslowPercent / 100; 
         yield return new WaitForSeconds(timeslowduration);
         ab_Enemy_FakeTime = 1f;
         ab_Player_FakeTime = 1f;

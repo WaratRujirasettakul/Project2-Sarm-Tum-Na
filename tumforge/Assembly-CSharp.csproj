@@ -69,14 +69,31 @@
     <Compile Include="Assets\script\Code_placeholder.cs" />
     <Compile Include="Assets\script\Enemy\Code_BasicEnemybehavior.cs" />
     <Compile Include="Assets\script\Enemy\Code_Bulletcode.cs" />
+    <Compile Include="Assets\script\Enemy\Code_Corruptedmonk.cs" />
+    <Compile Include="Assets\script\Enemy\Code_Corruptedmonkattack.cs" />
     <Compile Include="Assets\script\Enemy\Code_DashEnemyDamage.cs" />
     <Compile Include="Assets\script\Enemy\Code_EnemyLungeAttacker.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Assets\script\Enemy\Code_EnemyRangeAttacker.cs" />
+=======
+    <Compile Include="Assets\script\Enemy\Code_Finalboss.cs" />
+    <Compile Include="Assets\script\Enemy\Code_GngBoss.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets\script\Enemy\Code_isattacking.cs" />
+    <Compile Include="Assets\script\Enemy\Code_Mafiaboss.cs" />
     <Compile Include="Assets\script\Enemy\Code_MeleeEnemyAttacker.cs" />
     <Compile Include="Assets\script\Enemy\Code_RangedEnemyAttacker.cs" />
+    <Compile Include="Assets\script\Enemy\Code_Shieldattack.cs" />
+    <Compile Include="Assets\script\Enemy\Code_Shieldbehav.cs" />
     <Compile Include="Assets\script\Enemy\Code_StrongEnemyBehavior.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Assets\script\Exit.cs" />
+=======
+    <Compile Include="Assets\script\Enemy\Code_swordmanatkcheck.cs" />
+    <Compile Include="Assets\script\Enemy\Code_Swordmanbehav.cs" />
+    <Compile Include="Assets\script\Enemy\Code_swordmandmg.cs" />
+    <Compile Include="Assets\script\GameController.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets\script\Player\Code_playermovement.cs" />
     <Compile Include="Assets\script\Player\VerticalPlatform.cs" />
     <Compile Include="Assets\script\Stage\Destructable_by_attack.cs" />

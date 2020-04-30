@@ -53,6 +53,15 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
     bool alreadyconfused = true;
     bool couroutinerun = false;
     public float sightlostdelay = 3f;
+<<<<<<< Updated upstream
+=======
+    public Animator animator;
+    bool run;
+    bool attack;
+    bool idle;
+    [Header("Effect")]
+    public GameObject effectWhenDestroyed;
+>>>>>>> Stashed changes
     void awake()
     {
         dataset();
@@ -99,9 +108,11 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
             }
 
         }
+        animate();
     }
     private IEnumerator lunge()
     {
+        attack = true;
         if (!lunging)
         {
             if (facingright)
@@ -117,6 +128,7 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
 
             yield return new WaitForSeconds(lungTimer*abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
             attacker.GetComponent<Code_EnemyLungeAttacker>().attackcount = 0;
+            attack = false;
         }
     }
     private IEnumerator Confused()
@@ -249,6 +261,7 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
         {
             this.Rigidbody.velocity = new Vector2(0, this.Rigidbody.velocity.y);
             lunging = false;
+            attack = false;
         }
     }
     private void playerchase()
@@ -379,7 +392,31 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
             print(player.gameObject.GetComponent<Code_playermovement>().A_playerdam);
         }
     }
+    void animate()
+    {
+        if (this.Rigidbody.velocity.x != 0 && !attack)
+        {
+            idle = false;
+            run = true;
 
+        }
+        else if (this.Rigidbody.velocity.x == 0 && !attack)
+        {
+            idle = true;
+            run = false;
+        }
+        else if (attack)
+        {
+            idle = false;
+            run = false;
+
+        }
+
+        animator.SetBool("run", run);
+        animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        animator.SetBool("idle", idle);
+        animator.SetBool("attack", attack);
+    }
 
 }
 
