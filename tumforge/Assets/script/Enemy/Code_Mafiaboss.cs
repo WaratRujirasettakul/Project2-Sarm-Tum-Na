@@ -22,6 +22,9 @@ public class Code_Mafiaboss : MonoBehaviour
     bool couroutinerun = false;
     int i = 0;
     int j = 0;
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,7 @@ public class Code_Mafiaboss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (attackcount == 1)
         {
 
@@ -40,7 +44,7 @@ public class Code_Mafiaboss : MonoBehaviour
                 print("shoot");
                 if (!couroutinerun)
                 {
-                    StartCoroutine(attack());
+                    StartCoroutine(AAttack());
                 }
             }
         }
@@ -102,7 +106,7 @@ public class Code_Mafiaboss : MonoBehaviour
             Debug.DrawLine(CastPoint.position, hit.point, Color.green);
         }
     }
-    private IEnumerator attack()
+    private IEnumerator AAttack()
     {
         couroutinerun = true;
         j = Random.Range(3, 7);
@@ -119,4 +123,6 @@ public class Code_Mafiaboss : MonoBehaviour
         couroutinerun = false;
         isattack.gameObject.GetComponent<Code_isattacking>().isattacking = false;
     }
+
+    
 }

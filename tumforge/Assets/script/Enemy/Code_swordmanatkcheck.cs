@@ -30,7 +30,7 @@ public class Code_swordmanatkcheck : MonoBehaviour
     private IEnumerator attack()
     {
         Physics2D.IgnoreLayerCollision(12, 10, true);
-        yield return new WaitForSeconds(0.1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        yield return new WaitForSeconds(0.2f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         attackbox.SetActive(true);
         yield return new WaitForSeconds(0.1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         attackbox.SetActive(false);
