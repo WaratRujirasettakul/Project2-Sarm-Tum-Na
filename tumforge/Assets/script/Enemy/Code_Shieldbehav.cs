@@ -564,7 +564,7 @@ public class Code_Shieldbehav : MonoBehaviour
         }
 
         animator.SetBool("run", run);
-        animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        //animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         animator.SetBool("idle", idle);
         animator.SetBool("attack", attack);
         animator.SetBool("attack2", attack2);
