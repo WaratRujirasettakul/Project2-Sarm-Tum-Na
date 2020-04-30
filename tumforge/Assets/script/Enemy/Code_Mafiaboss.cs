@@ -22,6 +22,11 @@ public class Code_Mafiaboss : MonoBehaviour
     bool couroutinerun = false;
     int i = 0;
     int j = 0;
+    public Animator animator;
+    public Rigidbody2D Rigidbody;
+    public bool attackK = false;
+    public bool idle = false;
+    public bool run = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +36,8 @@ public class Code_Mafiaboss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        attackK = isattack.gameObject.GetComponent<Code_isattacking>().isattacking;
+        Animate();
         if (attackcount == 1)
         {
 
@@ -118,5 +125,31 @@ public class Code_Mafiaboss : MonoBehaviour
         playersightTimer = base_sighttimer;
         couroutinerun = false;
         isattack.gameObject.GetComponent<Code_isattacking>().isattacking = false;
+    }
+
+    void Animate()
+    {
+        if (this.Rigidbody.velocity.x != 0 && !attackK)
+        {
+            idle = false;
+            run = true;
+
+        }
+        else if (this.Rigidbody.velocity.x == 0 && !attackK)
+        {
+            idle = true;
+            run = false;
+        }
+        else if (attackK)
+        {
+            idle = false;
+            run = false;
+
+        }
+
+        animator.SetBool("run", run);
+        animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        animator.SetBool("idle", idle);
+        animator.SetBool("attack", attackK);
     }
 }
