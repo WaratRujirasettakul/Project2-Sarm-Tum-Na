@@ -53,9 +53,13 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
     bool alreadyconfused = true;
     bool couroutinerun = false;
     public float sightlostdelay = 3f;
-
+    public Animator animator;
+    bool run;
+    bool attack;
+    bool idle;
     [Header("Effect")]
     public GameObject effectWhenDestroyed;
+
     void awake()
     {
         dataset();
@@ -89,7 +93,6 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
 
         if (e_health < 1)
         {
-            Instantiate(effectWhenDestroyed, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
@@ -103,9 +106,11 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
             }
 
         }
+        animate();
     }
     private IEnumerator lunge()
     {
+        attack = true;
         if (!lunging)
         {
             if (facingright)
@@ -119,17 +124,18 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
             lunging = true;
             Move_Counter = lungduration;
 
-            yield return new WaitForSeconds(lungTimer*abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+            yield return new WaitForSeconds(lungTimer * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
             attacker.GetComponent<Code_EnemyLungeAttacker>().attackcount = 0;
+            attack = false;
         }
     }
     private IEnumerator Confused()
     {
         Flip();
         print("confuse");
-        yield return new WaitForSeconds(1f* abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         Flip();
-        yield return new WaitForSeconds(1f* abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         Flip();
         print("confuse");
         confusestate = false;
@@ -253,6 +259,7 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
         {
             this.Rigidbody.velocity = new Vector2(0, this.Rigidbody.velocity.y);
             lunging = false;
+            attack = false;
         }
     }
     private void playerchase()
@@ -327,7 +334,7 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
             {
                 Prevhit = hit.collider.gameObject;
                 print(Prevhit.name);
-                
+
             }
             if (Prevhit != null && (hit.collider.gameObject != Prevhit))
             {
@@ -335,14 +342,14 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
                 foundplayer = false;
                 playerinsight = false;
                 playersightTimer -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
-                
+
                 if (playersightTimer <= 0f && (!playerinsight) && (!alreadyconfused))
                 {
                     foundplayer = false;
                     confusestate = true;
                     print("wow");
                 }
-                
+
             }
             else if (Prevhit != null && (hit.collider.gameObject == Prevhit))
             {
@@ -383,7 +390,33 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
             print(player.gameObject.GetComponent<Code_playermovement>().A_playerdam);
         }
     }
+    void animate()
+    {
+        if (this.Rigidbody.velocity.x != 0 && !attack)
+        {
+            idle = false;
+            run = true;
 
+        }
+        else if (this.Rigidbody.velocity.x == 0 && !attack)
+        {
+            idle = true;
+            run = false;
+        }
+        else if (attack)
+        {
+            idle = false;
+            run = false;
+
+        }
+
+        animator.SetBool("run", run);
+        animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        animator.SetBool("idle", idle);
+        animator.SetBool("attack", attack);
+    }
 
 }
+
+
 
