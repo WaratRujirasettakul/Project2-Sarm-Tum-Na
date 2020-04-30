@@ -129,9 +129,9 @@ public class Code_Corruptedmonkattack : MonoBehaviour
     private IEnumerator aoee()
     {
         couroutinerun = true;
-        yield return new WaitForSeconds(.2f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        yield return new WaitForSeconds(.3f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         aoe.SetActive(true);
-        yield return new WaitForSeconds(.2f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        yield return new WaitForSeconds(.7f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         aoe.SetActive(false);
         attackcount = 0;
         attacklist = 0;

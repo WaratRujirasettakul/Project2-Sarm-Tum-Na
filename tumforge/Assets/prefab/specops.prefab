@@ -117,7 +117,7 @@ MonoBehaviour:
   abilitycon: {fileID: 0}
   playersightTimer: 3
   sightlostdelay: 3
-  attacker: {fileID: 1488416667725597549}
+  attacker: {fileID: 1488416668620371367}
   animator: {fileID: 1488416668412051366}
   playertimer: 0
   confusedduration: 3
@@ -300,11 +300,6 @@ MonoBehaviour:
   bullet: {fileID: 6635496718073043913, guid: 95826a9f637ebe54b94f16d8137683bf, type: 3}
   isattacking: 0
   isattack: {fileID: 1488416668620371367}
-  animator: {fileID: 1488416668412051366}
-  Rigidbody: {fileID: 1488416667690420446}
-  attackK: 0
-  idle: 0
-  run: 0
 --- !u!1 &1488416667985223845
 GameObject:
   m_ObjectHideFlags: 0

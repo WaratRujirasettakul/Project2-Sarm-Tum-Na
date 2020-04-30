@@ -59,7 +59,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     public bool confused;
     [Header("Effect")]
     public GameObject effectWhenDestroyed;
-
+    float sidecheck;
     void Awake()
     {
         dataset();
@@ -72,6 +72,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     void Update()
     {
+        sidecheck = player.gameObject.transform.position.x - this.gameObject.transform.position.x;
         //print(abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         if (abilitycon.gameObject.GetComponent<Code_AbilityController>().timestoping == false)
         {
@@ -114,6 +115,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             }
 
         }
+        animate();
     }
 
     private void Flip()
@@ -304,45 +306,52 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
         if (attacker.gameObject.GetComponent<Code_isattacking>().isattacking == false)
         {
-            if (theresgroundinfront)
-            {
-                //player left
-                if (facingright)
+            if (sidecheck < 0) {
+                if (theresgroundinfront)
                 {
-                    Flip();
-                    Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+
+                    //player left
+                    if (facingright)
+                    {
+                        Flip();
+                        Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                    }
+                    else
+                    {
+                        Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                    }
                 }
                 else
                 {
-                    Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                    Rigidbody.velocity = Vector2.zero;
+                    foundplayer = false;
+                }
+            }else if (sidecheck > 0)
+            {
+                if (theresgroundinfront)
+                {
+                    //player right
+                    if (facingright)
+                    {
+                        Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                    }
+                    else
+                    {
+                        Flip();
+                        Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
+                    }
+                }
+                else
+                {
+                    Rigidbody.velocity = Vector2.zero;
+                    foundplayer = false;
                 }
             }
-            else
-            {
-                Rigidbody.velocity = Vector2.zero;
-                foundplayer = false;
-            }
+            
         }
         else
         {
-            if (theresgroundinfront)
-            {
-                //player right
-                if (facingright)
-                {
-                    Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
-                }
-                else
-                {
-                    Flip();
-                    Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
-                }
-            }
-            else
-            {
-                Rigidbody.velocity = Vector2.zero;
-                foundplayer = false;
-            }
+            
         }
     }
 
@@ -429,7 +438,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
         }
     }
 
-    void confusedtime()
+    /*void confusedtime()
     {
         if ((confusedtimer < 0.07) && (confusedtimer > 0.0001))
         {
@@ -446,7 +455,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             confusedtimer = confusedduration;
             this.Rigidbody.velocity = new Vector2(0, 0);
         }
-    }
+    }*/
 
     void animate()
     {
