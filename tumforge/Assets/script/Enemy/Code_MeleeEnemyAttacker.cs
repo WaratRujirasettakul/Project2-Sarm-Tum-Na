@@ -13,7 +13,7 @@ public class Code_MeleeEnemyAttacker : MonoBehaviour
     public float base_attackdelay = 0.5f;
     private float time;
     public GameObject isattack;
-    bool cou = false;
+
     
     // Start is called before the first frame update
     void Start()
@@ -34,49 +34,46 @@ public class Code_MeleeEnemyAttacker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (collision.gameObject.tag == "player")
+        {
             attackdelay = base_attackdelay;
-
-       
+        }
+        if (collision.gameObject.tag == "Wall")
+        {
+            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().wallcol = true;
+            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().movementspeed = enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().basemovespeed;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
         if (collision.gameObject.tag == "Player")
         {
             attackdelay -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
-            if (!cou)
+            if (attackdelay <= 0)
             {
-                if (attackdelay <= 0)
-                {
-                    StartCoroutine(atk());
-                    cou = true;
-                }
+                isattack.gameObject.GetComponent<Code_isattacking>().isattacking = true;
+                player.GetComponent<Code_playermovement>().A_playerhealth -= damage;
             }
-            
-        }
-        else
-        {
-            attackdelay = base_attackdelay;
+            else
+            {
+                isattack.gameObject.GetComponent<Code_isattacking>().isattacking = false;
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
+        if (collision.gameObject.tag == "player")
+        {
             attackdelay = base_attackdelay;
-
-      
+        }
+        if (collision.gameObject.tag == "Wall")
+        {
+            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().wallcol = false;
+            //enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().movementspeed = enemy.gameObject.GetComponent<Code_BasicEnemybehavior>().basemovespeed;
+        }
     }
 
-    private IEnumerator atk()
-    {
-        isattack.gameObject.GetComponent<Code_isattacking>().isattacking = true;
-        
-        yield return new WaitForSeconds(.7f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
-        player.GetComponent<Code_playermovement>().A_playerhealth -= damage;
-        isattack.gameObject.GetComponent<Code_isattacking>().isattacking = false;
-        cou = false;
-    }
+
 }

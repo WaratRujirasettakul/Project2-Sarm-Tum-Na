@@ -19,7 +19,6 @@ public class Code_RangedEnemyAttacker : MonoBehaviour
     public GameObject bullet;
     public bool isattacking;
     public GameObject isattack;
-    bool couroutinerun = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +35,9 @@ public class Code_RangedEnemyAttacker : MonoBehaviour
             {
                 isattack.gameObject.GetComponent<Code_isattacking>().isattacking = true;
                 print("shoot");
-                if (!couroutinerun)
-                {
-                    StartCoroutine(attack());
-                }
+                Instantiate(bullet, transform.position, Quaternion.identity);
+                attackcount = 0;
+                playersightTimer = base_sighttimer;
             }
         }
         playerAttack();
@@ -99,15 +97,5 @@ public class Code_RangedEnemyAttacker : MonoBehaviour
             isattack.gameObject.GetComponent<Code_isattacking>().isattacking = false;
             Debug.DrawLine(CastPoint.position, hit.point, Color.green);
         }
-    }
-    private IEnumerator attack()
-    {
-        couroutinerun = true;
-        yield return new WaitForSeconds(.2f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
-        Instantiate(bullet, transform.position, Quaternion.identity);
-        attackcount = 0;
-        playersightTimer = base_sighttimer;
-        couroutinerun = false;
-        isattack.gameObject.GetComponent<Code_isattacking>().isattacking = false;
     }
 }
