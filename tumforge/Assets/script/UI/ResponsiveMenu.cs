@@ -127,6 +127,7 @@ public class ResponsiveMenu : MonoBehaviour
     }
     public void LoadMenuScene()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("SC_MainMenuV.2");
 
     }

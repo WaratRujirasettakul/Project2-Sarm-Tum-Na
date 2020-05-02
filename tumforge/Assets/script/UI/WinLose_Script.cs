@@ -53,6 +53,7 @@ public class WinLose_Script : MonoBehaviour
     {
         if (player == null)
         {
+            PauseScript.GameIsPause = true;
             Cursor.visible = true;
             Time.timeScale = 0.25f;
             ingameCursor.gameObject.SetActive(false);
@@ -68,6 +69,7 @@ public class WinLose_Script : MonoBehaviour
     //Just a function
     public void showContinue()
     {
+        PauseScript.GameIsPause = true;
         Cursor.visible = true;
         Time.timeScale = 0.0f;
         ingameCursor.gameObject.SetActive(false);

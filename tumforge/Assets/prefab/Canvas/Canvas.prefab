@@ -2405,7 +2405,7 @@ Animator:
   m_GameObject: {fileID: 852973492945039915}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4814b4f9ee798814dafd385c9641a1fe, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5402,7 +5402,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 852973492945039914}
-        m_MethodName: Resume
+        m_MethodName: loadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5430,7 +5430,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 852973492945039914}
-          m_MethodName: loadMenu
+          m_MethodName: click
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

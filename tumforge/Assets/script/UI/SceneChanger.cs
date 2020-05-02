@@ -11,11 +11,13 @@ public class SceneChanger : MonoBehaviour
 
     public void FadeToLevel ()
     {
+        Time.timeScale = 1f;
         animator.SetTrigger("FadeOut");
     }
 
     public void onFadeComplecte ()
     {
+        PauseScript.GameIsPause = false;
         if (LoadingMenuScript.isItLevel == true)
         {
             ForCanvas.GetComponent<LoadingMenuScript>().startToLoad();
