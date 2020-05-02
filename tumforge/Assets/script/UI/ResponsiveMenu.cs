@@ -19,6 +19,7 @@ public class ResponsiveMenu : MonoBehaviour
     public bool requireAnimator = true;
     public static bool intro = true;
     bool isOption = false;
+    public GameObject ForSceneChanger;
 
     [Header("Sound")]
     public AudioSource audioSource;
@@ -27,6 +28,12 @@ public class ResponsiveMenu : MonoBehaviour
     public AudioClip Whoosh1;
     public AudioClip Whoosh2;
 
+    [Header("Scene")]
+    public GameObject ForSceneChangerInMenu;
+    string stageName = "SC_stage";
+    int stageNumber;
+    string stage;
+
     private void Update()
     {
         if (intro == true)
@@ -34,6 +41,7 @@ public class ResponsiveMenu : MonoBehaviour
             //transform.position = new Vector3(-1930, 1075, -925);
             IntroScene();
         }
+        stage = stageName + stageNumber;
     }
     private void Start()
     {
@@ -135,13 +143,14 @@ public class ResponsiveMenu : MonoBehaviour
         audioSource.PlayOneShot(onClick);
     }
 
-
+    
 
 
     //[SCENE TO LOAD]
     public void SC_stage1()
     {
-        SceneManager.LoadScene("SC_stage1");
+        stageNumber = 1;
+        SceneManager.LoadScene(stage);
     }
     public void SC_stage2()
     {

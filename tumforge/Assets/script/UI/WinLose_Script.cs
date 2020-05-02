@@ -8,6 +8,7 @@ public class WinLose_Script : MonoBehaviour
     [Header("Canvas")]
     public GameObject winMenuUI;
     public GameObject loseMenuUI;
+    public GameObject ForSceneChanger;
 
     [Header("Sound")]
     AudioSource audioSource;
@@ -25,6 +26,7 @@ public class WinLose_Script : MonoBehaviour
     GameObject ingameCursor;
     GameObject player;
     public static bool youWin = false;
+    public static bool isRetry = false;
 
     void Start()
     {
@@ -44,6 +46,7 @@ public class WinLose_Script : MonoBehaviour
         sceneNumber = current_Scene.buildIndex + 1;
 
         youWin = false;
+        isRetry = false;
     }
 
     void Update()
@@ -57,10 +60,7 @@ public class WinLose_Script : MonoBehaviour
         }
         if (youWin == true)
         {
-            Cursor.visible = true;
-            Time.timeScale = 0f;
-            ingameCursor.gameObject.SetActive(false);
-            winMenuUI.SetActive(true);
+            showContinue();
         }
 
     }
@@ -69,20 +69,26 @@ public class WinLose_Script : MonoBehaviour
     public void showContinue()
     {
         Cursor.visible = true;
-        Time.timeScale = 0f;
+        Time.timeScale = 0.0f;
         ingameCursor.gameObject.SetActive(false);
         winMenuUI.SetActive(true);
+        youWin = false;
     }
 
     //Button
     public void retry()
+    {
+        isRetry = true;
+        ForSceneChanger.GetComponent<SceneChanger>().FadeToLevel();
+    }
+    public void retry2()
     {
         SceneManager.LoadScene(sceneName);
     }
     public void continueLevel()
     {
         winMenuUI.SetActive(false);
-        SceneManager.LoadScene(sceneNumber);
+        //SceneManager.LoadScene(sceneNumber);
         this.GetComponent<LoadingMenuScript>().loadNextLevel();
     }
 }

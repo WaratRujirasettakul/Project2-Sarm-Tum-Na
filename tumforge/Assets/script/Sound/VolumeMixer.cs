@@ -25,6 +25,10 @@ public class VolumeMixer : MonoBehaviour
     public bool testSound;
     public GameObject soundEffectTester;
 
+    [Header("Sound")]
+    public AudioSource audioSource;
+    public AudioClip onSoundTest;
+
     void Awake()
     {
         soundForce = this;
@@ -54,6 +58,10 @@ public class VolumeMixer : MonoBehaviour
     public void StopSound()
     {
         soundEffectTester.SetActive(false);
+    }
+    public void PlayEffectOnce()
+    {
+        audioSource.PlayOneShot(onSoundTest);
     }
 }
 
