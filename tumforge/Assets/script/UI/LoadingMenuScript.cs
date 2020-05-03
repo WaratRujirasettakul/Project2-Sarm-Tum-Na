@@ -13,11 +13,12 @@ public class LoadingMenuScript : MonoBehaviour
     Scene current_Scene;
     string currentSceneName;
     int nextSceneNumber;
-    public GameObject ForSceneChanger;
+    GameObject ForSceneChanger;
     public static bool isItLevel;
 
     void Start()
     {
+        Time.timeScale = 1f;
         isItLevel = false;
         current_Scene = SceneManager.GetActiveScene();
         currentSceneName = current_Scene.name;
@@ -32,6 +33,7 @@ public class LoadingMenuScript : MonoBehaviour
 
     public void loadNextLevel()
     {
+        Time.timeScale = 1.0f;
         isItLevel = true;
         ForSceneChanger.GetComponent<SceneChanger>().FadeToLevel();
         //loadingUI.SetActive(true);

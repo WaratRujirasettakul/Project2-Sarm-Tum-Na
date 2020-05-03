@@ -14,6 +14,7 @@ public class Teleporter_Scene : MonoBehaviour
     GameObject Canvas;
     GameObject function;
     WinLose_Script showContinue;
+    bool activatable = true;
     void Start()
     {
         //player = GameObject.Find("player");
@@ -25,7 +26,11 @@ public class Teleporter_Scene : MonoBehaviour
         if (TagList.Contains(TagList))
         {
             //Application.LoadLevel(SceneToLoad);
-            WinLose_Script.youWin = true;
+            if (activatable == true)
+            {
+                activatable = false;
+                WinLose_Script.youWin = true;
+            }
         }
         //if (collision.gameObject.tag == "Player")
         //{

@@ -27,9 +27,11 @@ public class WinLose_Script : MonoBehaviour
     GameObject player;
     public static bool youWin = false;
     public static bool isRetry = false;
+    bool isRetryTime = false;
 
     void Start()
     {
+        Time.timeScale = 1f;
         audioSource = gameObject.GetComponent<PauseScript>().audioSource;
         MusicSource = gameObject.GetComponent<PauseScript>().MusicSource;
         onHover = gameObject.GetComponent<PauseScript>().onHover;
@@ -47,17 +49,22 @@ public class WinLose_Script : MonoBehaviour
 
         youWin = false;
         isRetry = false;
+        isRetryTime = false;
     }
 
     void Update()
     {
         if (player == null)
         {
-            PauseScript.GameIsPause = true;
-            Cursor.visible = true;
-            Time.timeScale = 0.25f;
-            ingameCursor.gameObject.SetActive(false);
-            loseMenuUI.SetActive(true);
+            if (isRetry == false)
+            {
+                PauseScript.GameIsPause = true;
+                Cursor.visible = true;
+                ingameCursor.gameObject.SetActive(false);
+                loseMenuUI.SetActive(true);
+                Time.timeScale = 0.25f;
+                isRetryTime = true;
+            }
         }
         if (youWin == true)
         {
@@ -71,24 +78,27 @@ public class WinLose_Script : MonoBehaviour
     {
         PauseScript.GameIsPause = true;
         Cursor.visible = true;
-        Time.timeScale = 0.0f;
+        Time.timeScale = 0f;
         ingameCursor.gameObject.SetActive(false);
         winMenuUI.SetActive(true);
-        youWin = false;
     }
 
     //Button
     public void retry()
     {
         isRetry = true;
+        loseMenuUI.SetActive(false);
         ForSceneChanger.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void retry2()
     {
+        isRetry = false;
         SceneManager.LoadScene(sceneName);
     }
     public void continueLevel()
     {
+        youWin = false;
+        PauseScript.GameIsPause = false;
         winMenuUI.SetActive(false);
         //SceneManager.LoadScene(sceneNumber);
         this.GetComponent<LoadingMenuScript>().loadNextLevel();

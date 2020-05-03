@@ -27,7 +27,6 @@ public class PauseScript : MonoBehaviour
         Time.timeScale = 1.0f;
         ingameCursor = GameObject.Find("cursor");
         pauseMenuUI.SetActive(false);
-        //IsGamePaused = false;
     }
     void Update()
     {

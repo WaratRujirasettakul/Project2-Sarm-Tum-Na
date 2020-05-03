@@ -42713,6 +42713,16 @@ PrefabInstance:
       propertyPath: soundEffectTester
       value: 
       objectReference: {fileID: 1436463959}
+    - target: {fileID: 852973491779451854, guid: aa40e0641b4bd7141acd8cefc23214a0,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 505499076}
+    - target: {fileID: 852973491779451854, guid: aa40e0641b4bd7141acd8cefc23214a0,
+        type: 3}
+      propertyPath: onSoundTest
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ccbb740d098b6d408b35fa8d078884f, type: 3}
     - target: {fileID: 852973492526294614, guid: aa40e0641b4bd7141acd8cefc23214a0,
         type: 3}
       propertyPath: m_AnchorMin.x
