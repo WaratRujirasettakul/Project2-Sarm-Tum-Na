@@ -11751,7 +11751,7 @@ PrefabInstance:
     - target: {fileID: 1418219684528994595, guid: 1c801217dcbbe6a46bea515c93130477,
         type: 3}
       propertyPath: e_health
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1418219684528994595, guid: 1c801217dcbbe6a46bea515c93130477,
         type: 3}
@@ -11783,6 +11783,16 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 2139875922}
+    - target: {fileID: 1418219684528994595, guid: 1c801217dcbbe6a46bea515c93130477,
+        type: 3}
+      propertyPath: confusedduration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673577055213844610, guid: 1c801217dcbbe6a46bea515c93130477,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4904784283016695128, guid: 1c801217dcbbe6a46bea515c93130477,
         type: 3}
       propertyPath: m_IsActive
@@ -12603,12 +12613,12 @@ PrefabInstance:
     - target: {fileID: 6761485084629739191, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.45
+      value: -4.33
       objectReference: {fileID: 0}
     - target: {fileID: 6761485084629739191, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.27
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 6761485084629739191, guid: 4a9cb4d320205a043a159ab36eaee22a,
         type: 3}
@@ -18624,7 +18634,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 795179124}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1195148063
 MonoBehaviour:
@@ -60234,7 +60244,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 795179124}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1450742857
 MonoBehaviour:
@@ -65048,7 +65058,11 @@ MonoBehaviour:
   ab_Player_FakeTime: 1
   ab_TimeslowPercent: 30
   timeslowduration: 10
+  timeslowing: 0
   PS: {fileID: 0}
+  timer: 0
+  timer2: 0
+  timestop_cooldown: 3
 --- !u!4 &1848654581
 Transform:
   m_ObjectHideFlags: 0

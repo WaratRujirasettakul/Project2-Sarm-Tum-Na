@@ -41,7 +41,7 @@ public class Code_GngBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 10 && self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health > 8)
+        if(self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 6 && self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health > 8)
         {
             if (!set1spawncheck)
             {
@@ -51,7 +51,7 @@ public class Code_GngBoss : MonoBehaviour
             }
         }
 
-        else if(self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 6 && self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health > 4)
+        else if(self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 4 && self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health > 4)
         {
             if (!set2spawncheck)
             {
@@ -61,7 +61,7 @@ public class Code_GngBoss : MonoBehaviour
             } 
         }
         
-        else if (self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 4)
+        else if (self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 2)
         {
             if (!set3spawncheck)
             {

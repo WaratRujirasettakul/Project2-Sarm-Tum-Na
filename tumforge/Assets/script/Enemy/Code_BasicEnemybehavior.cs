@@ -60,8 +60,11 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     [Header("Effect")]
     public GameObject effectWhenDestroyed;
     float sidecheck;
+    int bedhealth;
+    bool dmgrun = false;
     void Awake()
     {
+        Flip();
         dataset();
     }
 
@@ -100,6 +103,8 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
         if (e_health < 1)
         {
+            dmgrun = false;
+            Instantiate(effectWhenDestroyed, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
@@ -431,11 +436,35 @@ public class Code_BasicEnemybehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "attacker")
         {
-            e_health -= player.gameObject.GetComponent<Code_playermovement>().A_playerdam;
-            print("attacked");
-            print(e_health);
-            print(player.gameObject.GetComponent<Code_playermovement>().A_playerdam);
+            
+            if (!dmgrun)
+            {
+                e_health -= player.gameObject.GetComponent<Code_playermovement>().A_playerdam;
+                print("attacked");
+                if (e_health != 0)
+                {
+                    dmgrun = true;
+                    print(e_health);
+                    print(player.gameObject.GetComponent<Code_playermovement>().A_playerdam);
+                    StartCoroutine(damaged());
+                }
+                else
+                {
+                    dmgrun = false;
+                }
+            }
+            
+            
         }
+    }
+    private IEnumerator damaged()
+    {
+        BEEB.SetActive(true);
+        Physics2D.IgnoreLayerCollision(12, 0, true);
+        yield return new WaitForSeconds(0.4f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        Physics2D.IgnoreLayerCollision(12, 0, false);
+        BEEB.SetActive(false);
+        dmgrun = false;
     }
 
     /*void confusedtime()
@@ -459,24 +488,35 @@ public class Code_BasicEnemybehavior : MonoBehaviour
 
     void animate()
     {
-        if (this.Rigidbody.velocity.x != 0 && !attack)
+        if(attacker.gameObject.GetComponent<Code_isattacking>().isattacking == true)
         {
-            idle = false;
-            run = true;
-        }
-        else if (this.Rigidbody.velocity.x == 0 && !attack)
-        {
-            idle = true;
+            Rigidbody.velocity = Vector2.zero;
             run = false;
-        }
-        if (attack)
-        {
+            attack = true;
             idle = false;
-            run = false;
+            
+
         }
+        else 
+        {
+            attack = false;
+            if (this.Rigidbody.velocity.x != 0)
+            {
+                idle = false;
+                run = true;
+            }
+            else if (this.Rigidbody.velocity.x == 0)
+            {
+                idle = true;
+                run = false;
+            }
+            
+        }
+        
+        
 
         animator.SetBool("run", run);
-        //animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         animator.SetBool("idle", idle);
         animator.SetBool("attack", attack);
     }

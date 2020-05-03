@@ -60,9 +60,10 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
     [Header("Effect")]
     public GameObject effectWhenDestroyed;
 
-    void awake()
+    void Awake()
     {
         dataset();
+        Flip();
     }
 
     void FixedUpdate()

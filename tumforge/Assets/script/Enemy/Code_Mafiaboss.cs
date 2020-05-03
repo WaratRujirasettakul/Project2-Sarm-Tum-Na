@@ -109,12 +109,14 @@ public class Code_Mafiaboss : MonoBehaviour
     private IEnumerator AAttack()
     {
         couroutinerun = true;
+        isattack.gameObject.GetComponent<Code_isattacking>().isattacking = true;
+        yield return new WaitForSeconds(.5f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         j = Random.Range(3, 7);
         yield return new WaitForSeconds(.2f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         for(i= 0; i<=j; i++)
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(.05f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+            yield return new WaitForSeconds(.1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         }
         
        

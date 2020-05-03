@@ -62,6 +62,7 @@ public class Code_Swordmanbehav : MonoBehaviour
     void Start()
     {
         dataset();
+        Flip();
     }
 
     void FixedUpdate()

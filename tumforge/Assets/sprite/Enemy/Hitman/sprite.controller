@@ -43,17 +43,17 @@ AnimatorState:
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
+  m_WriteDefaultValues: 0
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 886310f5f6ce8b64cbc643f51c22a5b7, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: animation_speed
   m_MirrorParameter: 
-  m_CycleOffsetParameter: 
+  m_CycleOffsetParameter: animation_speed
   m_TimeParameter: 
 --- !u!1101 &-6012276928178867548
 AnimatorStateTransition:
@@ -100,7 +100,7 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6509675425968913146}
-    m_Position: {x: 270, y: 450, z: 0}
+    m_Position: {x: 140, y: 450, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -129,13 +129,13 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 760c1e69168080649aebd3da439a6bc4, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: animation_speed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -150,7 +150,7 @@ AnimatorController:
   m_AnimatorParameters:
   - m_Name: animation_speed
     m_Type: 1
-    m_DefaultFloat: 0
+    m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
@@ -202,13 +202,13 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: f4db87e1f0423f341aa5fd26623eef44, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: animation_speed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
