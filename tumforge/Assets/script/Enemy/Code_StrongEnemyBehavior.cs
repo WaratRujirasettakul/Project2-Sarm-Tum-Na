@@ -94,6 +94,7 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
 
         if (e_health < 1)
         {
+            Instantiate(effectWhenDestroyed, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

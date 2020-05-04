@@ -226,19 +226,19 @@ Transform:
   - {fileID: 1193001209}
   - {fileID: 1177406828}
   - {fileID: 354288420}
-  - {fileID: 2145386454}
-  - {fileID: 1854352052}
-  - {fileID: 1703224817}
-  - {fileID: 1130422074}
-  - {fileID: 1616276625}
-  - {fileID: 254647082}
+  - {fileID: 424403130}
   - {fileID: 498169101}
   - {fileID: 788100605}
-  - {fileID: 424403130}
-  - {fileID: 1871824945}
-  - {fileID: 474063490}
-  - {fileID: 434932635}
+  - {fileID: 1130422074}
+  - {fileID: 1616276625}
   - {fileID: 695112955}
+  - {fileID: 1703224817}
+  - {fileID: 1854352052}
+  - {fileID: 1871824945}
+  - {fileID: 254647082}
+  - {fileID: 474063490}
+  - {fileID: 2145386454}
+  - {fileID: 434932635}
   - {fileID: 556091903}
   - {fileID: 2025200501}
   - {fileID: 1785497403}
@@ -1663,6 +1663,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dec_Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351922849304630780, guid: 7a8eb1a46fe18d54d9c2617bed5addb8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a8eb1a46fe18d54d9c2617bed5addb8, type: 3}
@@ -82038,6 +82043,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dec_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 2351922849304630780, guid: 7a8eb1a46fe18d54d9c2617bed5addb8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a8eb1a46fe18d54d9c2617bed5addb8, type: 3}
 --- !u!1001 &963767139
@@ -93105,6 +93115,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dec_Door (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351922849304630780, guid: 7a8eb1a46fe18d54d9c2617bed5addb8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a8eb1a46fe18d54d9c2617bed5addb8, type: 3}

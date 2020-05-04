@@ -101,9 +101,10 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             }
         }
 
-        if (e_health < 1)
+        if (e_health <= 0)
         {
             dmgrun = false;
+            Physics2D.IgnoreLayerCollision(12, 0, false);
             Instantiate(effectWhenDestroyed, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -441,7 +442,7 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             {
                 e_health -= player.gameObject.GetComponent<Code_playermovement>().A_playerdam;
                 print("attacked");
-                if (e_health != 0)
+                if (e_health > 0)
                 {
                     dmgrun = true;
                     print(e_health);
