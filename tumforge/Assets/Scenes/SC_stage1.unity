@@ -520,6 +520,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 555323395043379365, guid: aa40e0641b4bd7141acd8cefc23214a0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 852973492945039894, guid: aa40e0641b4bd7141acd8cefc23214a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -644,6 +649,11 @@ PrefabInstance:
         type: 3}
       propertyPath: WhichSceneisthis
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331928343397077134, guid: aa40e0641b4bd7141acd8cefc23214a0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa40e0641b4bd7141acd8cefc23214a0, type: 3}

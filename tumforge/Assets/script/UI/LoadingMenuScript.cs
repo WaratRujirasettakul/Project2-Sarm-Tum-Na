@@ -33,6 +33,7 @@ public class LoadingMenuScript : MonoBehaviour
 
     public void loadNextLevel()
     {
+        print("FUCKKKK");
         Time.timeScale = 1.0f;
         isItLevel = true;
         ForSceneChanger.GetComponent<SceneChanger>().FadeToLevel();
