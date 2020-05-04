@@ -5,10 +5,6 @@ public class SceneChanger : MonoBehaviour
     public Animator animator;
     public GameObject ForCanvas;
 
-    void Update ()
-    {
-
-    }
 
     void Start()
     {
@@ -16,15 +12,17 @@ public class SceneChanger : MonoBehaviour
     }
     public void FadeToLevel ()
     {
+        print(Time.timeScale);
         Time.timeScale = 1f;
+        print(Time.timeScale);
         animator.SetTrigger("FadeOut");
     }
 
     public void onFadeComplecte ()
     {
         print("FUCKKK");
+        print(Time.timeScale);
         PauseScript.GameIsPause = false;
-        Time.timeScale = 1f;
         //print(ResponsiveMenu.stage);
         if (LoadingMenuScript.isItLevel == true)
         {

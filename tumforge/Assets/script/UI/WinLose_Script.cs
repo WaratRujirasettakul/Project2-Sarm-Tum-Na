@@ -63,18 +63,24 @@ public class WinLose_Script : MonoBehaviour
                 Cursor.visible = true;
                 ingameCursor.gameObject.SetActive(false);
                 loseMenuUI.SetActive(true);
-                Time.timeScale = 0.25f;
-                isRetryTime = true;
+                if (isRetryTime == false)
+                {
+                    isRetry = true;
+                    Time.timeScale = 0.25f;
+                    isRetryTime = true;
+                }
             }
         }
         if (youWin == true)
         {
+            print(Time.timeScale);
+            showContinue();
+            print(Time.timeScale);
             if (Code_staticDataHolder.highestLV < WhichSceneisthis)
             {
                 Code_staticDataHolder.highestLV = WhichSceneisthis;
                 Code_savesystem.SavePlayer(player.GetComponent<Code_playermovement>());
             }
-            showContinue();
 
         }
 
@@ -85,7 +91,7 @@ public class WinLose_Script : MonoBehaviour
     {
         PauseScript.GameIsPause = true;
         Cursor.visible = true;
-        Time.timeScale = 0f;
+        Time.timeScale = 0.25f;
         ingameCursor.gameObject.SetActive(false);
         winMenuUI.SetActive(true);
     }
@@ -94,13 +100,13 @@ public class WinLose_Script : MonoBehaviour
     public void retry()
     {
         Time.timeScale = 1.0f;
-        isRetry = true;
+        //isRetry = true;
         loseMenuUI.SetActive(false);
         ForSceneChanger.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void retry2()
     {
-        isRetry = false;
+        //isRetry = false;
         SceneManager.LoadScene(sceneName);
     }
     public void continueLevel()
@@ -113,6 +119,8 @@ public class WinLose_Script : MonoBehaviour
     }
     public void loadMenu()
     {
+        isRetry = false;
+        youWin = false;
         PauseScript.GameIsPause = false;
         winMenuUI.SetActive(false);
         loseMenuUI.SetActive(false);

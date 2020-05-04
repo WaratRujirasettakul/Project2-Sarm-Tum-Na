@@ -3880,7 +3880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3172342506102450571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4711,7 +4711,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 852973492945039914}
-          m_MethodName: loadMenu
+          m_MethodName: click
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
