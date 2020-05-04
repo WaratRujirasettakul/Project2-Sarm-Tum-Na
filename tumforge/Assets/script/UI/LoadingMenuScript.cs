@@ -13,7 +13,7 @@ public class LoadingMenuScript : MonoBehaviour
     Scene current_Scene;
     string currentSceneName;
     int nextSceneNumber;
-    GameObject ForSceneChanger;
+    public GameObject ForSceneChanger;
     public static bool isItLevel;
 
     void Start()

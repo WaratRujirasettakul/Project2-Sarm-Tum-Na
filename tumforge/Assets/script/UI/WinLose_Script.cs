@@ -93,6 +93,7 @@ public class WinLose_Script : MonoBehaviour
     //Button
     public void retry()
     {
+        Time.timeScale = 1.0f;
         isRetry = true;
         loseMenuUI.SetActive(false);
         ForSceneChanger.GetComponent<SceneChanger>().FadeToLevel();
@@ -109,5 +110,12 @@ public class WinLose_Script : MonoBehaviour
         winMenuUI.SetActive(false);
         //SceneManager.LoadScene(sceneNumber);
         this.GetComponent<LoadingMenuScript>().loadNextLevel();
+    }
+    public void loadMenu()
+    {
+        PauseScript.GameIsPause = false;
+        winMenuUI.SetActive(false);
+        loseMenuUI.SetActive(false);
+        ForSceneChanger.GetComponent<SceneChanger>().FadeToLevel();
     }
 }
