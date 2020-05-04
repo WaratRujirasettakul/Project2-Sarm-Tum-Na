@@ -21,6 +21,7 @@ public class WinLose_Script : MonoBehaviour
     Scene current_Scene;
     string sceneName;
     public int sceneNumber;
+    public int WhichSceneisthis;
 
     [Header("Misc")]
     GameObject ingameCursor;
@@ -68,7 +69,13 @@ public class WinLose_Script : MonoBehaviour
         }
         if (youWin == true)
         {
+            if (Code_staticDataHolder.highestLV < WhichSceneisthis)
+            {
+                Code_staticDataHolder.highestLV = WhichSceneisthis;
+                Code_savesystem.SavePlayer(player.GetComponent<Code_playermovement>());
+            }
             showContinue();
+
         }
 
     }

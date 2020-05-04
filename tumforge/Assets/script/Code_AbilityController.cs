@@ -20,7 +20,7 @@ public class Code_AbilityController : MonoBehaviour
 
     void Start()
     {
-
+        skillcode = Code_staticDataHolder.skillcode;
     }
 
     // Update is called once per frame
@@ -67,6 +67,7 @@ public class Code_AbilityController : MonoBehaviour
             timer2 = 0;
             timestoping = false;
             timer -= Time.deltaTime;
+            Time.timeScale = 1;
         }
 
         if (timer <= 0)

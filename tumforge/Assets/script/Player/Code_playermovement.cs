@@ -41,7 +41,7 @@ public class Code_playermovement : MonoBehaviour
     float J_jumpdetecttimer;
     //-------------------dashing------------------------
     public int D_dashlimit = 2;
-    int D_dashnumber;
+    public int D_dashnumber;
     public float D_dashtimeValue = 0.1f;
     float D_dashtime;
     public float D_dashvelocity = 120;
@@ -73,7 +73,6 @@ public class Code_playermovement : MonoBehaviour
     //---------------------Temp---------------------------
     float jumpPushForce = 10f;
     public int level;
-    public GameObject levelsaver;
 
     [Header("Effect")]
     public GameObject dashingEffect;
@@ -87,8 +86,8 @@ public class Code_playermovement : MonoBehaviour
         S_Rigidbody2D = GetComponent<Rigidbody2D>();
         P_Camera = GameObject.Find("Main Camera");
         P_crossHair = P_Camera.GetComponent<Code_Crosshair>();
-        level = levelsaver.GetComponent<Code_levelSaver>().This_is_stage_number;
         gravity = S_Rigidbody2D.gravityScale;
+        level = GameObject.Find("Canvas").GetComponent<WinLose_Script>().WhichSceneisthis;
     }
 
     private void FixedUpdate()
