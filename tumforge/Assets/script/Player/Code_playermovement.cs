@@ -92,17 +92,20 @@ public class Code_playermovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        S_nowpos = this.gameObject.transform.position;
-        if (S_nowpos.y - S_lastpos.y > 0.1)
+        if (!WinLose_Script.youWin)
         {
-            S_movingup = true;
-        }
-        else
-        {
-            S_movingup = false;
-        }
+            S_nowpos = this.gameObject.transform.position;
+            if (S_nowpos.y - S_lastpos.y > 0.1)
+            {
+                S_movingup = true;
+            }
+            else
+            {
+                S_movingup = false;
+            }
 
-        S_lastpos = S_nowpos;
+            S_lastpos = S_nowpos;
+        }
     }
 
     public void Move(float move, bool jump, bool dash)
@@ -189,22 +192,25 @@ public class Code_playermovement : MonoBehaviour
 
     void Update()
     {
-        time = Time.deltaTime;
-        //Gravity();
-        animate();
-        GroundCheck();
-        WallCheck();
-        OngroundEvent();
-        character();
-        walljump();
-        Swhoosh_movement();
+        if (!WinLose_Script.youWin)
+        {
+            time = Time.deltaTime;
+            //Gravity();
+            animate();
+            GroundCheck();
+            WallCheck();
+            OngroundEvent();
+            character();
+            walljump();
+            Swhoosh_movement();
 
 
-        stateReset();
+            stateReset();
 
-        Death();
+            Death();
 
-        control();
+            control();
+        }
     }
 
     private IEnumerator dashiframe()
