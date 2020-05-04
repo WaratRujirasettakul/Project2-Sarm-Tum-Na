@@ -28,6 +28,7 @@ public class Code_AbilityController : MonoBehaviour
     {
         if (!PauseScript.GameIsPause)
         {
+            print("EEEEEE");
             if (skillcode == 1)
             {
                 timeslow();

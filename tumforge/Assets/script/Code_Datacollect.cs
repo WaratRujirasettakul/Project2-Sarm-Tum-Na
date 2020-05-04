@@ -8,7 +8,7 @@ public class Code_Datacollect : MonoBehaviour
 
     void Update()
     {
-        highestlv = highestlv;
+        //highestlv = highestlv;
     }
 
 }
