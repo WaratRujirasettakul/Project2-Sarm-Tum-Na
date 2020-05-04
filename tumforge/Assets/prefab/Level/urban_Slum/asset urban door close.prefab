@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 708153807}
   m_Layer: 0
   m_Name: asset urban door close
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,5 +121,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 3777280582136460919, guid: 3dcb620955927ca42bf6f5cf8b487c88, type: 3}
-  audioSource: {fileID: 0}
-  Effect: {fileID: 8300000, guid: 387c0085bca291840afd697a5eeafc64, type: 3}

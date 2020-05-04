@@ -17,23 +17,26 @@ public class Code_AbilityController : MonoBehaviour
     public float timer;
     public double timer2;
     public float timestop_cooldown = 3f;
+
     void Start()
     {
-        
+        skillcode = Code_staticDataHolder.skillcode;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (skillcode == 1)
+        if (!PauseScript.GameIsPause)
         {
-            timeslow();
+            if (skillcode == 1)
+            {
+                timeslow();
+            }
+            else if (skillcode == 2)
+            {
+                timestop();
+            }
         }
-        else if (skillcode == 2)
-        {
-            timestop();
-        }
-
     }
     void timestop()
     {
@@ -57,7 +60,6 @@ public class Code_AbilityController : MonoBehaviour
         {
             ab_Enemy_FakeTime = 1;
             ab_Player_FakeTime = 1;
-            Time.timeScale = 1;
         }
 
         if (timer2 < 0)
@@ -65,6 +67,7 @@ public class Code_AbilityController : MonoBehaviour
             timer2 = 0;
             timestoping = false;
             timer -= Time.deltaTime;
+            Time.timeScale = 1;
         }
 
         if (timer <= 0)

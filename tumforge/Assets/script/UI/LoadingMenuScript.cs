@@ -13,10 +13,13 @@ public class LoadingMenuScript : MonoBehaviour
     Scene current_Scene;
     string currentSceneName;
     int nextSceneNumber;
-
+    public GameObject ForSceneChanger;
+    public static bool isItLevel;
 
     void Start()
     {
+        Time.timeScale = 1f;
+        isItLevel = false;
         current_Scene = SceneManager.GetActiveScene();
         currentSceneName = current_Scene.name;
         nextSceneNumber = current_Scene.buildIndex + 1;
@@ -30,24 +33,31 @@ public class LoadingMenuScript : MonoBehaviour
 
     public void loadNextLevel()
     {
-        loadingUI.SetActive(true);
-            StartCoroutine(LoadAsynchronously());
+        Time.timeScale = 1.0f;
+        isItLevel = true;
+        ForSceneChanger.GetComponent<SceneChanger>().FadeToLevel();
+        //loadingUI.SetActive(true);
     }
-
+    public void startToLoad()
+    {
+        isItLevel = false;
+        StartCoroutine(LoadAsynchronously());
+    }
     IEnumerator LoadAsynchronously()
     {
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(nextSceneNumber);
-        operation.allowSceneActivation = false;
+        //operation.allowSceneActivation = false;
 
-        while (!operation.isDone)
+        while (!operation.isDone == false)
         {
             //float progress = Mathf.Clamp01(operation.progress / 0.9f);
             //loadingBar.value = progress; =====We doesn't have any loading bar so I didn't use this
+            Debug.Log(operation.progress);
             yield return null;
-            operation.allowSceneActivation = true;
+            //operation.allowSceneActivation = true;
         }
-        yield return null;
+        //yield return null;
     }
 
 }

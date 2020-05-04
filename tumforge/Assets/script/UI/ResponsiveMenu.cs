@@ -19,6 +19,7 @@ public class ResponsiveMenu : MonoBehaviour
     public bool requireAnimator = true;
     public static bool intro = true;
     bool isOption = false;
+    public GameObject ForSceneChanger;
 
     [Header("Sound")]
     public AudioSource audioSource;
@@ -27,8 +28,16 @@ public class ResponsiveMenu : MonoBehaviour
     public AudioClip Whoosh1;
     public AudioClip Whoosh2;
 
-    private void Update()
+    [Header("Scene")]
+    public GameObject ForSceneChangerInMenu;
+    string stageName = "SC_stage";
+    int stageNumber;
+    public static string stage;
+    public static bool mapSelectLoad = false;
+
+    public void Update()
     {
+        stage = stageName + stageNumber;
         if (intro == true)
         {
             //transform.position = new Vector3(-1930, 1075, -925);
@@ -37,6 +46,7 @@ public class ResponsiveMenu : MonoBehaviour
     }
     private void Start()
     {
+        mapSelectLoad = false;
         Cursor.visible = true;
         Time.timeScale = 1;
         if (requireAnimator == true)
@@ -119,6 +129,7 @@ public class ResponsiveMenu : MonoBehaviour
     }
     public void LoadMenuScene()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("SC_MainMenuV.2");
 
     }
@@ -134,62 +145,91 @@ public class ResponsiveMenu : MonoBehaviour
     {
         audioSource.PlayOneShot(onClick);
     }
-
-
+    void stageCombiner()
+    {
+        stage = stageName + stageNumber;
+    }
+    
 
 
     //[SCENE TO LOAD]
     public void SC_stage1()
     {
-        SceneManager.LoadScene("SC_stage1");
+        stageNumber = 1;stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage2()
     {
-        SceneManager.LoadScene("SC_stage2");
+        stageNumber = 2; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage3()
     {
-        SceneManager.LoadScene("SC_stage3");
+        stageNumber = 3; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage4()
     {
-        SceneManager.LoadScene("SC_stage4");
+        stageNumber = 4; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage5()
     {
-        SceneManager.LoadScene("SC_stage5");
+        stageNumber = 5; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage6()
     {
-        SceneManager.LoadScene("SC_stage6");
+        stageNumber = 6; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage7()
     {
-        SceneManager.LoadScene("SC_stage7");
+        stageNumber = 7; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage8()
     {
-        SceneManager.LoadScene("SC_stage8");
+        stageNumber = 8; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage9()
     {
-        SceneManager.LoadScene("SC_stage9");
+        stageNumber = 9; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage10()
     {
-        SceneManager.LoadScene("SC_stage10");
+        stageNumber = 10; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage11()
     {
-        SceneManager.LoadScene("SC_stage11");
+        stageNumber = 11; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage12()
     {
-        SceneManager.LoadScene("SC_stage12");
+        stageNumber = 12; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void SC_stage13()
     {
-        SceneManager.LoadScene("SC_stage13");
+        stageNumber = 13; stageCombiner();
+        mapSelectLoad = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
     }
     public void redrum()
     {

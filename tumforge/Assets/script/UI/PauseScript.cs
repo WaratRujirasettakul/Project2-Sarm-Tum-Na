@@ -11,6 +11,7 @@ public class PauseScript : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject menuPause;
     public GameObject Options;
+    public GameObject ForSceneChanger;
     [Header("Sound")]
     public AudioSource audioSource;
     public AudioSource MusicSource;
@@ -19,6 +20,7 @@ public class PauseScript : MonoBehaviour
     public AudioClip onPause;
 
     GameObject player;
+    //bool IsGamePaused = false;
     void Start()
     {
         player = GameObject.Find("player");
@@ -72,6 +74,8 @@ public class PauseScript : MonoBehaviour
         audioSource.PlayOneShot(onPause);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        //print(Time.timeScale);
+        //IsGamePaused = true;
         GameIsPause = true;
         //Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -87,6 +91,6 @@ public class PauseScript : MonoBehaviour
     }
     public void loadMenu()
     {
-        SceneManager.LoadScene("SC_MainMenuV.2");
+        ForSceneChanger.GetComponent<SceneChanger>().FadeToLevel();
     }
 }
