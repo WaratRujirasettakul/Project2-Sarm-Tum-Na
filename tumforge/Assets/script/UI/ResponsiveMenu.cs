@@ -34,6 +34,7 @@ public class ResponsiveMenu : MonoBehaviour
     int stageNumber;
     public static string stage;
     public static bool mapSelectLoad = false;
+    public static bool TrainingArea = false;
 
     public void Update()
     {
@@ -46,6 +47,7 @@ public class ResponsiveMenu : MonoBehaviour
     }
     private void Start()
     {
+        TrainingArea = false;
         mapSelectLoad = false;
         Cursor.visible = true;
         Time.timeScale = 1;
@@ -230,6 +232,15 @@ public class ResponsiveMenu : MonoBehaviour
         stageNumber = 13; stageCombiner();
         mapSelectLoad = true;
         ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
+    }
+    public void Training_Area()
+    {
+        TrainingArea = true;
+        ForSceneChangerInMenu.GetComponent<SceneChanger>().FadeToLevel();
+    }
+    public void Reset_bool()
+    {
+
     }
     public void redrum()
     {

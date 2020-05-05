@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1625518683745431475}
   - component: {fileID: 7056502955771773821}
   - component: {fileID: 3482205233115749197}
+  - component: {fileID: 2629681665372721144}
   m_Layer: 8
   m_Name: 1x2asset urban platform
   m_TagString: Ground
@@ -141,3 +142,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 0.49968302}
   m_EdgeRadius: 0
+--- !u!114 &2629681665372721144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3851642357571011546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00a325106b72234da8f9cbadc4e2c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 3777280582136460919, guid: 3dcb620955927ca42bf6f5cf8b487c88, type: 3}

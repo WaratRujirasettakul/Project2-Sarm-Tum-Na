@@ -20,7 +20,6 @@ public class SceneChanger : MonoBehaviour
 
     public void onFadeComplecte ()
     {
-        print("FUCKKK");
         print(Time.timeScale);
         PauseScript.GameIsPause = false;
         //print(ResponsiveMenu.stage);
@@ -30,22 +29,31 @@ public class SceneChanger : MonoBehaviour
         }
         else
         {
-            if (WinLose_Script.isRetry == true)
-            {
-                ForCanvas.GetComponent<WinLose_Script>().retry2();
-            }
-            else
-            {
-                if (ResponsiveMenu.mapSelectLoad == true)
+                if (WinLose_Script.isRetry == true)
                 {
-                    ResponsiveMenu.mapSelectLoad = false;
-                    SceneManager.LoadScene(ResponsiveMenu.stage);
+                    ForCanvas.GetComponent<WinLose_Script>().retry2();
                 }
                 else
                 {
+                    if (ResponsiveMenu.mapSelectLoad == true)
+                    {
+                        ResponsiveMenu.mapSelectLoad = false;
+                        SceneManager.LoadScene(ResponsiveMenu.stage);
+                    }
+                    else
+                    {
+                    if (ResponsiveMenu.TrainingArea == true)
+                    {
+                        ResponsiveMenu.TrainingArea = false;
+                        SceneManager.LoadScene("SC_Training_Area");
+                    }
+                    else
+                    {
                         SceneManager.LoadScene("SC_MainMenuV.2");
+                    }
+                    }
                 }
-            }
+            
         }
              
     }

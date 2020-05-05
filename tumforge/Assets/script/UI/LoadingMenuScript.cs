@@ -24,7 +24,7 @@ public class LoadingMenuScript : MonoBehaviour
         currentSceneName = current_Scene.name;
         nextSceneNumber = current_Scene.buildIndex + 1;
         loadingUI.SetActive(false);
-        if (nextSceneNumber == 17)
+        if (nextSceneNumber == 15)
         {
             nextSceneNumber = 0;
         }
