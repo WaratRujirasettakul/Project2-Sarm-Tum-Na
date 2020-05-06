@@ -15,6 +15,11 @@ public class Teleporter_Scene : MonoBehaviour
     GameObject function;
     WinLose_Script showContinue;
     bool activatable = true;
+    public GameObject[] enemys;
+    bool enemyalldie = false;
+    bool hitteleporter;
+    int nullnumber;
+
     void Start()
     {
         //player = GameObject.Find("player");
@@ -23,19 +28,37 @@ public class Teleporter_Scene : MonoBehaviour
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (TagList.Contains(TagList))
+        if (TagList.Contains(TagList) && activatable)
         {
-            //Application.LoadLevel(SceneToLoad);
-            if (activatable == true)
+            hitteleporter = true;
+            nullnumber = 0;
+            for (int i = 0; i < enemys.Length; i++)
             {
-                activatable = false;
-                WinLose_Script.youWin = true;
+                if (enemys[i] == null)
+                {
+                    nullnumber += 1;
+                }
+            }
+
+            if (nullnumber == enemys.Length)
+            {
+                enemyalldie = true;
             }
         }
-        //if (collision.gameObject.tag == "Player")
-        //{
-            //showContinue.showContinue();
-            //WinLose_Script.youWin = true;
-        //}
+
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        hitteleporter = false;
+    }
+
+    public void Update()
+    {
+        if (hitteleporter && enemyalldie)
+        {
+            activatable = false;
+            WinLose_Script.youWin = true;
+        }
     }
 }
