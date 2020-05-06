@@ -1140,6 +1140,7 @@ MonoBehaviour:
   confusedtimer: 0
   confused: 0
   effectWhenDestroyed: {fileID: 0}
+  doub: 0
 --- !u!4 &38839863
 Transform:
   m_ObjectHideFlags: 0
@@ -15272,6 +15273,7 @@ MonoBehaviour:
   confusedtimer: 0
   confused: 0
   effectWhenDestroyed: {fileID: 0}
+  doub: 0
 --- !u!4 &631553844
 Transform:
   m_ObjectHideFlags: 0
@@ -31146,6 +31148,7 @@ MonoBehaviour:
   confusedtimer: 0
   confused: 0
   effectWhenDestroyed: {fileID: 0}
+  doub: 0
 --- !u!212 &1249714949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32724,6 +32727,7 @@ MonoBehaviour:
   confusedtimer: 0
   confused: 0
   effectWhenDestroyed: {fileID: 0}
+  doub: 0
 --- !u!4 &1304490627
 Transform:
   m_ObjectHideFlags: 0
@@ -32863,6 +32867,7 @@ MonoBehaviour:
   timer: 0
   timer2: 0
   timestop_cooldown: 3
+  persent: 0
 --- !u!4 &1309878139
 Transform:
   m_ObjectHideFlags: 0
@@ -35039,6 +35044,7 @@ MonoBehaviour:
   confusedtimer: 0
   confused: 0
   effectWhenDestroyed: {fileID: 0}
+  doub: 0
 --- !u!4 &1416429826
 Transform:
   m_ObjectHideFlags: 0
@@ -37791,6 +37797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TagList: Player
+  enemys: []
 --- !u!212 &1451119388
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -65375,6 +65382,7 @@ MonoBehaviour:
   confusedtimer: 0
   confused: 0
   effectWhenDestroyed: {fileID: 0}
+  doub: 0
 --- !u!4 &1640823390
 Transform:
   m_ObjectHideFlags: 0
@@ -73184,6 +73192,7 @@ MonoBehaviour:
   confusedtimer: 0
   confused: 0
   effectWhenDestroyed: {fileID: 0}
+  doub: 0
 --- !u!4 &1969747122
 Transform:
   m_ObjectHideFlags: 0
@@ -76538,6 +76547,7 @@ MonoBehaviour:
   confusedtimer: 0
   confused: 0
   effectWhenDestroyed: {fileID: 0}
+  doub: 0
 --- !u!4 &2112497877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1866571967575917635, guid: 640d3c0b6872fdf47a60b5b556177094,
@@ -76791,6 +76801,7 @@ MonoBehaviour:
   confusedtimer: 0
   confused: 0
   effectWhenDestroyed: {fileID: 0}
+  doub: 0
 --- !u!4 &2118323414
 Transform:
   m_ObjectHideFlags: 0
@@ -77512,12 +77523,12 @@ PrefabInstance:
     - target: {fileID: 3553263564051870918, guid: 44a255c590f2ecd449197c53231688ef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.03
+      value: 27.2
       objectReference: {fileID: 0}
     - target: {fileID: 3553263564051870918, guid: 44a255c590f2ecd449197c53231688ef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3553263564051870918, guid: 44a255c590f2ecd449197c53231688ef,
         type: 3}
@@ -77715,12 +77726,12 @@ PrefabInstance:
     - target: {fileID: 4570275595433967506, guid: 8ca7290395f2d104996785cd7d5fad8f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.73
+      value: 33.7
       objectReference: {fileID: 0}
     - target: {fileID: 4570275595433967506, guid: 8ca7290395f2d104996785cd7d5fad8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.07
+      value: 13.4
       objectReference: {fileID: 0}
     - target: {fileID: 4570275595433967506, guid: 8ca7290395f2d104996785cd7d5fad8f,
         type: 3}
@@ -77809,12 +77820,12 @@ PrefabInstance:
     - target: {fileID: 6003655541021813844, guid: 371dc1ac9c2ff3f438d3f8350850c013,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.59
+      value: 24.19
       objectReference: {fileID: 0}
     - target: {fileID: 6003655541021813844, guid: 371dc1ac9c2ff3f438d3f8350850c013,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.77
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 6003655541021813844, guid: 371dc1ac9c2ff3f438d3f8350850c013,
         type: 3}
