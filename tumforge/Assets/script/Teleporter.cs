@@ -71,7 +71,7 @@ public class Teleporter : MonoBehaviour
         }
 
 
-        if (hitteleporter && enemyalldie)
+        if (hitteleporter /*&& enemyalldie*/)
         {
             player.transform.position = destination.transform.position;
             background.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, background.transform.position.z);

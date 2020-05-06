@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseScript : MonoBehaviour
 {
     public static bool GameIsPause = false;  //*****IMPORTANT! PLEASE STATE THIS IN EVERY ACTIONS OF OTHER SCRIPT*****
-    GameObject ingameCursor;
+    public GameObject ingameCursor;
     [Header("Canvas")]
     public GameObject pauseMenuUI;
     public GameObject menuPause;

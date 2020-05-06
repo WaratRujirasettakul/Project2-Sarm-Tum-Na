@@ -96,6 +96,8 @@ public class Code_playermovement : MonoBehaviour
         P_crossHair = P_Camera.GetComponent<Code_Crosshair>();
         gravity = S_Rigidbody2D.gravityScale;
         level = GameObject.Find("Canvas").GetComponent<WinLose_Script>().WhichSceneisthis;
+        WinLose_Script.youWin = false;
+        PauseScript.GameIsPause = false;
     }
 
     private void FixedUpdate()
@@ -202,6 +204,7 @@ public class Code_playermovement : MonoBehaviour
     {
         if (!WinLose_Script.youWin && !PauseScript.GameIsPause)
         {
+
             debug();
 
             if (!debugmode)

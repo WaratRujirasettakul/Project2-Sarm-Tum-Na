@@ -73,9 +73,9 @@ public class WinLose_Script : MonoBehaviour
         }
         if (youWin == true)
         {
-            print(Time.timeScale);
+            //print(Time.timeScale);
             showContinue();
-            print(Time.timeScale);
+            //print(Time.timeScale);
             if (Code_staticDataHolder.highestLV < WhichSceneisthis)
             {
                 Code_staticDataHolder.highestLV = WhichSceneisthis;
