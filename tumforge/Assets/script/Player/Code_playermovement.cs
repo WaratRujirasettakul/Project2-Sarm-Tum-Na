@@ -200,7 +200,7 @@ public class Code_playermovement : MonoBehaviour
 
     void Update()
     {
-        if (!WinLose_Script.youWin)
+        if (!WinLose_Script.youWin && !PauseScript.GameIsPause)
         {
             debug();
 

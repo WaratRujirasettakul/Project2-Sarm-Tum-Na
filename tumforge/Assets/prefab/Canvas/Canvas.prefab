@@ -2473,6 +2473,7 @@ GameObject:
   - component: {fileID: 6095889170480916183}
   - component: {fileID: 2866145350141181550}
   - component: {fileID: 2860902343527911024}
+  - component: {fileID: 6384545657800990129}
   - component: {fileID: 1945707235747715064}
   m_Layer: 5
   m_Name: Canvas
@@ -2653,6 +2654,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingUI: {fileID: 6376664463713470959}
   ForSceneChanger: {fileID: 929274442310685364}
+--- !u!114 &6384545657800990129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852973492945039915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb0ee8f3dc2ee64199358fad467ea59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopfilter: {fileID: 6696341531983662124}
+  slowfilter: {fileID: 1929190997095545305}
 --- !u!95 &1945707235747715064
 Animator:
   serializedVersion: 3
