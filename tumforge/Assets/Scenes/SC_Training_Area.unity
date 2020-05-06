@@ -2375,6 +2375,7 @@ MonoBehaviour:
   timer: 0
   timer2: 0
   timestop_cooldown: 3
+  persent: 0
 --- !u!4 &368620151
 Transform:
   m_ObjectHideFlags: 0
@@ -22022,9 +22023,9 @@ GameObject:
   - component: {fileID: 1962575741}
   - component: {fileID: 1962575740}
   - component: {fileID: 1962575739}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Tilemap_InviWall
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
