@@ -54,15 +54,17 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
     bool couroutinerun = false;
     public float sightlostdelay = 3f;
     public Animator animator;
+    
     bool run;
     bool attack;
     bool idle;
     [Header("Effect")]
     public GameObject effectWhenDestroyed;
 
-    void awake()
+    void Awake()
     {
         dataset();
+        Flip();
     }
 
     void FixedUpdate()
@@ -93,6 +95,7 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
 
         if (e_health < 1)
         {
+            Instantiate(effectWhenDestroyed, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
@@ -107,6 +110,8 @@ public class Code_StrongEnemyBehavior : MonoBehaviour
 
         }
         animate();
+
+        
     }
     private IEnumerator lunge()
     {

@@ -12,7 +12,7 @@ public class Code_swordmandmg : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damage = enemy.GetComponent<Code_Swordmanbehav>().e_dam;
+        damage = 1;
     }
 
     // Update is called once per frame

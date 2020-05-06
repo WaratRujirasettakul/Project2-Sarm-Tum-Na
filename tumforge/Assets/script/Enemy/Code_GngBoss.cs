@@ -9,6 +9,7 @@ public class Code_GngBoss : MonoBehaviour
     public GameObject self;
     public GameObject whereToGo;
     public GameObject whereTogetBack;
+    public GameObject abilitycon;
     public float Delay;
     public float basedelay = 0.8f;
     int Imback = 1;
@@ -41,7 +42,7 @@ public class Code_GngBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 10 && self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health > 8)
+        if(self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 6 && self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health > 4)
         {
             if (!set1spawncheck)
             {
@@ -51,7 +52,7 @@ public class Code_GngBoss : MonoBehaviour
             }
         }
 
-        else if(self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 6 && self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health > 4)
+        else if(self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 4 && self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health > 3)
         {
             if (!set2spawncheck)
             {
@@ -61,7 +62,7 @@ public class Code_GngBoss : MonoBehaviour
             } 
         }
         
-        else if (self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 4)
+        else if (self.gameObject.GetComponent<Code_BasicEnemybehavior>().e_health <= 2)
         {
             if (!set3spawncheck)
             {
@@ -146,11 +147,11 @@ public class Code_GngBoss : MonoBehaviour
     {
         set11.transform.position = spawnpos.transform.position;
         set11.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         txt.SetActive(false);
         set12.transform.position = spawnpos.transform.position;
         set12.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
 
         set13.transform.position = spawnpos.transform.position;
         set13.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
@@ -160,15 +161,15 @@ public class Code_GngBoss : MonoBehaviour
     {
         set21.transform.position = spawnpos.transform.position;
         set21.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         txt.SetActive(false);
         set22.transform.position = spawnpos.transform.position;
         set22.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
 
         set23.transform.position = spawnpos.transform.position;
         set23.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
 
         set24.transform.position = spawnpos.transform.position;
         set24.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
@@ -178,19 +179,19 @@ public class Code_GngBoss : MonoBehaviour
     {
         set31.transform.position = spawnpos.transform.position;
         set31.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         txt.SetActive(false);
         set32.transform.position = spawnpos.transform.position;
         set32.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
 
         set33.transform.position = spawnpos.transform.position;
         set33.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
 
         set34.transform.position = spawnpos.transform.position;
         set34.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
 
         set35.transform.position = spawnpos.transform.position;
         set35.gameObject.GetComponent<Code_BasicEnemybehavior>().foundplayer = true;

@@ -13,6 +13,7 @@ public class Code_MeleeEnemyAttacker : MonoBehaviour
     public float base_attackdelay = 0.5f;
     private float time;
     public GameObject isattack;
+    public GameObject dmh;
     bool cou = false;
     
     // Start is called before the first frame update
@@ -74,8 +75,10 @@ public class Code_MeleeEnemyAttacker : MonoBehaviour
     {
         isattack.gameObject.GetComponent<Code_isattacking>().isattacking = true;
         
-        yield return new WaitForSeconds(.7f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
-        player.GetComponent<Code_playermovement>().A_playerhealth -= damage;
+        yield return new WaitForSeconds(.5f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        dmh.SetActive(true);
+        yield return new WaitForSeconds(.2f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        dmh.SetActive(false);
         isattack.gameObject.GetComponent<Code_isattacking>().isattacking = false;
         cou = false;
     }

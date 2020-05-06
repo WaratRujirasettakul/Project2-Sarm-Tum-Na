@@ -22,6 +22,7 @@ public class Code_Corruptedmonkattack : MonoBehaviour
     bool couroutinerun = false;
     public GameObject aoe;
     public int attacklist = 0;
+    public GameObject adam;
     // Start is called before the first frame update
     void Start()
     {
@@ -131,8 +132,11 @@ public class Code_Corruptedmonkattack : MonoBehaviour
         couroutinerun = true;
         yield return new WaitForSeconds(.3f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         aoe.SetActive(true);
-        yield return new WaitForSeconds(.7f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        yield return new WaitForSeconds(.2f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        adam.SetActive(true);
+        yield return new WaitForSeconds(.4f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         aoe.SetActive(false);
+        adam.SetActive(false);
         attackcount = 0;
         attacklist = 0;
         playersightTimer = base_sighttimer;

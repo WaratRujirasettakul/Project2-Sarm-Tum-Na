@@ -57,11 +57,13 @@ public class Code_Swordmanbehav : MonoBehaviour
     bool run;
     bool attack;
     bool idle;
+    public GameObject roller;
     [Header("Effect")]
     public GameObject effectWhenDestroyed;
     void Start()
     {
         dataset();
+        Flip();
     }
 
     void FixedUpdate()
@@ -114,7 +116,9 @@ public class Code_Swordmanbehav : MonoBehaviour
         attack = true;
         if (facingright)
             {
+            
             Physics2D.IgnoreLayerCollision(12, 10, true);
+            roller.SetActive(true);
             Rigidbody.velocity = new Vector2(lungespeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);
             yield return new WaitForSeconds(lungTimer * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
 
@@ -122,12 +126,13 @@ public class Code_Swordmanbehav : MonoBehaviour
             else
             {
             Physics2D.IgnoreLayerCollision(12, 10, true);
+            roller.SetActive(true);
             Rigidbody.velocity = new Vector2(-lungespeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y);   
             yield return new WaitForSeconds(lungTimer * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
 
             }
-            
-            Move_Counter = lungduration;
+        roller.SetActive(false);
+        Move_Counter = lungduration;
         Flip();
         yield return new WaitForSeconds(lungTimer * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         Physics2D.IgnoreLayerCollision(12, 10, false);

@@ -103,11 +103,14 @@ public class Code_RangedEnemyAttacker : MonoBehaviour
     private IEnumerator attack()
     {
         couroutinerun = true;
-        yield return new WaitForSeconds(.2f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        isattack.gameObject.GetComponent<Code_isattacking>().isattacking = true;
+        yield return new WaitForSeconds(.4f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         Instantiate(bullet, transform.position, Quaternion.identity);
+        isattack.gameObject.GetComponent<Code_isattacking>().isattacking = false;
         attackcount = 0;
         playersightTimer = base_sighttimer;
         couroutinerun = false;
-        isattack.gameObject.GetComponent<Code_isattacking>().isattacking = false;
+        //yield return new WaitForSeconds(.2f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        
     }
 }

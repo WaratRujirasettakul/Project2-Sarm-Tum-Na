@@ -9,9 +9,12 @@ public class Code_Bulletcode : MonoBehaviour
      GameObject player;
     Vector2 direction;
      GameObject abilitycon;
+    public GameObject shot;
+    public GameObject clank;
     // Start is called before the first frame update
     void Start()
     {
+        
         player = GameObject.Find("player");
         abilitycon = GameObject.Find("abilitycon");
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +31,7 @@ public class Code_Bulletcode : MonoBehaviour
     {
         if (collision.gameObject)
         {
+            clank.SetActive(true);
             print("hit");
             Destroy(gameObject);
         }

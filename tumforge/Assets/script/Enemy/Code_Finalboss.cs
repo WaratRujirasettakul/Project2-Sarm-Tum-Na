@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Code_Finalboss : MonoBehaviour
 {
-    bool facingright = true;
+    public bool facingright = true;
     public GameObject player;
     public Rigidbody2D Rigidbody;
     public GameObject abilitycon;
@@ -29,6 +29,8 @@ public class Code_Finalboss : MonoBehaviour
     public Animator animator;
     [Header("Effect")]
     public GameObject effectWhenDestroyed;
+    public GameObject doosh;
+    public GameObject noo;
     // Start is called before the first frame update
     private void Start()
     {
@@ -36,75 +38,47 @@ public class Code_Finalboss : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void Update()
     {
        
         if (!dead)
         {
             playerdetector(detect_distance);
-            if (foundplayer)
-            {
-                trigger = true;
-            }
-            if (trigger)
-            {
-                runaway();
-            }
+            
         }
-        animate();
 
-
-    }
-    private void runaway()
-    {
-        
-
-        if(count == 0 && !cou)
+        if (run)
         {
-            cou = true;
-            StartCoroutine(Afraid());
-        }else if(count == 2)
-        {
-            run = true;
-            if ((this.transform.position.x - player.transform.position.x) > 0)
+            if (facingright)
             {
-
-                //player left
-                if (facingright)
-                {
-
-                    Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
-                }
-                else
-                {
-                    Flip();
-                    Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
-                }
+                Rigidbody.velocity = new Vector2(movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
             }
             else
             {
-                //player right
-                if (facingright)
-                {
-                    Flip();
-                    Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
-                }
-                else
-                {
-
-                    Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
-                }
+                Rigidbody.velocity = new Vector2(-movementspeed * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime, Rigidbody.velocity.y); // optimize needed
             }
         }
         
     }
+    private void LateUpdate()
+    {
+        animate();
+    }
     private IEnumerator Afraid()
     {
+        run = false;
         idle = false;
         afraid = true;
-        yield return new WaitForSeconds(0.5f);
+        doosh.SetActive(true);
+        yield return new WaitForSeconds(0.5f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         afraid = false;
-        count = 2;
+        doosh.SetActive(false);
+        yield return new WaitForSeconds(0.1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        run = true;
+        Flip();
+        cou = false;
+
     }
     private void Flip()
     {
@@ -132,14 +106,43 @@ public class Code_Finalboss : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.DrawLine(CastPoint.gameObject.transform.position, hit.point, Color.blue);
+            if(hit.collider.gameObject.CompareTag("Player"))
+                {
+                print("Prayat");
+                if (!cou)
+                {
+                    cou = true;
+                    StartCoroutine(Afraid());
+                }
+            }else if (hit.collider.gameObject.CompareTag("Wall"))
+            {
+                print("Prayut");
+                if (!cou)
+                {
+                    cou = true;
+                    StartCoroutine(Afraid());
+                }
+            }
+
+            /*Debug.DrawLine(CastPoint.gameObject.transform.position, hit.point, Color.blue);
             if (hit.collider.gameObject.CompareTag("Player"))
             {
+                print("count:"+count);
                 if(count == 2)
                 {
                     Flip();
+                    playertimer = playerdetectduration;
+                    foundplayer = true;
                 }
-                else {
+                else if (count == 1)
+                {
+                    count = 2;
+                    playertimer = playerdetectduration;
+                    foundplayer = true;
+                    Debug.DrawLine(CastPoint.gameObject.transform.position, hit.point, Color.red);
+                }
+                else
+                {
                     playertimer = playerdetectduration;
                     foundplayer = true;
                     Debug.DrawLine(CastPoint.gameObject.transform.position, hit.point, Color.red);
@@ -147,10 +150,10 @@ public class Code_Finalboss : MonoBehaviour
                 
             } else if (hit.collider.gameObject.CompareTag("Wall"))
             {
-                Flip();
+                count = 1;
             }
 
-            /*/
+            
             if (hit.collider.gameObject.CompareTag("Player"))
             {
                 Prevhit = hit.collider.gameObject;
@@ -199,8 +202,10 @@ public class Code_Finalboss : MonoBehaviour
     {
         dead = true;
         run = false;
+        afraid = false;
         die = true;
-        yield return new WaitForSeconds(0.2f);
+        noo.SetActive(true);
+        yield return new WaitForSeconds(1f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         Instantiate(effectWhenDestroyed, transform.position, Quaternion.identity);
         Destroy(gameObject);
         print("attacked");

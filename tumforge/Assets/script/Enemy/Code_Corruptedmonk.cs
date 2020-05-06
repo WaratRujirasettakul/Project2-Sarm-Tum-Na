@@ -56,6 +56,7 @@ public class Code_Corruptedmonk : MonoBehaviour
     bool attack;
     bool attack2;
     bool idle;
+    bool dmgrun = false;
     public GameObject acount;
 
     [Header("Effect")]
@@ -64,6 +65,7 @@ public class Code_Corruptedmonk : MonoBehaviour
     void Awake()
     {
         dataset();
+        Flip();
     }
 
     void FixedUpdate()
@@ -446,11 +448,35 @@ public class Code_Corruptedmonk : MonoBehaviour
     {
         if (collision.gameObject.tag == "attacker")
         {
-            e_health -= player.gameObject.GetComponent<Code_playermovement>().A_playerdam;
-            print("attacked");
-            print(e_health);
-            print(player.gameObject.GetComponent<Code_playermovement>().A_playerdam);
+
+            if (!dmgrun)
+            {
+                e_health -= player.gameObject.GetComponent<Code_playermovement>().A_playerdam;
+                print("attacked");
+                if (e_health != 0)
+                {
+                    dmgrun = true;
+                    print(e_health);
+                    print(player.gameObject.GetComponent<Code_playermovement>().A_playerdam);
+                    StartCoroutine(damaged());
+                }
+                else
+                {
+
+                }
+            }
+
+
         }
+    }
+    private IEnumerator damaged()
+    {
+        BEEB.SetActive(true);
+        Physics2D.IgnoreLayerCollision(12, 0, true);
+        yield return new WaitForSeconds(0.4f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        Physics2D.IgnoreLayerCollision(12, 0, false);
+        BEEB.SetActive(false);
+        dmgrun = false;
     }
 
     void confusedtime()
@@ -499,7 +525,7 @@ public class Code_Corruptedmonk : MonoBehaviour
         }
 
         //animator.SetBool("run", run);
-        //animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        animator.SetFloat("animation_speed", abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
         animator.SetBool("idle", idle);
         animator.SetBool("attack", attack);
         animator.SetBool("attack2", attack2);

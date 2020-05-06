@@ -14,6 +14,8 @@ public class Code_EnemyLungeAttacker : MonoBehaviour
     public float playersightTimer = 3f;
     public Transform CastPoint;
     public float distance;
+    bool cou = false;
+    public GameObject abox;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,14 @@ public class Code_EnemyLungeAttacker : MonoBehaviour
     {
 
         playerAttack();
+        if (attackcount == 1)
+        {
+            if (!cou)
+            {
+                cou = true;
+                StartCoroutine(lungatk());
+            }
+        }
 
 
     }
@@ -73,8 +83,19 @@ public class Code_EnemyLungeAttacker : MonoBehaviour
         }
         else
         {
+            playersightTimer = base_attackdelay;
             Debug.DrawLine(CastPoint.position, hit.point, Color.green);
         }
+    }
+
+    IEnumerator lungatk()
+    {
+        cou = true;
+        abox.SetActive(true);
+        yield return new WaitForSeconds(.2f * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime);
+        abox.SetActive(false);
+        playersightTimer = base_attackdelay;
+        cou = false;
     }
     }
 
