@@ -207,7 +207,7 @@ public class Code_playermovement : MonoBehaviour
             if (!debugmode)
             {
                 sound();
-                A_playerhealth = 1;
+                //A_playerhealth = 1;
                 S_Rigidbody2D.gravityScale = 2.1f;
                 gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
 
@@ -235,7 +235,6 @@ public class Code_playermovement : MonoBehaviour
                 transform.position = new Vector3(transform.position.x + actualgodspeedX, transform.position.y, transform.position.z);
                 actualgodspeedY = Input.GetAxis("Vertical") * godspeedY;
                 transform.position = new Vector3(transform.position.x, transform.position.y + actualgodspeedY, transform.position.z);
-                A_playerhealth = 999999999;
                 S_Rigidbody2D.gravityScale = 0;
                 gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             }
