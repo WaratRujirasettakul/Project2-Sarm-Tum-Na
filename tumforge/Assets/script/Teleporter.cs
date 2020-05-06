@@ -14,6 +14,11 @@ public class Teleporter : MonoBehaviour
     GameObject FloorChanger;
     public static bool floorChange = false;
     public static bool fadeComplete = false;
+    public GameObject[] enemys;
+    bool enemyalldie = false;
+    bool hitteleporter;
+    int nullnumber;
+
 
 
     private void Start()
@@ -32,13 +37,29 @@ public class Teleporter : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            player.transform.position = destination.transform.position;
-            background.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, background.transform.position.z);
-            camera.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, camera.transform.position.z);
-            FloorChanger.GetComponent<SceneChanger>().FadeToLevel();
+            hitteleporter = true;
+            nullnumber = 0;
+            for (int i = 0; i < enemys.Length; i++)
+            {
+                if (enemys[i] == null)
+                {
+                    nullnumber += 1;
+                }
+            }
+
+            if (nullnumber == enemys.Length)
+            {
+                enemyalldie = true;
+            }
         }
-       
+
     }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        hitteleporter = false;
+    }
+
     public void Update()
     {
         if (fadeComplete == true)
@@ -47,6 +68,15 @@ public class Teleporter : MonoBehaviour
             background.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, background.transform.position.z);
             camera.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, camera.transform.position.z);
             //fadeComplete = false;
+        }
+
+
+        if (hitteleporter && enemyalldie)
+        {
+            player.transform.position = destination.transform.position;
+            background.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, background.transform.position.z);
+            camera.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, camera.transform.position.z);
+            FloorChanger.GetComponent<SceneChanger>().FadeToLevel();
         }
     }
 

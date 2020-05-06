@@ -6,16 +6,26 @@ using UnityEngine.UI;
 public class CoolDownBar : MonoBehaviour
 {
     [Header("Slider")]
-    private Slider slider;
+    public Slider slider;
+    public GameObject abilitycon;
 
     private void Awake()
     {
-        slider = gameObject.GetComponent<Slider>();
+        abilitycon = GameObject.Find("abilitycon");
     }
 
-    void Start()
+    void Update()
     {
-        
+        if (Code_staticDataHolder.skillcode == 1)
+        {
+            slider.value = abilitycon.gameObject.GetComponent<Code_AbilityController>().persent;
+        }
+
+        if (Code_staticDataHolder.skillcode == 2)
+        {
+            slider.value = abilitycon.gameObject.GetComponent<Code_AbilityController>().persent;
+        }
+
     }
 
 

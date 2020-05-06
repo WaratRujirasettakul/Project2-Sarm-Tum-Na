@@ -17,6 +17,7 @@ public class Code_AbilityController : MonoBehaviour
     public float timer;
     public double timer2;
     public float timestop_cooldown = 3f;
+    public float persent;
 
     void Start()
     {
@@ -28,7 +29,6 @@ public class Code_AbilityController : MonoBehaviour
     {
         if (!PauseScript.GameIsPause)
         {
-            print("EEEEEE");
             if (skillcode == 1)
             {
                 timeslow();
@@ -43,6 +43,8 @@ public class Code_AbilityController : MonoBehaviour
     {
         timer2 -= 0.05;
         timer -= Time.deltaTime;
+
+        persent = 100 - ((timer / timestop_cooldown) * 100);
 
         if (Input.GetKeyDown(KeyCode.E) && !timestoping && timer <= 0)
         {
@@ -79,6 +81,7 @@ public class Code_AbilityController : MonoBehaviour
 
     void timeslow()
     {
+        persent = (timer / timeslowduration) * 100;
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (timer > 0)

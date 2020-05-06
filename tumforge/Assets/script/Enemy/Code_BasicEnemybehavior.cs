@@ -397,7 +397,6 @@ public class Code_BasicEnemybehavior : MonoBehaviour
             }
             if (Prevhit != null && (hit.collider.gameObject != Prevhit))
             {
-                print("yes");
                 foundplayer = false;
                 playerinsight = false;
                 playersightTimer -= Time.deltaTime * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Enemy_FakeTime;
@@ -406,7 +405,6 @@ public class Code_BasicEnemybehavior : MonoBehaviour
                 {
                     foundplayer = false;
                     confusestate = true;
-                    print("wow");
                 }
 
             }
@@ -416,11 +414,8 @@ public class Code_BasicEnemybehavior : MonoBehaviour
                 playersightTimer = sightlostdelay;
                 //Debug.DrawLine(CastPoint.position, hit.point, Color.red);
                 playerinsight = true;
-                print("check1");
                 foundplayer = true;
-                print("check2");
                 playerinsight = true;
-                print("check3");
                 Debug.DrawLine(CastPoint.position, hit.point, Color.red);
             }
             //Prevhit = hit.collider.gameObject;

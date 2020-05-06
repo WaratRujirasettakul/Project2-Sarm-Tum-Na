@@ -73,11 +73,19 @@ public class Code_playermovement : MonoBehaviour
     //---------------------Temp---------------------------
     float jumpPushForce = 10f;
     public int level;
+    public GameObject sounddash;
+    public GameObject soundjump;
 
     [Header("Effect")]
     public GameObject dashingEffect;
 
     float gravity;
+
+    bool debugmode;
+    float actualgodspeedX;
+    float actualgodspeedY;
+    float godspeedX = 0.5f;
+    float godspeedY = 0.5f;
 
     // look at the enemy code and please add the timer using this code ( abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime ) to the part that time will effect such as speed and duration.
     // if done please go tick the add timer to the code block in the trello's card  name "Timestop ability better version" and put the screen shot of the code or how the code work into the card
@@ -194,22 +202,44 @@ public class Code_playermovement : MonoBehaviour
     {
         if (!WinLose_Script.youWin)
         {
-            time = Time.deltaTime;
-            //Gravity();
-            animate();
-            GroundCheck();
-            WallCheck();
-            OngroundEvent();
-            character();
-            walljump();
-            Swhoosh_movement();
+            debug();
+
+            if (!debugmode)
+            {
+                sound();
+                A_playerhealth = 1;
+                S_Rigidbody2D.gravityScale = 2.1f;
+                gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
+
+                time = Time.deltaTime;
+                //Gravity();
+                dashstop();
+                animate();
+                GroundCheck();
+                WallCheck();
+                OngroundEvent();
+                character();
+                walljump();
+                Swhoosh_movement();
 
 
-            stateReset();
+                stateReset();
 
-            Death();
+                Death();
 
-            control();
+                control();
+            }
+            else
+            {
+                actualgodspeedX = Input.GetAxis("Horizontal") * godspeedX;
+                transform.position = new Vector3(transform.position.x + actualgodspeedX, transform.position.y, transform.position.z);
+                actualgodspeedY = Input.GetAxis("Vertical") * godspeedY;
+                transform.position = new Vector3(transform.position.x, transform.position.y + actualgodspeedY, transform.position.z);
+                A_playerhealth = 999999999;
+                S_Rigidbody2D.gravityScale = 0;
+                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            }
+
         }
     }
 
@@ -421,6 +451,44 @@ public class Code_playermovement : MonoBehaviour
     void Gravity()
     {
         S_Rigidbody2D.gravityScale = gravity * abilitycon.gameObject.GetComponent<Code_AbilityController>().ab_Player_FakeTime;
+    }
+
+    void dashstop()
+    {
+        if (D_isdashing && S_Touchingwall)
+        {
+            print("dash and next to wall");
+            D_dashtime = 0.07f;
+        }
+    }
+
+    void debug()
+    {
+        if ((Input.GetButtonDown("Cheat")))
+        {
+            debugmode = !debugmode;
+        }
+    }
+
+    void sound()
+    {
+        if (D_isdashing)
+        {
+            sounddash.SetActive(true);
+        }
+        else
+        {
+            sounddash.SetActive(false);
+        }
+
+        if (J_jumping)
+        {
+            soundjump.SetActive(true);
+        }
+        else
+        {
+            soundjump.SetActive(false);
+        }
     }
 }
 

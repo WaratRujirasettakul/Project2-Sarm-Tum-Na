@@ -2471,6 +2471,7 @@ GameObject:
   - component: {fileID: 852973492945039893}
   - component: {fileID: 852973492945039914}
   - component: {fileID: 6095889170480916183}
+  - component: {fileID: 2866145350141181550}
   - component: {fileID: 2860902343527911024}
   - component: {fileID: 1945707235747715064}
   m_Layer: 5
@@ -2624,6 +2625,20 @@ MonoBehaviour:
   ForSceneChanger: {fileID: 929274442310685364}
   sceneNumber: 0
   WhichSceneisthis: 0
+--- !u!114 &2866145350141181550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852973492945039915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa253985cdcd24d46bf13034ae444dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 9106768745867097737}
+  abilitycon: {fileID: 0}
 --- !u!114 &2860902343527911024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5188,7 +5203,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3393320495799584966}
   - component: {fileID: 9106768745867097737}
-  - component: {fileID: 3642656194991228899}
   m_Layer: 5
   m_Name: Cooldown
   m_TagString: Untagged
@@ -5267,18 +5281,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3642656194991228899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5031182028701947662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa253985cdcd24d46bf13034ae444dc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5146356557285972758
 GameObject:
   m_ObjectHideFlags: 0
